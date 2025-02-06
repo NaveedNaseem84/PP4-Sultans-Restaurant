@@ -27,4 +27,5 @@ urlpatterns = [
     path('book/', book_views.index, name='book'),
     path('menu/', menu_views.index, name='menu'),
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
 ]
