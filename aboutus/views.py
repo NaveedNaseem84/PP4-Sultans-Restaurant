@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse ("about us page!")
+    return HttpResponse ("about us page locally!")
