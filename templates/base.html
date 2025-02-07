@@ -1,0 +1,51 @@
+{% load static %}
+{% url 'home' as home_url %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sultans |</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+
+<body>
+<!-- Header-->    
+    <header>           
+        <nav>
+            <ul id="navmenu">
+                <li><a href="{% url 'home' %}" aria-label="Loads the home page">home</a></li>
+                <li><a href="{% url 'menu' %}" aria-label=""> menu</a></li>
+                <li><a href="{% url 'book' %}" aria-label=""> book</a></li>
+                <li><a href="{% url 'about' %}" aria-label=""> about us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- main body content-->
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+    </main>
+    <!-- footer-->
+    <footer>
+        <ul id="socials">
+            <hr>
+            <li>T: 0161 123 2551 E: info@sultans.co.uk</li>
+            <li><a href="https://Facebook.com" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook">facebook</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="new tab - visit us on instagram">instagram</a></li>
+            <li><a href="https://x.com/?lang=en" target="_blank" rel="noopener" aria-label="new tab - visit us on X">X</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="new tab - visit us on youtube">Youtube</a></li>
+            
+        </ul>
+
+    </footer>
+    
+</body>
+</html>

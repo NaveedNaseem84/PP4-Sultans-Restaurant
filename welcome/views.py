@@ -1,6 +1,16 @@
+"""
+Import of libraries
+"""
 from django.shortcuts import render
-from django.http import HttpResponse
-
 # Create your views here.
-def index(request):
-    return HttpResponse ("Welcome page!")
+
+
+def welcome_page(request):
+    """
+    creates the about us view and renders using about.html
+    """
+    return render(
+        request,
+        "welcome/index.html", {
+        },
+    )

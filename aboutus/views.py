@@ -1,7 +1,17 @@
+"""
+Import of libraries
+"""
 from django.shortcuts import render
-from django.http import HttpResponse
-
 # Create your views here.
 
-def index(request):
-    return HttpResponse ("about us page locally!")
+
+def about_us(request):
+    """
+    creates the about us view and renders using about.html
+    """
+   
+    return render(
+        request,
+        "aboutus/about.html", {
+        },
+    )
