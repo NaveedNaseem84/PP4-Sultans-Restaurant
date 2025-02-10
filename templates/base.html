@@ -34,16 +34,16 @@
             </ul>
         </nav>
         -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark text-light">
             <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbartoggle" aria-controls="navbartoggle" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-          
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+             
+            <div class="collapse navbar-collapse" id="navbartoggle">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'home' %}">home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link " href="{% url 'home' %}">home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'menu' %}">menu</a>
@@ -59,18 +59,18 @@
           </nav>
         
     </header>
-    <div class="flex-wrapper">
+    
     <main>
-        
+     <div class="flex-wrapper">   
         {% block content %}
         
-            
+           
        
         {% endblock content %}
 </div>
     </main>
 
-    <footer class="footer mt-auto py-3 dark-bg fs-4 text-center ">        
+    <footer class="footer mt-auto py-1 dark-bg fs-1 text-center ">        
         <hr>
             <p class="fs-5">T: 0161 123 2551 E: info@sultans.co.uk</p>
             <i class="fab fa-facebook-square ms-3"></i>

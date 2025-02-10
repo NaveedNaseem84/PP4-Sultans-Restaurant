@@ -8,16 +8,27 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+nav li{
+ font-size: 150%;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    font-style:oblique;    
+    color: red;
+
+}
+
 .flex-wrapper {
     display: flex;
-    min-height: 70vh;
+    min-height: 60vh;
     flex-direction: column;    
     
   }
 
   #main-sultan-background {    
-    min-height: 70vh;
+    min-height: 65vh;
     margin-top: 70px;
-    background: url("/static/images/main-background.jpg")90%/cover no-repeat; 
- 
+   /* background: url("/static/images/main-background.jpg")90%/cover no-repeat; 
+    */
   }
+
