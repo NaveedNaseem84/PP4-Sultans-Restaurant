@@ -9,7 +9,7 @@ def menu_list(request):
     """
     creates the about us view and renders using about.html
     """
-   
+
     return render(
         request,
         "menu/menu.html", {
