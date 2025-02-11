@@ -4,43 +4,36 @@
   <div>
     <h1>The menu</h1>
     <div>
-           <h2><u>Starters</u></h2>
-      {% for item in menu %}
-      {% if item.category == "Starter" %}
-        <p><b>{{item.name}}</b></p>
-        <p><i> {{item.description}}... £{{item.price}}</i></p>        
-        {% endif %}
-        {% endfor %}
-        <h2>Mains</h2>
-        {% for item in menu %}
-        {% if item.category == "Main" %}
-        <p><b>{{item.name}}</b></p>
-        <p><i> {{item.description}}... £{{item.price}}</i></p>
-        {% endif %}
-        {% endfor %}
-        <h2>Sides</h2>
-        {% for item in menu %}
-        {% if item.category == "Side" %}
-        <p><b>{{item.name}}</b></p>
-        <p><i> {{item.description}}... £{{item.price}}</i></p>
-        {% endif %}
-        {% endfor %}
-        <h2>Desserts</h2>
-        {% for item in menu %}
-        {% if item.category == "Dessert" %}
-        <p><b>{{item.name}}</b></p>
-        <p><i> {{item.description}}... £{{item.price}}</i></p>
-        {% endif %}
-        {% endfor %}
-        <h2>Drinks</h2>
-        {% for item in menu %}
-        {% if item.category == "Drink" %}
-        <p><b>{{item.name}}</b></p>
-        <p><i> {{item.description}}... £{{item.price}}</i></p>
-        {% endif %}
-        {% endfor %}
-      <p> Please note: all our dishes may contain traces of nuts, dairy and gluten. Please tell the team if you have allergen or special 
-        dietary requirements. We’re here to help. </p>
+      <h2><u>Starters</u></h2>
+      {% for item in menu %} {% if item.category == "Starter" %}
+      <p><b>{{item.name}}</b></p>
+      <p><i> {{item.description}}... £{{item.price}}</i></p>
+      {% endif %} {% endfor %}
+      <h2>Mains</h2>
+      {% for item in menu %} {% if item.category == "Main" %}
+      <p><b>{{item.name}}</b></p>
+      <p><i> {{item.description}}... £{{item.price}}</i></p>
+      {% endif %} {% endfor %}
+      <h2>Sides</h2>
+      {% for item in menu %} {% if item.category == "Side" %}
+      <p><b>{{item.name}}</b></p>
+      <p><i> {{item.description}}... £{{item.price}}</i></p>
+      {% endif %} {% endfor %}
+      <h2>Desserts</h2>
+      {% for item in menu %} {% if item.category == "Dessert" %}
+      <p><b>{{item.name}}</b></p>
+      <p><i> {{item.description}}... £{{item.price}}</i></p>
+      {% endif %} {% endfor %}
+      <h2>Drinks</h2>
+      {% for item in menu %} {% if item.category == "Drink" %}
+      <p><b>{{item.name}}</b></p>
+      <p><i> {{item.description}}... £{{item.price}}</i></p>
+      {% endif %} {% endfor %}
+      <p>
+        Please note: all our dishes may contain traces of nuts, dairy and
+        gluten. Please tell the team if you have allergen or special dietary
+        requirements. We’re here to help.
+      </p>
     </div>
   </div>
 </div>
