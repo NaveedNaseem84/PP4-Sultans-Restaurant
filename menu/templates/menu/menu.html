@@ -1,42 +1,108 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<!-- index.html content starts here -->
-<div class="container-fluid">
-  <div>
-    <h1>The menu</h1>
-    <div>
-      <h2><u>Starters</u></h2>
-      {% for item in menu %} {% if item.category == "Starter" %}
-      <p><b>{{item.name}}</b></p>
-      <p><i> {{item.description}}... £{{item.price}}</i></p>
-      {% endif %} {% endfor %}
-      <h2>Mains</h2>
-      {% for item in menu %} {% if item.category == "Main" %}
-      <p><b>{{item.name}}</b></p>
-      <p><i> {{item.description}}... £{{item.price}}</i></p>
-      {% endif %} {% endfor %}
-      <h2>Sides</h2>
-      {% for item in menu %} {% if item.category == "Side" %}
-      <p><b>{{item.name}}</b></p>
-      <p><i> {{item.description}}... £{{item.price}}</i></p>
-      {% endif %} {% endfor %}
-      <h2>Desserts</h2>
-      {% for item in menu %} {% if item.category == "Dessert" %}
-      <p><b>{{item.name}}</b></p>
-      <p><i> {{item.description}}... £{{item.price}}</i></p>
-      {% endif %} {% endfor %}
-      <h2>Drinks</h2>
-      {% for item in menu %} {% if item.category == "Drink" %}
-      <p><b>{{item.name}}</b></p>
-      <p><i> {{item.description}}... £{{item.price}}</i></p>
-      {% endif %} {% endfor %}
-      <p>
-        Please note: all our dishes may contain traces of nuts, dairy and
-        gluten. Please tell the team if you have allergen or special dietary
-        requirements. We’re here to help.
-      </p>
+
+<div id="main-menu-bg">
+  <div id="menu-bg" class="container">
+    <h1>Our Menu</h1>
+    <hr />
+    <p class="text-center">Please select a heading below:</p>
+    <div class="row">
+      <div class="accordion accordion-flush" id="menuaccordian">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="starter">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#starter-content" aria-expanded="false" aria-controls="starter-content">
+              <p class="accordian-menu-title">Starters</p>
+            </button>
+          </h2>
+          <div id="starter-content" class="accordion-collapse collapse" aria-labelledby="starter"
+            data-bs-parent="#menuaccordian">
+            <div class="accordion-body bg-dark text-light">
+              {% for item in menu %} {% if item.category == "Starter" %}
+              <p><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="main">
+            <button class="accordion-button collapsed text" type="button" data-bs-toggle="collapse"
+              data-bs-target="#main-content" aria-expanded="false" aria-controls="main-content">
+              <p class="accordian-menu-title">Mains</p>
+            </button>
+          </h2>
+          <div id="main-content" class="accordion-collapse collapse" aria-labelledby="main"
+            data-bs-parent="#menuaccordian">
+            <div class="accordion-body bg-dark text-light">
+              {% for item in menu %} {% if item.category == "Main" %}
+              <p><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="side">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#side-content" aria-expanded="false" aria-controls="side-content">
+              <p class="accordian-menu-title">Sides</p>
+            </button>
+          </h2>
+          <div id="side-content" class="accordion-collapse collapse" aria-labelledby="side"
+            data-bs-parent="#menuaccordian">
+            <div class="accordion-body bg-dark text-light">
+              {% for item in menu %} {% if item.category == "Side" %}
+              <p><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="dessert">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#dessert-content" aria-expanded="false" aria-controls="dessert-content">
+              <p class="accordian-menu-title">Desserts</p>
+            </button>
+          </h2>
+          <div id="dessert-content" class="accordion-collapse collapse" aria-labelledby="dessert"
+            data-bs-parent="#menuaccordian">
+            <div class="accordion-body bg-dark text-light">
+              {% for item in menu %} {% if item.category == "Dessert" %}
+              <p><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="drink">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#drink-content" aria-expanded="false" aria-controls="drink-content">
+              <p class="accordian-menu-title">Drinks</p>
+            </button>
+          </h2>
+          <div id="drink-content" class="accordion-collapse collapse" aria-labelledby="drink"
+            data-bs-parent="#menuaccordian">
+            <div class="accordion-body bg-dark text-light">
+              {% for item in menu %} {% if item.category == "Drink" %}
+              <p><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <p id="allergy-info">
+      <b>Please note:</b> all our dishes may contain traces of nuts, dairy and
+      gluten. Please tell the team if you have allergen or special dietary
+      requirements. We’re here to help.
+    </p>
   </div>
 </div>
-
-<!-- index.html content ends here -->
 {% endblock %}
