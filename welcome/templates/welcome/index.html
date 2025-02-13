@@ -1,14 +1,36 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "base.html" %}
+{% load static %}
 {% block content %}
 <!-- index.html content starts here -->
-<div id="main-sultan-background" class="container-fluid">
-  <div style="padding: 20px;">
+<div class="container-fluid">
+  <div id="main-sultan-background">
     <h1>Welcome to Sultan's</h1>
-    <h2>Where desire meets elegance.</h2>
+    <h2>Where desire meets elegance.</h2>    
   </div>
-  
-</div>
+  <div id="additional-info" class="container-fluid">
+    
+    <div id=""class="row">
+      <div id=current-promotions class="col-sm-4">
+        <p>current promotions:</p>
+        <p>10% NHS Discount</p>
+        <p>#thankyou</p>
+      </div>
+      <div id="follow-on-links" class="col-sm-4">
+        <p>Intrigued?</p>
+        <p><a href="{% url 'menu' %}">View Menu</a></p>
+        <p><a href="{% url 'menu' %}">Book</a></p>
 
-<!-- index.html content ends here -->
-{% endblock %}
+      </div>
+      <div id="contact-info" class="col-sm-4">
+        
+        <p>Hill-state farm</p>
+        <P>Preston, PR11 4wz</p>
+        <P>T: 0161 123 2551 </p>
+        <P>E: info@sultans.co.uk</P>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- index.html content ends here -->
+  {% endblock %}

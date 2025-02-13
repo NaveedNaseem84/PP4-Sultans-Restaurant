@@ -18,8 +18,8 @@
             data-bs-parent="#menuaccordian">
             <div class="accordion-body bg-dark text-light">
               {% for item in menu %} {% if item.category == "Starter" %}
-              <p><b>{{item.name}}</b></p>
-              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              <p class="menu-item-name"><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... <b>£{{item.price}}</b></i></p>
               {% endif %} {% endfor %}
             </div>
           </div>
@@ -36,8 +36,8 @@
             data-bs-parent="#menuaccordian">
             <div class="accordion-body bg-dark text-light">
               {% for item in menu %} {% if item.category == "Main" %}
-              <p><b>{{item.name}}</b></p>
-              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              <p class="menu-item-name"><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... <b>£{{item.price}}</b></i></p>
               {% endif %} {% endfor %}
             </div>
           </div>
@@ -54,8 +54,8 @@
             data-bs-parent="#menuaccordian">
             <div class="accordion-body bg-dark text-light">
               {% for item in menu %} {% if item.category == "Side" %}
-              <p><b>{{item.name}}</b></p>
-              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              <p class="menu-item-name"><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... <b>£{{item.price}}</b></i></p>
               {% endif %} {% endfor %}
             </div>
           </div>
@@ -72,8 +72,8 @@
             data-bs-parent="#menuaccordian">
             <div class="accordion-body bg-dark text-light">
               {% for item in menu %} {% if item.category == "Dessert" %}
-              <p><b>{{item.name}}</b></p>
-              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              <p class="menu-item-name"><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... <b>£{{item.price}}</b></i></p>
               {% endif %} {% endfor %}
             </div>
           </div>
@@ -90,8 +90,8 @@
             data-bs-parent="#menuaccordian">
             <div class="accordion-body menu-last-item bg-dark text-light">
               {% for item in menu %} {% if item.category == "Drink" %}
-              <p><b>{{item.name}}</b></p>
-              <p><i> {{item.description}}... £{{item.price}}</i></p>
+              <p class="menu-item-name"><b>{{item.name}}</b></p>
+              <p><i> {{item.description}}... <b>£{{item.price}}</b></i></p>
               {% endif %} {% endfor %}
             </div>
           </div>
