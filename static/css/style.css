@@ -11,7 +11,8 @@ body {
 }
 
 nav li {
-  font-size: 150%;
+  font-size: 120%;
+  padding-right: 10px ;
 }
 
 .navbar-nav {
@@ -20,7 +21,7 @@ nav li {
 
 
 .navbar-nav .nav-item .nav-link:hover {
-  font-style: oblique;
+  font-style: oblique; 
   color: red;
 
 }
