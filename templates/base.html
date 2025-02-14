@@ -43,7 +43,7 @@
             <a class="nav-link" href="{% url 'menu' %}">menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'book' %}">book</a>
+            <a class="nav-link" href="{% url 'create_booking' %}">book</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">about us</a>
@@ -66,7 +66,7 @@
         </ul>
       </div>
     </nav>
-  </header>
+  </header> 
 
   <main>
     {% if user.is_authenticated %}
@@ -74,6 +74,7 @@
     {% else %}
     <p class="text-center m-3">You are not logged in</p>
     {% endif %}
+    
 
     {% block content %}
 

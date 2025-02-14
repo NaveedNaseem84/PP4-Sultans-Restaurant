@@ -36,6 +36,19 @@
 -->
 
 <div id="booking-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 ">
+        {% for message in messages %}
+        <div class=" alert {{ message.tags }} alert-dismissible
+          show bg-light text-dark" id="msg" role="alert">
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
   <div id="booking-container-bg" class="container">
     <h1>Bookings</h1>
     <hr />
@@ -43,7 +56,7 @@
 
       <div class=" col-sm-8">
         {% if user.is_authenticated %}
-        <form method="post" style= "text-align: center;">
+        <form method="post" class="text-center">
           {% csrf_token %}
           <h2>New booking?</h2>
           <div class="p-3">Email: {{ form.email }}</div>
@@ -56,10 +69,31 @@
           <button class="btn btn-secondary" type="reset">reset</button>
         </form>
       </div>
-      <div class="col-sm-4"style="text-align: center; padding-top: 20px;">
-        <h2>You have 0 bookings</h2>
-        
-        
+      <div class="col-sm-4 text-center pt-3">
+        {% if booking_count == 0 or booking_count > 2 %}
+        <h2>
+          You have {{booking_count }} Bookings.
+        </h2>
+        {% elif booking_count < 2 %}
+        <h2>
+          You have {{booking_count }} Booking.
+        </h2>
+        {% else %}
+        <h2>
+          You have {{booking_count }} Bookings.
+        </h2>
+        {% endif %}
+        {% for booking in bookings %}
+        <p>Booking info:</p>
+        <p>on: {{ booking.date }}</p>
+        <p>on: {{ booking.phone }}</p>
+        <p>at: {{ booking.time_slot }}</p>
+        <p>for: {{ booking.number_of_people }}</p>
+        <button class="btn btn-danger" data-booking-id="{{ booking.id}}">Delete</button>
+        <button class="btn btn-primary btn-secondary-update" data-booking-id="{{ booking.id}}">Update</button>
+        {% endfor %}
+
+
       </div>
       {% else %}
       <p class="text-end m-3 text-center">

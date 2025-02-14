@@ -16,7 +16,7 @@ class BookingForm(forms.ModelForm):
         model = MakeBooking
         exclude = ['name']
         fields = (
-            'email', 'phone', 'date',
+            'name','email', 'phone', 'date',
             'time_slot', 'number_of_people', 'special_requests')
         widgets = {
             'date': forms.TextInput(attrs={'type': 'date'}),
