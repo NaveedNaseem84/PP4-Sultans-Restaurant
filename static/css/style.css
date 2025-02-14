@@ -162,6 +162,23 @@ nav li {
   background-image: url(/static/icons/down-arrow.svg);
 }
 
+/* booking page styling*/
+#booking-bg{
+  padding-top: 50px;
+
+  background-color: lightgray;
+  min-height: 70vh;
+
+  
+}
+
+#booking-container-bg{
+  background-color: black;
+  padding: 10px;
+  border-radius: 25px;
+  opacity: 0.8;
+  
+}
 footer {
   margin-top: 0;
   font-size: 80%;
