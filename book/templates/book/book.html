@@ -50,13 +50,13 @@
     </div>
   </div>
   <div id="booking-container-bg" class="container">
-    <h1>Bookings</h1>
+    <h1 class="p-3">Bookings</h1>
     <hr />
-    <div class="row justify-content-md-center text-center">
+    <div class="row justify-content-md-center text-left">
 
-      <div class=" col-sm-8">
+      <div class=" col-sm-6 text-left">
         {% if user.is_authenticated %}
-        <form method="post" class="text-center">
+        <form method="post" class="text-left pb-3 ">
           {% csrf_token %}
           <h2>New booking?</h2>
           <div class="p-3">Email: {{ form.email }}</div>
@@ -69,29 +69,29 @@
           <button class="btn btn-secondary" type="reset">reset</button>
         </form>
       </div>
-      <div class="col-sm-4 text-center pt-3">
+      <div class="col-sm-2 text-end">
         {% if booking_count == 0 or booking_count > 2 %}
         <h2>
-          You have {{booking_count }} Bookings.
+          {{booking_count }} Bookings.
         </h2>
         {% elif booking_count < 2 %}
         <h2>
-          You have {{booking_count }} Booking.
+          {{booking_count }} Booking.
         </h2>
         {% else %}
         <h2>
-          You have {{booking_count }} Bookings.
+          {{booking_count }} Bookings.
         </h2>
         {% endif %}
-        {% for booking in bookings %}
-        <p>Booking info:</p>
-        <p>on: {{ booking.date }}</p>
-        <p>on: {{ booking.phone }}</p>
-        <p>at: {{ booking.time_slot }}</p>
-        <p>for: {{ booking.number_of_people }}</p>
-        <button class="btn btn-danger" data-booking-id="{{ booking.id}}">Delete</button>
-        <button class="btn btn-primary btn-secondary-update" data-booking-id="{{ booking.id}}">Update</button>
-        {% endfor %}
+        {% for booking in bookings %} {% if user.username == booking.name %}
+        <div style="border-bottom: 2px solid white;padding: 10px; ">
+          <p>Name: {{ booking.name }}</p>
+          <p>on: {{ booking.date }}</p>
+          <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
+          <button class="btn btn-danger" data-booking-id="{{ booking.id}}">Delete</button>
+          <button class="btn btn-primary btn-secondary-update" data-booking-id="{{ booking.id}}">Update</button>
+        </div>
+        {% endif %}{% endfor %}
 
 
       </div>
