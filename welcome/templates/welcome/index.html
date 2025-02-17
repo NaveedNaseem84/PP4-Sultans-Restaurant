@@ -4,33 +4,31 @@
 <!-- index.html content starts here -->
 <div class="container-fluid">
   <div id="main-sultan-background">
-    <h1>Welcome to Sultan's</h1>
-    <h2>Where desire meets elegance.</h2>    
+    <h1>welcome to sultan's</h1>
+    <h2>where desire meets elegance.</h2>
+    <h3> Promotions go here</h3>
   </div>
   <div id="additional-info" class="container-fluid">
-    
-    <div id=""class="row">
+
+    <div id="" class="row">
       <div id=current-promotions class="col-sm-4">
-        <p>current promotions:</p>
-        <p>10% NHS Discount</p>
-        <p>#thankyou</p>
+        <p>winner:</p>
+        <p>opening of the year </p>
+        <p>2025</p>
       </div>
       <div id="follow-on-links" class="col-sm-4">
-        <p>Intrigued?</p>
-        <p><a href="{% url 'menu' %}">View Menu</a></p>
-        <p><a href="{% url 'create_booking' %}">Book</a></p>
-
+        <p>intrigued?</p>
+        <p id="follow-on-menu"><a href="{% url 'menu' %}">View Menu</a></p>
+        <p id="follow-on-booking"><a href="{% url 'create_booking' %}">Book</a></p>
       </div>
       <div id="contact-info" class="col-sm-4">
-        
-        <p>Hill-state farm</p>
-        <P>Preston, PR11 4wz</p>
-        <P>T: 0161 123 2551 </p>
-        <P>E: info@sultans.co.uk</P>
+
+        <p>hill-state farm</p>
+        <P>preston, pr11 4wz</p>
+        <P>t: 0161 123 2551 </p>
+        <P>e: info@sultans.co.uk</P>
       </div>
     </div>
   </div>
 
-
-  <!-- index.html content ends here -->
   {% endblock %}
