@@ -83,7 +83,7 @@
           {{booking_count }} Bookings.
         </h2>
         {% endif %}
-        {% for booking in bookings %} {% if user.username == booking.name %}
+        {% for booking in bookings %}
         <div style="border-bottom: 2px solid white;padding: 10px; ">
           <p>Name: {{ booking.name }}</p>
           <p>on: {{ booking.date }}</p>
@@ -91,7 +91,7 @@
           <button class="btn btn-danger" data-booking-id="{{ booking.id}}">Delete</button>
           <button class="btn btn-primary btn-secondary-update" data-booking-id="{{ booking.id}}">Update</button>
         </div>
-        {% endif %}{% endfor %}
+        {% endfor %}
 
 
       </div>

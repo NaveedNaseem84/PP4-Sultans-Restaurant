@@ -29,6 +29,18 @@ class BookingForm(forms.ModelForm):
         )
         widgets = {
             "date": forms.TextInput(attrs={"type": "date"}),
-            "special_requests": forms.Textarea(attrs={"rows": "3cols50"}),
-            "phone": forms.TextInput(attrs={"type": "digit"}),
+            "special_requests": forms.Textarea(attrs={"rows": "3"}),
         }
+
+    def validate_phone(self):
+        """
+        validation of the phone field to ensure
+        there are digits only present. If not,
+        raise a validation error and pass to the django
+        messaging framework.
+
+        """
+        phone = self.cleaned_data("phone")
+        if not phone.isdigit():
+            raise forms.ValidationError("")
+        return phone

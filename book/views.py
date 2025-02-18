@@ -15,9 +15,9 @@ def create_booking(request):
      - display a message if its not the case
     If all the above satisfied, save booking
     """
-
-    bookings = MakeBooking.objects.all()
-    booking_count = bookings.filter(name=request.user).count()
+  
+    bookings = MakeBooking.objects.filter(name=request.user)
+    booking_count = bookings.count()
 
     if request.method == "POST":
         form = BookingForm(data=request.POST)
@@ -33,15 +33,21 @@ def create_booking(request):
                 )
             elif form_date < date.today():
                 messages.add_message(
-                    request, messages.ERROR, "You can only book from today onwards!"
+                    request, messages.ERROR, 
+                    "You can only book from today onwards!"
                 )
             else:
                 currentbooking = form.save(commit=False)
                 currentbooking.user_id = request.user.id
                 currentbooking.name = request.user
                 form.save()
-                messages.add_message(request, messages.SUCCESS, "Booking created.")
-        return HttpResponseRedirect(reverse("create_booking"))
+                messages.add_message(
+                    request, messages.SUCCESS, "booking created.")
+        else:
+            messages.add_message(
+                request, messages.ERROR, "Please enter a valid phone number."
+            )
+        return HttpResponseRedirect(reverse("create_booking"), form)
 
     form = BookingForm()
 
