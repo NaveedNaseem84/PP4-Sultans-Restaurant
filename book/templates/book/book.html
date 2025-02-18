@@ -69,20 +69,8 @@
           <button class="btn btn-secondary" type="reset">reset</button>
         </form>
       </div>
-      <div class="col-sm-2 text-end">
-        {% if booking_count == 0 or booking_count > 2 %}
-        <h2>
-          {{booking_count }} Bookings.
-        </h2>
-        {% elif booking_count < 2 %}
-        <h2>
-          {{booking_count }} Booking.
-        </h2>
-        {% else %}
-        <h2>
-          {{booking_count }} Bookings.
-        </h2>
-        {% endif %}
+      <div class="col-sm-3 text-end">
+        <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
         {% for booking in bookings %}
         <div style="border-bottom: 2px solid white;padding: 10px; ">
           <p>Name: {{ booking.name }}</p>

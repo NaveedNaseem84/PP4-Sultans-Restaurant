@@ -10,14 +10,11 @@ def create_booking(request):
     """
     Creates a new booking.
     Checks availability using time slot and date
-     - display a message if not availablr
+     - display a message if not available
     Checks to ensure the date selected is today onwards
      - display a message if its not the case
     If all the above satisfied, save booking
     """
-  
-    bookings = MakeBooking.objects.filter(name=request.user)
-    booking_count = bookings.count()
 
     if request.method == "POST":
         form = BookingForm(data=request.POST)
@@ -40,16 +37,19 @@ def create_booking(request):
                 currentbooking = form.save(commit=False)
                 currentbooking.user_id = request.user.id
                 currentbooking.name = request.user
-                form.save()
+                currentbooking.save()
                 messages.add_message(
                     request, messages.SUCCESS, "booking created.")
+                return HttpResponseRedirect(reverse("create_booking"), form)
         else:
             messages.add_message(
                 request, messages.ERROR, "Please enter a valid phone number."
             )
-        return HttpResponseRedirect(reverse("create_booking"), form)
+    else:
+        form = BookingForm()
 
-    form = BookingForm()
+    bookings = MakeBooking.objects.filter(name=request.user)
+    booking_count = bookings.count()
 
     return render(
         request,
