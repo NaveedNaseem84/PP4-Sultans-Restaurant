@@ -12,7 +12,7 @@ body {
 
 nav li {
   font-size: 120%;
-  padding-right: 10px ;
+  padding-right: 10px;
 }
 
 .navbar-nav {
@@ -21,15 +21,15 @@ nav li {
 
 
 .navbar-nav .nav-item .nav-link:hover {
-  font-style: oblique; 
+  font-style: oblique;
   color: red;
 
 }
 
 #main-sultan-background {
-  min-height: 50vh;  
-  padding-top: 10%;
-  
+  min-height: 45vh;
+  padding-top: 5%;
+
   background-color: grey;
   background: url("/static/images/main-index-bg.webp")90%/cover no-repeat;
   border-top-left-radius: 25px;
@@ -38,50 +38,81 @@ nav li {
 }
 
 #additional-info {
- margin-top: 15px;  
-  padding-bottom:10px;  
-  color: black;  
+  margin-top: 15px;
+  padding-bottom: 10px;
+  color: black;
   text-align: center;
-  font-size: 1.6rem;
-  }
+  font-size: 1.4rem;
+}
+
+#follow-on-menu,
+#follow-on-booking {
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 10px;
+
+}
+
+#follow-on-menu a:link,
+#follow-on-booking a:link {
+  text-decoration: none;
+}
+
+#follow-on-menu,
+#follow-on-booking a a:active,
+a:visited {
+  color: white;
+}
+
+
+#follow-on-booking a:hover,
+#follow-on-menu a:hover {
+  font-style: oblique;
+  color: red;
+}
 
 #current-promotions {
   padding-top: 2%;
-  background-color: whitesmoke;
-  color: black;
+  background-color: black;
+
+  color: white;
 }
 
 #follow-on-links {
   padding-top: 2%;
-  background-color: lightgray;
-  color: black;
+  background-color: black;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-#contact-info { 
+
+#contact-info {
   padding-top: 2%;
   background-color: black;
   color: white;
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
 }
 
-/*footer styling*/
+
 
 /*menu page styling */
 
 #menu-bg {
-  min-height: 80vh;
+  min-height: 75vh;
   margin-left: 10%;
   padding-top: 2%;
   ;
 }
 
 #main-menu-bg {
-  min-height: 80vh;
+  min-height: 70vh;
   padding-right: 15%;
   background-color: slategray;
   background: url("/static/images/menu-bg.webp")90%/cover no-repeat;
   background-attachment: fixed;
 }
+
 .menu-item-name {
   font-size: 130%;
 }
@@ -162,8 +193,27 @@ nav li {
   background-image: url(/static/icons/down-arrow.svg);
 }
 
+/* booking page styling*/
+#booking-bg {
+  padding-top: 50px;
+
+  background-color: darkgray;
+  min-height: 70vh;
+
+
+}
+
+#booking-container-bg {
+  background-color: black;
+  padding: 10px;
+  border-radius: 25px;
+  opacity: 0.8;
+
+}
+
+/*footer styling*/
 footer {
   margin-top: 0;
-  font-size: 80%;
+  font-size: 60%;
 
 }
