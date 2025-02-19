@@ -73,11 +73,12 @@
         <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
         {% for booking in bookings %}
         <div style="border-bottom: 2px solid white;padding: 10px; ">
+          <p>booking ID {{ booking.id }}</p>
           <p>Name: {{ booking.name }}</p>
           <p>on: {{ booking.date }}</p>
           <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
-          <button class="btn btn-danger" data-booking-id="{{ booking.id}}">Delete</button>
-          <button class="btn btn-primary btn-secondary-update" data-booking-id="{{ booking.id}}">Update</button>
+          <button class="btn btn-danger btn-delete-booking" data-booking-id="{{ booking.id}}">Delete</button>
+          <button class="btn btn-primary btn-update-booking" data-booking-id="{{ booking.id}}">Update</button>
         </div>
         {% endfor %}
 
@@ -143,4 +144,8 @@
 -->
 
 <!-- index.html content ends here -->
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/bookings.js' %}"></script>
 {% endblock %}
