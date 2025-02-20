@@ -77,7 +77,8 @@
           <p>Name: {{ booking.name }}</p>
           <p>on: {{ booking.date }}</p>
           <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
-          <button class="btn btn-danger btn-delete-booking" data-booking-id="{{ booking.id}}">Delete</button>
+          <button class="btn btn-danger btn-delete-booking"
+            data-booking-id="{{ booking.id}}" data-bs-toggle="modal" data-bs-target="#deleteConfirm">Delete</button>
           <button class="btn btn-primary btn-update-booking" data-booking-id="{{ booking.id}}">Update</button>
         </div>
         {% endfor %}
@@ -90,12 +91,30 @@
       </p>
       {% endif %}
 
+      <!-- Modals-->
+      <div class="modal text-dark" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteConfirmLabel">Delete confirmation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this booking?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button id="deleteConfirmation" type="button" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 
-</div>
-
-<!--
+  <!--
 <div class="container">
   <h1>Bookings</h1>
   <div class="row justify-content-md-center text-center">
@@ -143,9 +162,9 @@
 </div>
 -->
 
-<!-- index.html content ends here -->
-{% endblock %}
+  <!-- index.html content ends here -->
+  {% endblock %}
 
-{% block extras %}
-<script src="{% static 'js/bookings.js' %}"></script>
-{% endblock %}
+  {% block extras %}
+  <script src="{% static 'js/bookings.js' %}"></script>
+  {% endblock %}

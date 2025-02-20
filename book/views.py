@@ -1,5 +1,5 @@
 from datetime import date
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import MakeBooking
@@ -56,3 +56,17 @@ def create_booking(request):
         "book/book.html",
         {"form": form, "bookings": bookings, "booking_count": booking_count},
     )
+
+
+def delete_booking(request, booking_id):
+    """
+    delete the selecting booking. A confirmation of the 
+    delete will be impletemented within book.html
+    """
+    booking = get_object_or_404(MakeBooking, id=booking_id)
+    booking.delete()
+    messages.add_message(
+        request, messages.SUCCESS,
+        'Booking Deleted.'
+    )
+    return HttpResponseRedirect(reverse('create_booking'))

@@ -3,6 +3,7 @@
 //globals for the edit and delete buttons
 const deleteButtons = document.getElementsByClassName("btn-delete-booking");
 const editButtons = document.getElementsByClassName("btn-update-booking");
+const deleteConfirm = document.getElementById("deleteConfirmation");
 
 //apply event listener as soon as the DOM loads
 document.addEventListener("DOMContentLoaded", applyEventListener);
@@ -19,21 +20,26 @@ function applyEventListener() {
 }
 
 //delete the selected booking. Tested using booking ID
-// to ensure the delete button pressed corresponds to the 
-//booking in question
+// to ensure the delete button pressed corresponds to the
+//booking in question. Delete button calls a confirmation
+//modal. If the user confirms the deletion, booking is
+//deleted.
 //
 function deleteBooking() {
   let bookingId = this.getAttribute("data-booking-id");
-  console.log("Delete id: " + bookingId);
+  deleteConfirm.addEventListener("click", () => {
+    if (bookingId) {
+      window.location.href = `delete_booking/${bookingId}`;
+    }
+  });
 }
 
 //update the selected booking. Tested using booking ID
-// to ensure the update button pressed corresponds to the 
+// to ensure the update button pressed corresponds to the
 //booking in question
 //
 
 function editBooking() {
   let bookingId = this.getAttribute("data-booking-id");
   console.log("update id: " + bookingId);
-  
 }
