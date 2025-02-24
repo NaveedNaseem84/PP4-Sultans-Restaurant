@@ -4,7 +4,7 @@
 const deleteButtons = document.getElementsByClassName("btn-delete-booking");
 const editButtons = document.getElementsByClassName("btn-update-booking");
 const deleteConfirm = document.getElementById("deleteConfirmation");
-
+ 
 //apply event listener as soon as the DOM loads
 document.addEventListener("DOMContentLoaded", applyEventListener);
 
@@ -40,6 +40,7 @@ function deleteBooking() {
 //
 
 function editBooking() {
-  let bookingId = this.getAttribute("data-booking-id");
-  console.log("update id: " + bookingId);
+  let bookingId = this.getAttribute("data-booking-id");  
+  window.location.href = `update_booking/${bookingId}`;
+  
 }

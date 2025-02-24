@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- index.html content starts here -->
+
+
+<div id="booking-bg">
+  <div class="container">
+   
+  <div id="booking-container-bg" class="container">
+    <h1 class="p-3">Ammend your booking</h1>
+    <hr />
+    <div class="row justify-content-md-center text-center">
+
+      <div class=" col-sm-6 text-left">
+       
+        <form method="post" class="text-center pb-3 ">
+          {% csrf_token %}          
+          <p>please note: we will need check availability</p>
+          <div class="p-3">Email: {{ form.email }}</div>
+          <div class="p-3">phone: {{ form.phone }}</div>
+          <div class="p-3">at: {{ form.time_slot }} on: {{form.date}}</div>
+          <div class="p-3">for: {{ form.number_of_people }} people</div>
+          <div class="p-3">special requests (optional):</div>
+          <div class="pr-3">{{ form.special_requests }}</div>
+          <button class="btn btn-primary" type="submit">update</button>
+          <button class="btn btn-secondary" type="reset">reset</button>
+        </form>
+      </div>       
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block extras %}
+  <script src="{% static 'js/bookings.js' %}"></script>
+  {% endblock %}

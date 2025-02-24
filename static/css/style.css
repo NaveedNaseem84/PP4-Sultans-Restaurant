@@ -25,6 +25,11 @@ nav li {
   color: red;
 
 }
+#django_messages-container {
+  position: fixed;
+
+}
+
 
 #main-sultan-background {
   min-height: 45vh;

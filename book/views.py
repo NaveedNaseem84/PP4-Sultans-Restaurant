@@ -70,3 +70,29 @@ def delete_booking(request, booking_id):
         'Booking Deleted.'
     )
     return HttpResponseRedirect(reverse('create_booking'))
+
+
+def update_booking(request, booking_id):
+    """
+    update docstring to be added.
+    """
+    
+    current_booking = get_object_or_404(MakeBooking, id=booking_id)  
+    form = BookingForm(instance=current_booking)    
+    if request.method=="POST":
+        form = BookingForm(request.POST, instance=current_booking)     
+
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Booking updated.')
+            
+        return HttpResponseRedirect(reverse('create_booking'))
+    
+ 
+    return render(
+        request,
+        "book/update.html",
+       {"form": form},
+    )

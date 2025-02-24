@@ -65,15 +65,31 @@
           {% endif %}
         </ul>
       </div>
-    </nav>
+    </nav>    
   </header> 
 
   <main>
+    <!-- Authrntication messages-->
     {% if user.is_authenticated %}
     <p class="text-center m-3">welcome {{ user }}</p>
     {% else %}
     <p class="text-center m-3">You are not logged in</p>
     {% endif %}
+
+    <!--Django alert messages-->
+    <div id="django_messages-container" class="container">
+      <div class="col-md-4 offset-md-6 ">
+      <div class="col">
+        {% for message in messages %}
+        <div class=" bg-light text-dark alert {{ message.tags }} alert-dismissible
+          show" id="msg" role="alert">
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
     
 
     {% block content %}

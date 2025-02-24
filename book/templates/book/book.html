@@ -35,20 +35,7 @@
 </div>
 -->
 
-<div id="booking-bg">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 offset-md-2 ">
-        {% for message in messages %}
-        <div class=" alert {{ message.tags }} alert-dismissible
-          show bg-light text-dark" id="msg" role="alert">
-          {{ message | safe }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+<div id="booking-bg">  
   <div id="booking-container-bg" class="container">
     <h1 class="p-3">Bookings</h1>
     <hr />
@@ -58,7 +45,7 @@
         {% if user.is_authenticated %}
         <form method="post" class="text-left pb-3 ">
           {% csrf_token %}
-          <h2>New booking?</h2>
+          <h2>create/update a booking:</h2>
           <div class="p-3">Email: {{ form.email }}</div>
           <div class="p-3">phone: {{ form.phone }}</div>
           <div class="p-3">at: {{ form.time_slot }} on: {{form.date}}</div>
@@ -70,10 +57,9 @@
         </form>
       </div>
       <div class="col-sm-3 text-end">
-        <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
+        <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1> 
         {% for booking in bookings %}
-        <div style="border-bottom: 2px solid white;padding: 10px; ">
-          <p>booking ID {{ booking.id }}</p>
+        <div style="border-bottom: 2px solid white;padding: 10px; ">          
           <p>Name: {{ booking.name }}</p>
           <p>on: {{ booking.date }}</p>
           <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
@@ -111,58 +97,8 @@
         </div>
       </div>
     </div>
-
   </div>
 
-  <!--
-<div class="container">
-  <h1>Bookings</h1>
-  <div class="row justify-content-md-center text-center">
-
-    <div class=" col-sm-8">
-      {% if user.is_authenticated %}
-      <h2>New booking?</h2>
-      <form method="post" style="padding-top: 2rem">
-        {% csrf_token %}
-        <div class="p-3">Email: {{ form.email }}</div>
-        <div class="p-3">phone: {{ form.phone }}</div>
-        <div class="p-3">at: {{ form.time_slot }} on: {{form.date}}</div>
-        <div class="p-3">for: {{ form.number_of_people }} people</div>
-        <div class="p-3">special requests (optional):</div>
-        <div class="p-3">{{ form.special_requests }}</div>
-        <button class="btn btn-primary" type="submit">submit</button>
-        <button class="btn btn-secondary" type="reset">reset</button>
-      </form>
-    </div>
-    <div class="col-sm-4">
-      <h2>Current bookings</h2>
-      <p>You have 2 bookings</p>
-      <div style="padding-top: 10px;">
-        <p>Date: 27/12/24</p>
-        <p>time: 17:30</p>
-        <p>for 4 people:</p>
-        <button class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary">Update</button>
-      </div>
-      <div style="padding-top: 10px;">
-        <p>Date: 27/12/24</p>
-        <p>time: 17:30</p>
-        <p>for 4 people:</p>
-        <button class="btn btn-danger">Delete</button>
-        <button class="btn btn-primary">Update</button>
-      </div>
-    </div>
-    {% else %}
-    <p class="text-end m-3 text-center">
-      Please login to create or manage bookings.
-    </p>
-    {% endif %}
-
-  </div>
-</div>
--->
-
-  <!-- index.html content ends here -->
   {% endblock %}
 
   {% block extras %}
