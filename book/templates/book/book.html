@@ -37,7 +37,7 @@
 
 <div id="booking-bg">  
   <div id="booking-container-bg" class="container">
-    <h1 class="p-3">Bookings</h1>
+    <h1 id="bookings-title" class="p-3">Bookings</h1>
     <hr />
     <div class="row justify-content-md-center text-left">
 
@@ -57,8 +57,9 @@
         </form>
       </div>
       <div class="col-sm-3 text-end">
-        <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1> 
+        
         {% for booking in bookings %}
+        <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1> 
         <div style="border-bottom: 2px solid white;padding: 10px; ">          
           <p>Name: {{ booking.name }}</p>
           <p>on: {{ booking.date }}</p>

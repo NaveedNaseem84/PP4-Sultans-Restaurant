@@ -27,7 +27,10 @@ nav li {
 }
 #django_messages-container {
   position: fixed;
-
+ margin: auto;
+ text-align: center;
+padding-left: 10%;
+padding-right: 10%;
 }
 
 
@@ -208,7 +211,8 @@ a:visited {
 
 }
 
-#booking-container-bg {
+#booking-container-bg,
+#update-container-bg {
   background-color: black;
   padding: 10px;
   border-radius: 25px;
