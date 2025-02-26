@@ -4,6 +4,7 @@ import of libraries
 from django.contrib import admin
 from .models import WelcomePromotion
 
+
 @admin.register(WelcomePromotion)
 class PromotionsAdmin(admin.ModelAdmin):
     """

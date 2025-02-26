@@ -1,12 +1,17 @@
-{% extends "base.html" %} 
-{% load static %} 
-{% block content %}
-<!-- index.html content starts here -->
-<div class="container-fluid">
-  <div>
-    <h1>About us</h1>    
-  </div>
-</div>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}    
 
-<!-- index.html content ends here -->
+      <div id="main-about-bg">
+        <div id="about-bg" class="container">
+          <h1>About us</h1>
+          <hr>
+          <div id="about-us-content" class="p-3 col-sm-10 ml-8 text-left">
+            {% for about in aboutus %}
+            {{about.description  | safe }}
+            {% endfor %}    
+          </div>
+        </div>
+      </div>
+
 {% endblock %}

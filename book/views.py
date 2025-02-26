@@ -18,7 +18,7 @@ def availability_check(request, form_date, form_time_slot):
                                   time_slot=form_time_slot).exists():
         messages.add_message(
             request, messages.ERROR,
-            "Sorry, time slot unavailable on this date. Please try another time slot or date."
+            "Sorry, time slot unavailable on this date."
         )
         return False
     elif form_date < date.today():
@@ -53,7 +53,7 @@ def create_booking(request):
                 currentbooking.save()
                 messages.add_message(request, messages.SUCCESS,
                                      "booking created.")
-                return HttpResponseRedirect(reverse("create_booking"), form)
+                return HttpResponseRedirect(reverse("create_booking"))
 
         else:
             messages.add_message(
@@ -107,7 +107,6 @@ def update_booking(request, booking_id):
                     request, messages.SUCCESS, "Booking has been updated."
                 )
                 return HttpResponseRedirect(reverse("create_booking"))
-    
 
     return render(
         request,
