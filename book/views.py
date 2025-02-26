@@ -94,6 +94,10 @@ def update_booking(request, booking_id):
 
     current_booking = get_object_or_404(MakeBooking, id=booking_id)
     form = BookingForm(instance=current_booking)
+
+    current_booking_date = current_booking.date
+    current_booking_time = current_booking.time_slot
+
     if request.method == "POST":
         form = BookingForm(request.POST, instance=current_booking)
 
@@ -101,10 +105,23 @@ def update_booking(request, booking_id):
             form_date = form.cleaned_data["date"]
             form_time_slot = form.cleaned_data["time_slot"]
 
-            if availability_check(request, form_date, form_time_slot):
+            if (
+                form_date != current_booking_date
+                or form_time_slot != current_booking_time
+            ):
+                if availability_check(request, form_date, form_time_slot):
+                    form.save()
+
+                    messages.add_message(
+                        request, messages.SUCCESS,
+                        "Booking successfully updated."
+                    )
+                    return HttpResponseRedirect(reverse("create_booking"))
+
+            else:
                 form.save()
                 messages.add_message(
-                    request, messages.SUCCESS, "Booking has been updated."
+                    request, messages.SUCCESS, "Booking successfully updated."
                 )
                 return HttpResponseRedirect(reverse("create_booking"))
 
