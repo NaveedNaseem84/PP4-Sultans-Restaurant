@@ -3,8 +3,7 @@
 <div id="booking-bg">
   <div id="booking-container-bg" class="container">
     <h1 class="p-3">Bookings</h1>
-    <hr>
-    <div class="row justify-content-md-center text-left">
+    <hr>    
       <div class=" col-sm-4 pe-5 text-left">
         {% if user.is_authenticated %}
         <form method="post" class="text-left">
@@ -14,10 +13,11 @@
           <button class="btn btn-primary" type="submit">submit</button>
           <button class="btn btn-secondary" type="reset">reset</button>
         </form>
-      </div>
-    </div>
+     </div>
+
+
+
   </div>
-  {% endif %}
 
 </div>
 
