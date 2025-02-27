@@ -6,7 +6,11 @@
   <div id="main-sultan-background">
     <h1>welcome to sultan's</h1>
     <h2>where desire meets elegance.</h2>
-    <h3> Promotions go here</h3>
+    <div id="current-promotions-live" class="col-sm-2 pt-3 mt-4">
+      {% for promotion in promotions %}
+      <p>{{promotion.description }}</p>
+      {% endfor %}
+    </div>
   </div>
   <div id="additional-info" class="container-fluid">
 
@@ -22,7 +26,6 @@
         <p id="follow-on-booking"><a href="{% url 'create_booking' %}">Book</a></p>
       </div>
       <div id="contact-info" class="col-sm-4">
-
         <p>hill-state farm</p>
         <P>preston, pr11 4wz</p>
         <P>t: 0161 123 2551 </p>

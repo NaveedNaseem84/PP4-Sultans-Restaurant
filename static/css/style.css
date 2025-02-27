@@ -61,6 +61,16 @@ padding-right: 10%;
 
 }
 
+#current-promotions-live {
+  margin: auto;
+  padding: 1px;
+  background-color: orange;
+  color: black;
+  font-weight: bold;
+  font-size: 110%;
+ 
+}
+
 #follow-on-menu a:link,
 #follow-on-booking a:link {
   text-decoration: none;
@@ -79,12 +89,14 @@ a:visited {
   color: red;
 }
 
-#current-promotions {
-  padding-top: 2%;
+#current-promotions{
+  padding: 1%;
   background-color: black;
-
+  margin: auto;
   color: white;
+  
 }
+
 
 #follow-on-links {
   padding-top: 2%;
@@ -233,7 +245,7 @@ a:visited {
 
 #booking-container-bg,
 #update-container-bg {
-  background-color: black;
+  background-color: #303030;
   padding: 10px;
   border-radius: 25px;
 
