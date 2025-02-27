@@ -1,16 +1,32 @@
 {% extends "base.html" %} {% load static %} {% block content %}{% load crispy_forms_tags %}
 <!-- index.html content starts here -->
 <div id="booking-bg">
-  
+  <div id="booking-container-bg" class="container">
+    <h1 class="p-3">Bookings</h1>
+    <hr>
+    <div class="row justify-content-md-center text-left">
+      <div class=" col-sm-4 pe-5 text-left">
+        {% if user.is_authenticated %}
+        <form method="post" class="text-left">
+          {% csrf_token %}
+          <h2>create a booking:</h2>
+          {{ form | crispy }}
+          <button class="btn btn-primary" type="submit">submit</button>
+          <button class="btn btn-secondary" type="reset">reset</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
 
-<!-- Modals-->
+    <!-- Modals-->
 
 
-{% endblock %}
+    {% endblock %}
 
-{% block extras %}
-<script src="{% static 'js/bookings.js' %}"></script>
-{% endblock %}
+    {% block extras %}
+    <script src="{% static 'js/bookings.js' %}"></script>
+    {% endblock %}
