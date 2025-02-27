@@ -175,9 +175,11 @@ a:visited {
 
 .accordian-menu-title {
   margin-left: auto;
-  font-size: 130%;
+  font-size: 70%;
   font-weight: bolder;
-  padding-top: 10px;
+  padding: 20px;
+  text-align: center;
+  
 }
 
 .accordion-item {
@@ -234,6 +236,7 @@ a:visited {
 .accordion-button:not(.collapsed)::after {
   background-image: url(/static/icons/down-arrow.svg);
 }
+
 
 /* booking page styling*/
 #booking-bg,

@@ -1,5 +1,5 @@
 {% load static %}
-{% url 'home' as home_url %}
+
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -9,9 +9,20 @@
 <html lang="en">
 
 <head>
+  <!--Meta tags-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sultans Ottoman inspired restaurant, tradition infused with authentic. ">
+  <meta name="keywords" content="love food, relaxing, socialising, indian food, eating">
   <title>Sultans |</title>
+
+  <!--fav Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+
+
 
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -65,11 +76,11 @@
           {% endif %}
         </ul>
       </div>
-    </nav>    
-  </header> 
-
+    </nav>
+  </header>
+  <!--main body-->
   <main>
-    <!-- Authrntication messages-->
+    <!-- authentication messages-->
     {% if user.is_authenticated %}
     <p class="text-center m-3">welcome {{ user }}</p>
     {% else %}
@@ -79,42 +90,42 @@
     <!--Django alert messages-->
     <div id="django_messages-container" class=" container-fluid">
       <div class=" text-center">
-      <div class="col-sm-12 offset-sm-2 col-md-8 offset-md-4 col-lg-8 offset-lg-2">
-        {% for message in messages %}
-        <div class=" bg-light text-dark alert {{ message.tags }} alert-dismissible
+        <div class="col-sm-12 offset-sm-2 col-md-8 offset-md-4 col-lg-8 offset-lg-2">
+          {% for message in messages %}
+          <div class=" bg-light text-dark alert {{ message.tags }} alert-dismissible
           show" id="msg" role="alert">
-          {{ message | safe }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{ message | safe }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </div>
-  </div>
-    
 
     {% block content %}
 
-
-
     {% endblock content %}
-    
 
   </main>
-
+  <!--footer-->
   <footer class="footer mt-auto py-1 dark-bg fs-1 text-center ">
     <hr>
-    
-    <i class="fab fa-facebook-square ms-3"></i>
-    <i class="fab fa-twitter-square ms-3"></i>
-    <i class="fab fa-instagram-square ms-3"></i>
-    <i class="fab fa-youtube-square ms-3"></i>
-    </p>
+
+    <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i
+        class="fab fa-facebook-square ms-3"></i></a>
+    <a href="https://x.com/?lang=en" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i
+        class="fab fa-twitter-square ms-3"></i></a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="new tab - visit us on Instagram"><i
+        class="fab fa-instagram-square ms-3"></i></a>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="new tab - visit us on youtube"><i
+        class="fab fa-youtube-square ms-3"></i></a>
+
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
   </script>
-   {% block extras %}
-   {% endblock %}
+  {% block extras %}
+  {% endblock %}
 
 
 </body>
