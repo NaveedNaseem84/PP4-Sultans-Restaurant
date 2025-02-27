@@ -261,7 +261,7 @@ footer {
   font-size: 60%;
 
 }
-footer a a:active {
+footer a:active {
   color:white;
-  text-decoration: none;
+  
 }

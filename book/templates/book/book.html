@@ -15,27 +15,28 @@
           <button class="btn btn-secondary" type="reset">reset</button>
         </form>
       </div>
-      <div class="col-sm-4 ps-5 text-end">
-        <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
-        {% for booking in bookings %}
-        <div style="border-bottom: 2px solid white;padding: 10px; ">
-          <p>Name: {{ booking.name }}</p>
-          <p>on: {{ booking.date }}</p>
-          <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
-          <button class="btn btn-danger btn-delete-booking" data-booking-id="{{ booking.id}}" data-bs-toggle="modal"
-            data-bs-target="#deleteConfirm">Delete</button>
-          <button class="btn btn-primary btn-update-booking" data-booking-id="{{ booking.id}}">Update</button>
-        </div>
-        {% endfor %}
-      </div>
-      {% else %}
-      <p class="text-end m-3 text-center">
-        Please login to create or manage bookings.
-      </p>
-      {% endif %}
     </div>
+    <div class="col-sm-4 ps-5 text-end">
+      <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
+      {% for booking in bookings %}
+      <div style="border-bottom: 2px solid white;padding: 10px; ">
+        <p>Name: {{ booking.name }}</p>
+        <p>on: {{ booking.date }}</p>
+        <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
+        <button class="btn btn-danger btn-delete-booking" data-booking-id="{{ booking.id}}" data-bs-toggle="modal"
+          data-bs-target="#deleteConfirm">Delete</button>
+        <button class="btn btn-primary btn-update-booking" data-booking-id="{{ booking.id}}">Update</button>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-end m-3 text-center">
+      Please login to create or manage bookings.
+    </p>
+    {% endif %}
   </div>
 </div>
+
 
 
 <!-- Modals-->
