@@ -5,7 +5,7 @@ const deleteButtons = document.getElementsByClassName("btn-delete-booking");
 const editButtons = document.getElementsByClassName("btn-update-booking");
 const deleteConfirm = document.getElementById("deleteConfirmation");
 
-const hideMessages = document.getElementById("django_messages-container")
+const hideMessages = document.getElementById("django_messages-container");
  
 //apply event listener as soon as the DOM loads
 document.addEventListener("DOMContentLoaded", applyEventListener);

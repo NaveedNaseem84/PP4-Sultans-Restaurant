@@ -1,4 +1,9 @@
 {% load static %}
+{% url 'home' as home_url %}
+{% url 'menu' as menu_url %}
+{% url 'create_booking' as booking_url %}
+{% url 'about' as about_url %}
+{% url 'admin:index' as admin_url %}
 
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -22,8 +27,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
 
-
-
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -38,7 +41,6 @@
 <body>
   <!-- Header-->
   <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark text-light">
       <button class="navbar-toggler text-align:center" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbartoggle" aria-controls="navbartoggle" aria-expanded="false"
@@ -47,30 +49,41 @@
       </button>
       <div class="collapse navbar-collapse" id="navbartoggle">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link " href="{% url 'home' %}">home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" 
+            href="{% url 'home' %}">home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'menu' %}">menu</a>
+            <a class="nav-link {% if request.path == menu_url %}active" aria-current="page{% endif %}"
+              href="{% url 'menu' %}">menu</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == booking_url %}active" aria-current="page{% endif %}" 
+            href="{% url 'create_booking' %}">book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'create_booking' %}">book</a>
+            <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}" 
+            href="{% url 'about' %}">about us</a>
           </li>
+          {% if user.is_staff %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">about us</a>
+            <a class="nav-link {% if request.path == admin_url %}active" aria-current="page{% endif %}"
+              href="{% url 'admin:index' %}">Admin</a>
           </li>
+          {% endif %}
           {% if user.is_authenticated %}
+          
           <li class="nav-item">
-            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+            <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
               href="{% url 'account_logout' %}">Logout</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+            <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
               href="{% url 'account_signup' %}">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+            <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}"
               href="{% url 'account_login' %}">Login</a>
           </li>
           {% endif %}
@@ -80,6 +93,7 @@
   </header>
   <!--main body-->
   <main>
+    
     <!-- authentication messages-->
     {% if user.is_authenticated %}
     <p class="text-center m-3">welcome {{ user }}</p>
@@ -108,9 +122,9 @@
 
   </main>
   <!--footer-->
-  <footer class="footer mt-auto py-1 dark-bg fs-1 text-center ">
+  <footer class="footer mt-auto py-1 dark-bg fs-3 text-center ">
+    
     <hr>
-
     <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i
         class="fab fa-facebook-square ms-3"></i></a>
     <a href="https://x.com/?lang=en" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i
@@ -121,12 +135,12 @@
         class="fab fa-youtube-square ms-3"></i></a>
 
   </footer>
+  <!--bootstrap js import-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
   </script>
   {% block extras %}
   {% endblock %}
-
 
 </body>
 

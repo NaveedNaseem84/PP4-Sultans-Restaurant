@@ -261,3 +261,7 @@ footer {
   font-size: 60%;
 
 }
+footer a {
+  color:white;
+  text-decoration: none;
+}
