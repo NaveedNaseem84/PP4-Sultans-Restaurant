@@ -51,15 +51,8 @@ def create_booking(request):
                 currentbooking.user_id = request.user.id
                 currentbooking.name = request.user
                 currentbooking.save()
-                messages.add_message(request, messages.SUCCESS,
-                                     "booking created.")
+                msg_sucessful_booking(request)
                 return HttpResponseRedirect(reverse("create_booking"))
-
-        else:
-            messages.add_message(
-                request, messages.ERROR,
-                "Please enter a valid phone number."
-            )
     else:
         form = BookingForm()
 
@@ -80,7 +73,7 @@ def delete_booking(request, booking_id):
     """
     booking = get_object_or_404(MakeBooking, id=booking_id)
     booking.delete()
-    messages.add_message(request, messages.SUCCESS, "Booking Deleted.")
+    msg_booking_deleted(request)
     return HttpResponseRedirect(reverse("create_booking"))
 
 
@@ -95,34 +88,26 @@ def update_booking(request, booking_id):
     current_booking = get_object_or_404(MakeBooking, id=booking_id)
     form = BookingForm(instance=current_booking)
 
-    current_booking_date = current_booking.date
-    current_booking_time = current_booking.time_slot
+    booking_date = current_booking.date
+    booking_time = current_booking.time_slot
 
     if request.method == "POST":
         form = BookingForm(request.POST, instance=current_booking)
 
         if form.is_valid():
             form_date = form.cleaned_data["date"]
-            form_time_slot = form.cleaned_data["time_slot"]
+            form_time = form.cleaned_data["time_slot"]
 
-            if (
-                form_date != current_booking_date
-                or form_time_slot != current_booking_time
-            ):
-                if availability_check(request, form_date, form_time_slot):
+            if booking_info_changed(booking_date, booking_time,
+                                    form_time, form_date):
+                if availability_check(request, form_date, form_time):
                     form.save()
-
-                    messages.add_message(
-                        request, messages.SUCCESS,
-                        "Booking successfully updated."
-                    )
+                    msg_success_booking_update(request)
                     return HttpResponseRedirect(reverse("create_booking"))
 
             else:
                 form.save()
-                messages.add_message(
-                    request, messages.SUCCESS, "Booking successfully updated."
-                )
+                msg_success_booking_update(request)
                 return HttpResponseRedirect(reverse("create_booking"))
 
     return render(
@@ -130,3 +115,36 @@ def update_booking(request, booking_id):
         "book/update.html",
         {"form": form},
     )
+
+
+def booking_info_changed(booking_date, booking_time, form_time, form_date):
+    """
+    check to see if the forms date and time are different
+    from the original booking date and time.
+    """
+    return form_date != booking_date or form_time != booking_time
+
+
+def msg_success_booking_update(request):
+    """
+    Sucessful update message displayed.
+    """
+    messages.add_message(
+        request, messages.SUCCESS, "Booking successfully updated."
+        )
+
+
+def msg_sucessful_booking(request):
+    """
+    Sucessful booking message displayed.
+    """
+    messages.add_message(
+        request, messages.SUCCESS, "booking created.")
+
+
+def msg_booking_deleted(request):
+    """
+    Sucessful delete booking displayed
+    """
+    messages.add_message(
+        request, messages.SUCCESS, "Booking Deleted.")
