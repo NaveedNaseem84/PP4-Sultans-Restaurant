@@ -50,20 +50,20 @@
       <div class="collapse navbar-collapse" id="navbartoggle">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" 
-            href="{% url 'home' %}">home</a>
+            <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
+              href="{% url 'home' %}">home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == menu_url %}active" aria-current="page{% endif %}"
               href="{% url 'menu' %}">menu</a>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == booking_url %}active" aria-current="page{% endif %}" 
-            href="{% url 'create_booking' %}">book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}" 
-            href="{% url 'about' %}">about us</a>
+            <a class="nav-link {% if request.path == booking_url %}active" aria-current="page{% endif %}"
+              href="{% url 'create_booking' %}">book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
+              href="{% url 'about' %}">about us</a>
           </li>
           {% if user.is_staff %}
           <li class="nav-item">
@@ -72,7 +72,7 @@
           </li>
           {% endif %}
           {% if user.is_authenticated %}
-          
+
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
               href="{% url 'account_logout' %}">Logout</a>
@@ -93,7 +93,7 @@
   </header>
   <!--main body-->
   <main>
-    
+
     <!-- authentication messages-->
     {% if user.is_authenticated %}
     <p class="text-center m-3">welcome {{ user }}</p>
@@ -122,13 +122,12 @@
 
   </main>
   <!--footer-->
-  <footer class="footer mt-auto py-1 dark-bg fs-1 text-center ">
+  <footer class="footer mt-auto py-1 dark-bg fs-3 text-center ">
     <hr>
-    
-    <i class="fab fa-facebook-square ms-3"></i>
-    <i class="fab fa-twitter-square ms-3"></i>
-    <i class="fab fa-instagram-square ms-3"></i>
-    <i class="fab fa-youtube-square ms-3"></i>
+    <a href="https://Facebook.com" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i class="fab fa-facebook-square ms-3"></i></a>
+    <a href="https://x.com/?lang=en" target="_blank" rel="noopener" aria-label="new tab - visit us on X"><i class="fab fa-twitter-square ms-3"></i></a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="new tab - visit us on instagram"><i class="fab fa-instagram-square ms-3"></i></a>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="new tab - visit us on youtube"><i class="fab fa-youtube-square ms-3"></i></a>
   </footer>
   <!--bootstrap js import-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
