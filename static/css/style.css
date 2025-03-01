@@ -268,7 +268,15 @@ a:visited {
   
 }
 
+/*login, logout, register pages */
 
+.remove-ul-style ul {
+list-style-type: none;
+}
+
+.remove-ul-style li {
+  text-align: right;
+ }
 
 /*footer styling*/
 footer {
