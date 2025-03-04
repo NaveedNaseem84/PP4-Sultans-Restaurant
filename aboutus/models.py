@@ -19,7 +19,7 @@ class AboutUs(models.Model):
     description = models.TextField()
     added_on = models.DateField(auto_now_add=True)
     is_valid = models.CharField(
-        choices=VALID_CHOICES, blank=False)
+        choices=VALID_CHOICES, max_length=3, blank=False)
 
     def __str__(self):
         return f"About page: {self.title}"

@@ -41,7 +41,7 @@ class MakeBooking(models.Model):
             code="invalid_number")]
     )
     date = models.DateField()
-    time_slot = models.CharField(choices=TIME_SLOTS)
+    time_slot = models.CharField(choices=TIME_SLOTS, max_length=5)
     number_of_people = models.IntegerField(choices=NO_OF_PEOPLE)
     special_requests = models.CharField(max_length=150, blank=True)
 
