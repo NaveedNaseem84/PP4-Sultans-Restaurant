@@ -4,9 +4,8 @@
 const deleteButtons = document.getElementsByClassName("btn-delete-booking");
 const editButtons = document.getElementsByClassName("btn-update-booking");
 const deleteConfirm = document.getElementById("deleteConfirmation");
+const hideMessages = document.getElementById("django_messages-container");
 
-const hideMessages = document.getElementById("django_messages-container")
- 
 //apply event listener as soon as the DOM loads
 document.addEventListener("DOMContentLoaded", applyEventListener);
 
@@ -17,7 +16,6 @@ function applyEventListener() {
   }
 
   for (let button of editButtons) {
-    
     button.addEventListener("click", editBooking);
   }
 }
@@ -43,13 +41,6 @@ function deleteBooking() {
 //
 
 function editBooking() {
-  let bookingId = this.getAttribute("data-booking-id");     
+  let bookingId = this.getAttribute("data-booking-id");
   window.location.href = `update_booking/${bookingId}`;
- 
 }
-
-
-//hide the messages after about 3 seconds
-setTimeout(() => {
-  hideMessages.style.display='none';
-}, 4000);

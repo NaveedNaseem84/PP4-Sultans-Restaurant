@@ -9,3 +9,5 @@ class BookAdmin(admin.ModelAdmin):
     """
 
     list_display = ("name", "date", "time_slot", "number_of_people")
+    search_fields = ['name', 'email', 'date', 'phone']
+    list_filter = ('date','time_slot')
