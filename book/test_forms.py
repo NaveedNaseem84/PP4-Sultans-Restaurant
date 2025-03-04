@@ -113,6 +113,3 @@ class TestBookingForm(TestCase):
                 'special_requests': 'Birthday'
              })
         self.assertFalse(booking_form.is_valid(), msg="no of people required")
-
-   
-
