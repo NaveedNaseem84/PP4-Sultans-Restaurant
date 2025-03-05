@@ -48,7 +48,7 @@ def create_booking(request):
 
             if availability_check(request, form_date, form_time_slot):
                 currentbooking = form.save(commit=False)
-                currentbooking.user_id = request.user.id
+                currentbooking.user = request.user
                 currentbooking.name = request.user
                 currentbooking.save()
                 msg_sucessful_booking(request)
