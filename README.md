@@ -1,131 +1,398 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman Lite in Python.
 
-Welcome Naveed Naseem,
+## Introduction
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Table of Contents
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+### [User Experience (UX)](#user-experience-ux-1)
 
-## Gitpod Reminders
+* User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* Mind Map: Ideas
 
-`python3 -m http.server`
+* Wireframe Designs 
 
-A blue button should appear to click: _Make Public_,
+* UX View
 
-Another blue button should appear to click: _Open Browser_.
+* Pseudo - functions needed (Brainstorm)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+* Process Map
 
-A blue button should appear to click: _Make Public_,
+* Entity Relationship Diagrams
 
-Another blue button should appear to click: _Open Browser_.
+### [Main Page](#main-page-1)
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* Features
 
-To log into the Heroku toolbelt CLI:
+### [Testing](#testing-1)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+* Fixed Bugs 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+* Validation Testing
 
-### Connecting your Mongo database
+* Manual Testing
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+* API Testing
 
-------
+### [Future Developments](#future-developments-1)
 
-## Release History
+###  [Workload Planning](#workload-planning-1)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+###   [Site Production, Deployment and Contribution](#site-production-deployment-and-contribution-1) 
 
-**June 18, 2024,** Add Mongo back into template
+ * Site production
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+ * Deployment
 
-**May 28 2024:** Fix Mongo and Links installs
+ * Contribution
 
-**April 26 2024:** Update node version to 16
+### [Technologies and tools Used](#technologies-and-tools-used-1)
 
-**September 20 2023:** Update Python version to 3.9.17.
+* Languages used
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* Frameworks, Libraries and Programs Used
+     	
+### [Credits](#credits-1)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+* Content
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+ * General
+  
+ * Overall Credit
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### [Personal Summary](#personal-summary-1)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#
+ 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## User Experience (UX)
+### User Stories
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Mind Map: Ideas
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Wireframe Designs
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### UX View
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Pseudo - functions needed (Brainstorm)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Process Map
 
-------
+### 
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+## Main page
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Features
 
-**How will this affect me?**
+The main page presents the player (user) with a python console in which the game is ran. The player is welcomed and invited to select a difficulty level:
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![welcome - select difficulty](readme-images/welcome-screen.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+**Please note:** For the purposes of this project, the following values have been used to determine the difficulty:
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+1 = easy (12 attempts)
 
-**So….?**
+2 = medium (8 attempts)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+3 = hard (4 attempts)
 
-**Can I opt out?**
+If an invalid input is received, the player is notified of this and prompted to try again:
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Invalid input](readme-images/invalid-input.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Once a valid input has been received, the game begins. The player is presented with a randomly selected word, a letter count, and a hint to guess the word. In addition to this, the player is also made aware of the number of attempts available to guess the word:
 
-**Anything more?**
+![new game](readme-images/new-game.png)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+The player also has the option to view rules on demand at any point of the game by typing "help":
 
----
+![help](readme-images/help.png)
 
-Happy coding!
+There is also the option to quit which terminates the game:
+
+![quit](readme-images/quit.png)
+
+**Please note:** on quitting, the "Run Program" button would need to be clicked to restart the game again.
+
+If the input matches a letter within the word, the player is notified, and the word is updated to show all instances of this matched letter:
+
+![input-matched](readme-images/input-matched.png)
+
+Should the input not match a letter within the word, an attempt is used up. The incorrect inputs are recorded and displayed back to the player in a convenient way along with the updated attempts left:
+
+![input-not-matched](readme-images/not-matched.png)
+
+Once a word has been completely guessed, the player is congratulated on their win along with a summary of the game:
+
+![won](readme-images/won.png)
+
+If the attempts are all used up, the game is deemed over. The player is commiserated and again a summary of the game given:
+
+![loss](readme-images/lost.png)
+
+Irrespective of a winning or losing, the player has the option to carry on playing, resetting, or quitting.
+
+The option to carry on playing will load a new game with a running total of the games won or lost incremented respectively:
+
+![play again](readme-images/play-again.png)
+
+The option to reset will restart the game and the running totals for games won or lost reset. The player is advised of the reset and presented the initial difficulty menu:
+
+![game reset](readme-images/reset.png)
+
+The option to quit will terminate the program as documented above.
+
+These inputs are also validated, the player is notified if there is an input error:
+
+![Invalid input on game complete](readme-images/game-complete-invalid.png)
+
+[Back to Contents.](#table-of-contents)
+
+## Testing
+
+### Fixed Bugs 
+* **Issue 1 (ID 7ae0beb):** The player was able to input upper- and lower-case letters. This in turn meant that an upper-case letter was different from a lower-case letter therefore being classed as an incorrect guess. For example, 'T' would not be the same as 't'.
+
+    * **Fix (ID 23b2c0f):** This was fixed by formatting the input received and the random word selected using the .lower() built in function. Once implemented, a re-test found no further issues. 
+
+* **Issue 2 (ID 5bf8a81):** The totals for the games won or lost were not incrementing when the continue playing option was selected.
+
+    * **Fix (ID 276bc43):** This was fixed by globalising the variables won and lost. Once implemented, a re-test found no further issues. 
+
+### Validation Testing
+
+The code has been tested with the following:
+
+* Python
+   * No errors returned when running the code on the [Code Institute Python Linter.](https://pep8ci.herokuapp.com/)
+   
+   * The following results were returned:
+
+      ![Linter results](readme-images/linter-results.png)
+
+### Manual Testing
+
+The following manual testing was carried out to confirm if the game performed as required and results matched the expected output.
+
+| Test  | Test Step/Action                    |Input Type         |Expected                      |Result                                                        | Result|
+| :----:|:------------------------------------|:-----------------:|:-----------------------------------------------------------------------|:-------------------------------------------------|:--------:| 
+| 1     |Enter invalid difficulty             |e.g 4/a/?          |Error, asked to try again                                               |Invalid input identified. Try again               |Pass      | 
+| 2     |Enter valid difficulty               |1, 2, 3            |Start game                                                              |Game started                                      |Pass      |
+| 3     |Enter number                         |int                |Validate and inform incorrect input                                     |Input validated correctly - asked to try again    |Pass      |
+| 4     |Enter space                          |space              |validate and inform incorrect input                                     |Input validated correctly - asked to try again    |Pass      |
+| 5     |More than one letter                 |string             |validate and inform incorrect input                                     |Input validated correctly - asked to try again    |Pass      |
+| 6     |letter found                         |string             |update letter(s) in word                                                |Word updated                                      |Pass      |
+| 7     |letter not in word                   |string             |reduce attempt, record letter used                                      |attempt reduced, letter recorded                  |Pass      |
+| 8     |word guessed                         |string             |increment won score, summary of game, option to play again, reset, quit |Input validated correctly - options expected given|Pass      |
+| 9     |word not guessed/attempts finished   |string             |increment lost score, summary of game, option to play again, reset, quit|Input validated correctly - options expected given|Pass      |
+| 10    |play again                           |string: "y"        |load new game, running totals for won/lost                              |new game loaded, totals kept                      |Pass      |
+| 11    |reset game                           |string: "r"        |load new game, reset won/lost totals                                    |new game loaded, totals reset                     |Pass      |
+| 12    |quit game (at end or during)         |string: "q"/ "quit"|terminate the game                                                      |game terminated                                   |Pass      |
+| 13    |enter "help"                         |string: "help"     |show the rules on demand                                                |rules shown whenever typed                        |Pass      |
+
+### API Testing
+
+The API has been evaluated to ensure that the game works correctly when there is data in the google sheet in the format `word: hint` as shown below:
+
+![Google sheets format](readme-images/google-sheets-format.png)
+
+Should there be no data present, the game will successfully pick this up and exit:
+
+![Google sheets error](readme-images/google-sheets-error.png)
+
+[Back to Contents.](#table-of-contents)
+
+## Future Developments
+
+There are three potential future developments for this project.
+
+1. Expand the difficulty level - generate the complexity of the word/clue based on the difficulty selected.
+2. A scores table showing the top wins with the least attempts used.
+3. Retrieval of the words: should the API fail for any reason, add in the option to read them in locally from a text file which would prevent any negative user experience.
+
+## Workload Planning
+
+To break the project down, a live task board was utilised. Having this in place from the beginning has ensured that all the requirements from a development view have been captured. It has allowed me to successfully transition a task from "to do" right the way through to "done" whilst being able to keep track of any issues that presented a blocker and tackle them accordingly. A final view of the board can be seen below:
+
+![Live workload board](readme-images/Hangman-Lite-workload.png)
+
+[Back to Contents.](#table-of-contents)
+
+## Site Production, Deployment and Contribution  
+
+### Site production
+
+The site was created using Gitpod’s VS Code workspace environment with all the relevant files and folder structures created within. To deploy to GitHub, the following commands were carried out in the command line terminal to commit and push the changes to the GitHub repository: 
+
+1 `git add .`- (Staging the changes in the current working tree ready to be committed).
+
+2 `git commit -m 'Meaningful commit message"` - (The working tree is prepared with an upload message).
+
+3 `git push` - (changes are pushed out up to the GitHub repository).
+
+### Deployment
+
+The site was deployed using Heroku. The steps to deploy are as follows:
+
+1. login to Heroku.
+2. Select "create new app" .
+3. Create app .
+4. Select "Settings" tab at the top.
+5. Scroll down to "Buildpacks" and **add in the following order:**
+    * `heroku/python`
+    * `heroku/nodejs`
+6. Scroll down to "Config Vars" and add the following:
+    * `Key: PORT`
+    * `value: 8000`
+
+**Note:** If you have credentials, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+
+7. Go to the "Deploy" tab at the top.
+8. Select "GitHub" as the Deployment method.
+9. Select "Connect to GitHub."
+10. Search for your GitHub repository and click connect. Once connected, it will show as follows:
+
+![Heroku/GitHub connection](readme-images/heroku-github.png)
+
+11. Scroll down to "Manual deploy" and click "Deploy branch". The app will start to build installing the various packages listed and the dependencies from the `requirements.txt` file. Once complete, click on the "view" button which will take you to the live site:
+
+![Successful deployment](readme-images/sucessful-deployment.png)
+
+There is also the option to "Enable Automatic Deploys" which will build the app as soon as it is pushed to the GitHub repository and can be used if preferred.
+
+The live link to the site can be found here: [Hangman Lite.](https://hangman-lite-2cf8212eb558.herokuapp.com/)
+
+
+### Contribution
+
+I welcome any contributions/recommendations/changes to the project. To do this, the GitHub repository would need to be forked from GitHub and downloaded locally so it can be worked on. 
+
+GitHub has provided step by step instructions on how to do this [here.](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project#forking-a-repository)
+
+[Back to Contents.](#table-of-contents)
+
+## Technologies and tools Used
+### Languages used
+ * Python   
+### Frameworks, Libraries and Programs Used
+
+* #### The following libraries were used:
+    * ```Import random``` - to select the random word.
+    * ```Import sys``` - to implement the quit functionality.
+    * ```Import gspread```
+     ```from google.oauth2.service_account import Credentials``` - for the API.
+
+* #### The following requirements were defined in the requirements.txt file for API connection to google sheets (also needed for deployment):
+
+     `cachetools==5.5.0`
+
+     `google-auth==2.35.0`
+
+     `google-auth-oauthlib==1.2.1`
+
+     `gspread==6.1.4`
+
+     `oauthlib==3.2.2`
+
+     `pyasn1==0.6.1`
+
+     `pyasn1_modules==0.4.1`
+
+     `requests-oauthlib==2.0.0`
+
+     `rsa==4.9`
+
+* #### **Google sheets**: 
+
+    * Google sheets has been used to store the words used in the game and have been imported in using an API. 
+
+* #### **Git/Gitpod**:
+
+  * Gitpod’s workspace was used using the VSCode online editor using git to push to GitHub using version control. 
+
+* #### **GitHub**:
+
+  * GitHub has been used to store the version control repository for the project.
+
+* #### **Heroku**:
+
+  * Heroku has been used to build and deploy the project.
+
+* #### **Figma:** [Figma: The Collaborative Interface Design Tool](https://figma.com/)
+
+  * Figma has been used to create the process map and the UX illustrations of the site.
+
+
+[Back to Contents.](#table-of-contents)    
+## Credits
+### Content
+* The words used for the game were sourced from [The Game Gal.](https://www.thegamegal.com/wp-content/uploads/2011/11/Pictionary-Words-Medium.pdf) The hints were added in manually.
+
+*   The implementation of the google Sheets API was done by following the [Love Sandwiches - Essentials CI Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/071036790a5642f9a6f004f9888b6a45/) and adapted to the naming convention of my project.
+
+    * The code used from the project above (at global level):
+
+      ```
+          import gspread
+          from google.oauth2.service_account import Credentials
+
+          CREDS = Credentials.from_service_account_file('creds.json')
+          SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+          GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+          SHEET = GSPREAD_CLIENT.open('hagman_lite_words')
+          get_words = SHEET.worksheet('words')
+      ```
+    * The code used in the ```choose_random_word``` function:
+
+      ``` 
+        words = get_words.get_all_values()
+      ```
+   
+    
+* The implementation of the python exit function was done by following the tutorial [Python Exit – How to Use an Exit Function in Python to Stop a Program by Shittu Olumide ](https://www.freecodecamp.org/news/python-exit-how-to-use-an-exit-function-in-python-to-stop-a-program/)
+
+    * The code used from the tutorial:
+    ```
+    import sys
+    ...
+    sys.exit(0)
+    ```
+    * This code has been used in the ```quit_game``` function.
+* The reading in the rules from a text file was utilised from Code Institute's [Python Essentials: Python I/O Exception Handling > Reading Data from a File.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+CPP_06_20+3/courseware/e38bbf480aec434f9f00f0bf6285e35c/b2704e108fc94223bd931f672cf929d4/) 
+
+  * The code utilised (and adapted into my project) was:
+    
+    ```
+      file = open("instructions.txt", 'r')
+        print(file.read())
+        file.close()
+    ```
+  * This code has been used in the  ```display_instructions``` function.
+
+**Please note**: Referencing comments have been placed in the respected code locations for the code used above.
+### General
+* The following resources have been used as a general guide for python and it's built in functions:
+
+  * [Python Tutor](https://pythontutor.com/visualize.html#mode=edit) 
+  * [W3Schools](https://www.w3schools.com/python/default.asp) 
+  * [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
+  * [Learnpython.org](https://www.learnpython.org/)
+  * [The Python Tutorial - Python Docs](https://docs.python.org/3/tutorial/index.html)
+  
+[Back to Contents.](#table-of-contents)
+## Overall Credit
+
+A huge thank you to Code Institute for the learning and lesson material which has been amazing and my fellow students on Slack for their support! 
+## Personal Summary
+
+As this project was my first full exposure to indept python, it has brought with it a decent learning curve. The detailed content, and the invaluable advice and guidance from an amazing mentor has allowed me to further develop and refine on my coding journey.
+
+I have endeavoured to implement any guidance given on my previous projects with the view of incorporating this as part of my standard coding practice.
+
+The main take away point from this project has been around the value of breaking the requirements down into smaller manageable tasks on a "to do" list. Having this in place from the beginning has enabled me to build up the project step by step using a methodical approach. 
+
+This has been taken on board with a view to maintaining this on future projects.
