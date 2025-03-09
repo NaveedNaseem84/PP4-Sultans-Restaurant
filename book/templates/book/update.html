@@ -5,7 +5,7 @@
   <div class="container">
 
     <div id="update-container-bg" class="container">
-      <h1 class="p-3">Ammend your booking</h1>
+      <h1 class="p-3">Update your booking</h1>
       <hr>
       <div class="row justify-content-md-center text-center">
         <div class=" col-sm-4 text-left">
@@ -14,7 +14,7 @@
             <p><a href="{% url 'create_booking' %}">click here</a> to go back to your bookings.</p>
             {{ form | crispy }}
             <button class="btn btn-primary" type="submit">update</button>
-            <button class="btn btn-secondary" type="reset">reset</button>
+            <button class="btn btn-warning" type="reset">reset</button>
           </form>
         </div>
       </div>

@@ -13,7 +13,7 @@
           <h2>create a booking:</h2>
           {{ form | crispy }}
           <button class="btn btn-primary" type="submit">submit</button>
-          <button class="btn btn-secondary" type="reset">reset</button>
+          <button class="btn btn-warning" type="reset">reset</button>
         </form>
 
       </div>
@@ -43,7 +43,7 @@
 <!-- Modals-->
 
 <div class="modal text-dark" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteConfirmLabel">Delete confirmation</h5>
@@ -59,8 +59,6 @@
     </div>
   </div>
 </div>
-
-
 
 {% endblock %}
 
