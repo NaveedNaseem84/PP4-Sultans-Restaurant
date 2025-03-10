@@ -20,7 +20,7 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 
 * Process Map
 
-* Entity Relationship Diagrams
+* Models and Entity Relationship Diagrams
 
 ### [Main Page](#main-page-1)
 
@@ -203,6 +203,8 @@ The next step taken was to create wireframes (shown below) using Balsamiq. These
 
 ![booking_updated](readme-images/wireframes/13_booking_update.png)
 
+[Back to Contents.](#table-of-contents)
+
 
 ### UX View
 
@@ -228,20 +230,110 @@ Following on from the wireframe designs, final UX views of the site were created
 
 ![update_booking](readme-images/UX/10_ux_update_booking.png)
 
+[Back to Contents.](#table-of-contents)
+
+Completion of the UX element provided a clear refined picture of the finished product. The definition of colours, classes, placements, and components provided all the necessary information to develop the site ensuring a positive user experience.  
+
 
 ### Pseudo - functions needed (Brainstorm)
 
+On completion of the UX element, the next step take was to map out the functions needed for the booking system to perform as needed: 
+
+![pseudo-functions](readme-images/pseudo_functions.jpeg)
+
 ### Process Map
 
-### 
+The diagrams below map out the processes and paths taken based on the choices made and the validation outcome:
 
+![create booking](readme-images/process-maps/process_map_create_booking.png)
+
+![update booking](readme-images/process-maps/process_map_update_booking.png)
+
+![delete booking](readme-images/process-maps/process_map_delete_booking.png)
+
+![promotion management](readme-images/process-maps/process_map_prmotions.png)
+
+![menu management](readme-images/process-maps/process_map_menu.png)
+
+These process maps have played a pivital part as a reference guide during the course of the development. They have allowed me to ensure that all requirements and acceptance criteria from the user stories have been satisfied. 
+
+[Back to Contents.](#table-of-contents)
+
+
+### Models and Entity Relationship Diagrams (ERD's)
+
+The project is broken down in to four django models:
+
+1. WelcomePromotion - for the promotions on the home page.
+2. MenuItem - for the menu items.
+3. MakeBooking - for the bookings.
+4. AboutUs - for the content on the about us page. 
+
+#### 1. WelcomePromotion
+
+The welcome model contains the setup:
+
+- promotion_title:  the title for the promotion.
+- description: description of the promotion.
+- is_valid: whether the current promotion is running or not.
+- added_on: automated date on when the promotion was added.
+
+The ERD schema for the WelcomePromotion model is displayed below:
+
+![ERD: WelcomePromotion](readme-images/ERDS/erd_welcomePromotion.png)
+
+
+#### 2. MenuItem
+
+The MenuItem model contains the setup:
+
+- name: name of the item.
+- description: description of the item.
+- category: category choices( Starter, Main, Side, Dessert, Drink) for the item to placed in.
+- price: cost of the item.f
+- added_on: automated date on when the item was added to the menu. 
+- active: whether the item is available or not.
+
+The ERD schema for the MenuItem model is displayed below:
+
+![ERD: MenuItem](readme-images/ERDS/erd_MenuItem.png)
+
+
+#### 3. MakeBooking
+
+The MakeBooking model contains the setup:
+
+- user: name of the requested user.
+- name: name for the booking(automatically assigned the requested user).
+- email: email for the booking.
+- phone: phone for the booking.
+- date: date of the booking.
+- time_slot: time for the booking.
+- number_of_people: number of people on the booking.
+- special_requests: any special requests for the booking (e.g. birthday).
+
+The ERD schema for the MakeBooking model is displayed below:
+
+![ERD: MakeBooking](readme-images/ERDS/erd_MakeBooking.png)
+
+#### 4. AboutUs
+
+The AboutUs model contains the setup:
+
+- name: name of the entry.
+- description: content for the current entry.
+- added_on: automated date on when entry was added in.
+- is_valid: whether the current about us content is displayed or not. 
+
+The ERD schema for the AboutUs model is displayed below:
+
+![ERD: AboutUs](readme-images/ERDS/erd_AboutUs.png)
+
+[Back to Contents.](#table-of-contents)
 
 ## Main page
 
 ### Features
-
-
-
 
 [Back to Contents.](#table-of-contents)
 
