@@ -46,4 +46,4 @@ class MakeBooking(models.Model):
     special_requests = models.CharField(max_length=150, blank=True)
 
     def __str__(self):
-        return f"Booking for: {self.name} on {self.date} at {self.time_slot}"
+        return f"Booking for: {self.user} on {self.date} at {self.time_slot}"

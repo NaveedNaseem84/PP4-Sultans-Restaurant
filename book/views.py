@@ -4,6 +4,7 @@ Import of libraries, model and form
 
 from datetime import date
 from django.shortcuts import render, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import MakeBooking
@@ -24,7 +25,8 @@ class BookingManagement():
             BookingManagement.msg_no_backward_date(request)
             return False
         return True
-
+    
+    @login_required
     def create_booking(request):
         """
         Creates a new booking.
@@ -34,7 +36,7 @@ class BookingManagement():
         - display a message if its not the case
         If all the above satisfied, save booking
         """
-
+       
         if request.method == "POST":
             form = BookingForm(data=request.POST)
 
@@ -47,8 +49,7 @@ class BookingManagement():
 
                 if availability_check:
                     currentbooking = form.save(commit=False)
-                    #currentbooking.user = request.user
-                    currentbooking.name = request.user
+                    currentbooking.user = request.user
                     currentbooking.save()
                     BookingManagement.msg_sucessful_booking(request)
                     return HttpResponseRedirect(reverse("create_booking"))
@@ -65,7 +66,8 @@ class BookingManagement():
              "bookings": bookings,
              "booking_count": booking_count},
         )
-
+    
+    @login_required
     def delete_booking(request, booking_id):
         """
         delete the selecting booking. A confirmation of the
@@ -76,6 +78,7 @@ class BookingManagement():
         BookingManagement.msg_booking_deleted(request)
         return HttpResponseRedirect(reverse("create_booking"))
 
+    @login_required
     def update_booking(request, booking_id):
         """
         Update the selected booking. Selected booking values

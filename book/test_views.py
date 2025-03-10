@@ -25,7 +25,6 @@ class CreateBookingTestCase(TestCase):
 
         self.booking = MakeBooking.objects.create(
             user=self.user,
-            name=self.user.username,
             email='test@me.com',
             phone='01212490141',
             date=self.existing_booking_date,
