@@ -47,7 +47,7 @@ class BookingManagement():
 
                 if availability_check:
                     currentbooking = form.save(commit=False)
-                    currentbooking.user = request.user
+                    #currentbooking.user = request.user
                     currentbooking.name = request.user
                     currentbooking.save()
                     BookingManagement.msg_sucessful_booking(request)
@@ -55,7 +55,7 @@ class BookingManagement():
         else:
             form = BookingForm()
 
-        bookings = MakeBooking.objects.filter(name=request.user)
+        bookings = MakeBooking.objects.filter(user=request.user)
         booking_count = bookings.count()
 
         return render(

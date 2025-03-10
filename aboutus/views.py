@@ -12,7 +12,7 @@ def about_us(request):
     creates the about us view and renders using about.html
     """
     #about = AboutUs.objects.all()
-    aboutus = AboutUs.objects.filter(is_valid="Yes")
+    aboutus = AboutUs.objects.filter(is_valid="Yes").first()
     return render(
         request,
         "aboutus/about.html",

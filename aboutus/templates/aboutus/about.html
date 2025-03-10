@@ -6,10 +6,9 @@
         <div id="about-bg" class="container">
           <h1>About us</h1>
           <hr>
-          <div id="about-us-content" class="p-3 col-sm-10 ml-8 text-left">
-            {% for about in aboutus %}
-            {{about.description  | safe }}
-            {% endfor %}    
+          <div id="about-us-content" class="p-3 col-sm-10 ml-8 text-left">           
+            {{aboutus.description  | safe }}
+              
           </div>
         </div>
       </div>
