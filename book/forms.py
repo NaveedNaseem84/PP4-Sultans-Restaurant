@@ -17,9 +17,7 @@ class BookingForm(forms.ModelForm):
         """
 
         model = MakeBooking
-        exclude = ["name"]
         fields = (
-            "name",
             "email",
             "phone",
             "date",

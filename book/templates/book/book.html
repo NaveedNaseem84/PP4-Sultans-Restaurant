@@ -21,7 +21,7 @@
         <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
         {% for booking in bookings %}
         <div style="border-bottom: 2px solid white;padding: 10px; ">
-          <p>Name: {{ booking.name }}</p>
+          <p>Name: {{ booking.user }}</p>
           <p>on: {{ booking.date }}</p>
           <p>at: {{ booking.time_slot }}pm, for: {{ booking.number_of_people }}</p>
           <button class="btn btn-danger btn-delete-booking" data-booking-id="{{ booking.id}}" data-bs-toggle="modal"
