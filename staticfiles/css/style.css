@@ -80,6 +80,11 @@ nav li {
 
 }
 
+#current-promotions-hidden {
+  display: none;
+
+}
+
 #follow-on-menu a:link,
 #follow-on-booking a:link {
   text-decoration: none;

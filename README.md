@@ -22,9 +22,12 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 
 * Models and Entity Relationship Diagrams
 
-### [Main Page](#main-page-1)
+### [Project Walkthrough](#project-walkthrough-1)
 
-* Features
+* Home
+* Menu
+* Book
+* About us
 
 ### [Testing](#testing-1)
 
@@ -128,7 +131,7 @@ Each user below contains the initial story along with acceptance criteria. These
 - The manager should be able to login and be validated as such.
 - A link should be made available for the manager to update the menu.
 - The manager should be able to navigate to the menu section.
-- Each menu item has a name, an option description, price and status which should be filled in.
+- Each menu item has a name, an option description, price, and status which should be filled in.
   -   Status should allow for the item to be active/inactive from the menu.
 - The manager should be able to add new items to the menu.
 - The manager should be able to delete/update current items in the menu.
@@ -168,7 +171,7 @@ Each user below contains the initial story along with acceptance criteria. These
 
 ### Mind Map: Ideas
 
-Following on from the user stories, a initial mind map(pen to paper) was created to capture functionality of the site. The purpose of this was to provide a high-level understanding of how the user stories could be implemented:
+Following on from the user stories, an initial mind map(pen to paper) was created to capture functionality of the site. The purpose of this was to provide a high-level understanding of how the user stories could be implemented:
 
 ![Mindmap](readme-images/mind_map.jpeg)
 
@@ -255,14 +258,14 @@ The diagrams below map out the processes and paths taken based on the choices ma
 
 ![menu management](readme-images/process-maps/process_map_menu.png)
 
-These process maps have played a pivital part as a reference guide during the course of the development. They have allowed me to ensure that all requirements and acceptance criteria from the user stories have been satisfied. 
+These process maps have played an essential part as a reference guide during the development. They have allowed me to ensure that all requirements and acceptance criteria from the user stories have been satisfied. 
 
 [Back to Contents.](#table-of-contents)
 
 
 ### Models and Entity Relationship Diagrams (ERD's)
 
-The project is broken down in to four django models:
+The project is broken down into four django models:
 
 1. WelcomePromotion - for the promotions on the home page.
 2. MenuItem - for the menu items.
@@ -289,8 +292,8 @@ The MenuItem model contains the setup:
 
 - name: name of the item.
 - description: description of the item.
-- category: category choices( Starter, Main, Side, Dessert, Drink) for the item to placed in.
-- price: cost of the item.f
+- category: category choices( Starter, Main, Side, Dessert, Drink).
+- price: cost of the item.
 - added_on: automated date on when the item was added to the menu. 
 - active: whether the item is available or not.
 
@@ -303,8 +306,7 @@ The ERD schema for the MenuItem model is displayed below:
 
 The MakeBooking model contains the setup:
 
-- user: name of the requested user.
-- name: name for the booking(automatically assigned the requested user).
+- user: the individual creating the booking.
 - email: email for the booking.
 - phone: phone for the booking.
 - date: date of the booking.
@@ -331,11 +333,176 @@ The ERD schema for the AboutUs model is displayed below:
 
 [Back to Contents.](#table-of-contents)
 
-## Main page
+## Project Walkthrough
+
+For the purposes of this project, roles with specific permissions have been setup and are as follows,
+
+**manager:** The manager account has been setup so that they can:
+- add/update/delete promotions on the home page.
+- add/update/delete content on the about us page.
+- add/update/delete items on the menu.
+
+**admin:** The admin account has been setup so that they can:
+- add/update/delete promotions from the home page.
+
+**testuser:** The testuser account is a standard user, registered via the website that can:
+- add/update/delete their own bookings.
+- can only see their own bookings when logged in.
+
+For clarity, these accounts will be referenced throughout this document.
+
+**Please note:** The management of the menu, promotions and about us content is done using Django's admin panel. It is proposed as future developments to incorporate this into the front-end design reducing the need to use the admin panel.
+
+## Home
+
+The site presents a clean, elegant design with the aim of providing a welcoming atmosphere. The user is presented with a crisp layout, in an easy flowing colour scheme. The user's attention is captured by promotions available which are presented in an eye-catching way. The site is accessible on multiple devices giving a seamless user experience as illustrated below:
+
+![Responsive site](readme-images/project-walkthrough/responsive-all-devices.png)
+
+_**Image above generated using https://ui.dev/amiresponsive illustrating the responsiveness of the site.**_
 
 ### Features
+#### Navigation
+
+- The top of the page features a navigation menu with the site links available to the right
+- home, menu, book, about us, login, register links: these take the user to the respected pages. 
+- The navigation menu is available through the site and is styled reflecting which page the user is currently on(in bold) and which link is being hovered over (in red)
+
+![menu-bar-full](readme-images/project-walkthrough/menu_full.png)
+
+#### Menu - toggle
+ 
+ - Devices running in other views such as mobile are presented with a light version of the menu that can be expanded as need providing the same functionality as the full version:
+
+ ![toggle-menu](readme-images/project-walkthrough/menu_toggle.png)
+
+ Below the menu, the user is welcomed to the site and instantly made aware of any special promotions that are running at the restaurant:
+
+
+![home-welcome](readme-images/project-walkthrough/home_welcome.png)
+
+The homepage also provides additional user interaction by placing convenient links to the menu and the bookings page in a clear manner. The placement of these links highlights the ease of access to the services on offer:
+
+![follow-on-links](readme-images/project-walkthrough/follow_on_links.png)
+
+Should the admin add, update, or remove any current promotions via the admin panel, these changes are reflected instantly on the live home page:
+
+![no-promotions](readme-images/project-walkthrough/no-promotions.png)
+
+
+#### Footer
+
+- The footer contains links to the respected social media sites Facebook, X, Instagram, and YouTube using font awesome icons.
+- These links are all opened in a new tab.
+- The footer is available on all pages.
+
+![footer-links](readme-images/project-walkthrough/footer_links.png)
+
+**Please note:** There are currently no active social media pages for Sultan's. These links have been added in as place holders only. 
 
 [Back to Contents.](#table-of-contents)
+
+## Menu
+### Features
+
+Navigating to the menu page the user is presented with simple but effective layout. The menu has been broken down into the relevant categories to provide maximum user experience:
+
+![menu-page](readme-images/project-walkthrough/menu_page.png)
+
+The user has the option to select any heading as they please resulting in a fully responsive, interactive menu that provides the requested information. The menu items are listed with their name, description (if applicable) and price:
+
+![show-menu-open](readme-images/project-walkthrough/show_menu_open.png)
+
+There is an allergen note made available at the bottom of the menu, ensuring that any necessary information is available to user along with any dietary needs.
+
+Like the promotions on the home page, if the manager adds, updates, or removes any items from the menu, these changes are reflected instantly on the site. This ensures that that site always provides the latest version of the menu.
+
+[Back to Contents.](#table-of-contents)
+
+## Bookings
+### Features
+
+The booking page requires the user to be logged in. The purpose of this login is to ensure that only the logged in user can create, update, or delete a booking, which will be reflected within their account. The initial navigation to this page presents the follow:
+
+![alt text](readme-images/project-walkthrough/booking_not_logged_in.png)
+
+If the user has an account already with Sultan's, they are welcome to login. On successful login, they are re-directed to the bookings page under their account. 
+
+If the user is a new visitor to the site and does not have an account, they have a link available on the login page and the navigation menu to register:
+
+![register](readme-images/project-walkthrough/register.png)
+
+The registration process is simple; a username, optional email and a password that meets the criteria given. Once registered, the user is logged in as this registered user and automatically logged in:
+
+![logged-in](readme-images/project-walkthrough/booking_logged_in.png)
+
+**Please Note:** The assumption is now that the testuser has logged in for the remainder of this section.
+
+Once logged, the booking page features a form allowing the testuser to create a booking. The information collected on the form is:
+
+- Email - required field (in the correct format).
+- Phone - required field (in the correct format with a maximum of 11 numbers).
+- Date - required field ( from today onwards)
+- Time slot - required field.
+- Number of people - required field.
+- special requests - optional.
+
+![booking-form](readme-images/project-walkthrough/booking_form_empty.png)
+
+On submission of the form, the required fields are validated. If there are any errors, these are highlighted accordingly, prompting correction.
+
+In addition to the validation, there is a requirement for the date to be valid; it can only be from today onwards. Should the date be prior to today, an alert is given:
+
+![invalid-date](readme-images/project-walkthrough/invalid_date.png)
+
+[Back to Contents.](#table-of-contents)
+
+### Create Booking
+
+On a successful submission of the form, the site will perform an availability check to ensure that the date and time requested by testuser is available to book. If available, the booking will be created, testuser notified, and the booking details made available in testuser's account:
+
+![booking-created](readme-images/project-walkthrough/booking_created.png)
+
+If there is no availability, testuser is notified accordingly:
+
+![no-availability](readme-images/project-walkthrough/no-availability.png)
+
+The options to update and delete the booking are now available to testuser.
+
+### Update Booking
+
+To update the booking, the "Update" button is clicked which takes testuser to the update booking page. This page pre-populates the form with the current details make the process quick and easy:
+
+![update-booking](readme-images/project-walkthrough/update_booking.png)
+
+Testuser now can simply go in and update fields such as the number of people, or special requests, and save the form. If the date and time are to change, this would need to be checked for availability. If there is availability, the booking is updated,and an alert displayed:
+
+![booking-updated](readme-images/project-walkthrough/booking_updated.png)
+
+If there is no availability, similar to creating a booking, an alert is displayed. 
+
+Should testuser want to navigate back to the bookings page, and select another booking, there is a "click here" link available to do this. 
+
+### Delete Booking
+
+To delete the booking, the "Delete" button is selected which displays an alert asking for confirmation of the delete:
+
+![delete-confirm](readme-images/project-walkthrough/delete-confirm.png)
+
+Once the delete has been confirmed, the selected booking is deleted and no longer visible in testuser's account. An alert is also displayed confirming the delete:
+
+![booking-deleted](readme-images/project-walkthrough/booking_deleted.png)
+
+### Booking Management
+
+The manager has the ability to manage all the bookings that have been created. Once logged in, and authenticated as having access to the admin panel the manager will have total visiblity:
+
+![manager-booking-visbility](readme-images/project-walkthrough/manager_booking_visibility.png)
+
+From here, the manager is able to create, update or delete a booking. Once the neccessary action has been performed, the respected user's will show the changes.
+
+In addition to this, to allow the management of bookings to be as efficient as possible, the manager has the facility to search by username, email and phone. Filtering options are also available and include date and time slot which can be seen on the right of the screen.
+
 
 ## Testing
 
@@ -347,10 +514,9 @@ The ERD schema for the AboutUs model is displayed below:
 
 ### Manual Testing
 
-
-
-
 ## Future Developments
+
+
 
 
 
