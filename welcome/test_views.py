@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class TestWelcomePromotionView(TestCase):
 
-    def test_welcomepage_view(self):
+    def test_home_view(self):
         """
         Test the view is rendered correctly using the
         template index.html
