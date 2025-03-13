@@ -3,7 +3,6 @@ Import of libraries
 """
 from django.shortcuts import render
 from .models import MenuItem
-# Create your views here.
 
 
 def menu_list(request):

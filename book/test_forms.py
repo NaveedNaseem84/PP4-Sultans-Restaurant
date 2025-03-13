@@ -1,6 +1,5 @@
 from django.test import TestCase
 from .forms import BookingForm
-# Create your tests here.
 
 
 class TestBookingForm(TestCase):

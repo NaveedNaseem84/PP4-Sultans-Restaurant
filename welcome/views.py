@@ -4,7 +4,6 @@ Import of libraries
 
 from django.shortcuts import render
 from .models import WelcomePromotion
-# Create your views here.
 
 
 def welcome_page(request):

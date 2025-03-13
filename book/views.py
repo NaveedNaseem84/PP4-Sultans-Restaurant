@@ -25,7 +25,7 @@ class BookingManagement():
             BookingManagement.msg_no_backward_date(request)
             return False
         return True
-    
+
     @login_required
     def create_booking(request):
         """
@@ -36,7 +36,7 @@ class BookingManagement():
         - display a message if its not the case
         If all the above satisfied, save booking
         """
-       
+
         if request.method == "POST":
             form = BookingForm(data=request.POST)
 
@@ -66,7 +66,7 @@ class BookingManagement():
              "bookings": bookings,
              "booking_count": booking_count},
         )
-    
+
     @login_required
     def delete_booking(request, booking_id):
         """
@@ -156,19 +156,19 @@ class BookingManagement():
         """
         messages.add_message(
             request, messages.SUCCESS, "Booking Deleted.")
-        
+
     def msg_date_time_unavailable(request):
         """
         Time slot on date not available displayed.
         """
         messages.add_message(
-            request, messages.ERROR, 
+            request, messages.ERROR,
             "Sorry, time slot unavailable on this date.")
-    
+
     def msg_no_backward_date(request):
         """
         Time slot on date not available displayed.
         """
         messages.add_message(
-            request, messages.ERROR, 
+            request, messages.ERROR,
             "You can only book from today onwards!")

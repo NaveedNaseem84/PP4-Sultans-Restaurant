@@ -98,7 +98,7 @@
     {% if user.is_authenticated %}
     <p class="text-center m-3">welcome {{ user }}</p>
     {% else %}
-    <p class="text-center m-3">You are not logged in</p>
+    <p class="text-center m-5"></p>
     {% endif %}
 
     <!--Django alert messages-->
@@ -106,7 +106,7 @@
       <div class=" text-center">
         <div class="col-sm-12 offset-sm-2 col-md-8 offset-md-4 col-lg-8 offset-lg-2">
           {% for message in messages %}
-          <div class=" bg-light text-dark alert {{ message.tags }} alert-dismissible
+          <div class="alert {{ message.tags }} alert-dismissible
           show" id="msg" role="alert">
             {{ message | safe }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -124,10 +124,10 @@
   <!--footer-->
   <footer class="footer mt-auto py-1 dark-bg fs-3 text-center ">
     <hr>
-    <a href="https://Facebook.com" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i class="fab fa-facebook-square ms-3 text-white"></i></a>
-    <a href="https://x.com/?lang=en" target="_blank" rel="noopener" aria-label="new tab - visit us on X"><i class="fab fa-twitter-square ms-3 text-white"></i></a>
-    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="new tab - visit us on instagram"><i class="fab fa-instagram-square ms-3 text-white"></i></a>
-    <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="new tab - visit us on youtube"><i class="fab fa-youtube-square ms-3 text-white"></i></a>
+    <a href="https://Facebook.com" target="_blank" rel="noopener" aria-label="new tab - visit us on facebook"><i class="fab fa-facebook-square ms-3 p-3 text-white"></i></a>
+    <a href="https://x.com/?lang=en" target="_blank" rel="noopener" aria-label="new tab - visit us on X"><i class="fab fa-twitter-square ms-3 p-3  text-white"></i></a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="new tab - visit us on instagram"><i class="fab fa-instagram-square ms-3 p-3 text-white"></i></a>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="new tab - visit us on youtube"><i class="fab fa-youtube-square ms-3 p-3 text-white"></i></a>
   </footer>
   <!--bootstrap js import-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

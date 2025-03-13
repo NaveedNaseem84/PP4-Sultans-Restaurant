@@ -16,7 +16,9 @@ class WelcomePromotion(models.Model):
     """
     promotion_title = models.CharField(max_length=100, blank=False)
     description = models.TextField(blank=True)
-    is_valid = models.CharField(choices=VALID_CHOICES, max_length=3, blank=False)
+    is_valid = models.CharField(
+        choices=VALID_CHOICES,
+        max_length=3, blank=False)
     added_on = models.DateField(auto_now_add=True)
 
     def __str__(self):
