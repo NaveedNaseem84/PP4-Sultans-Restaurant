@@ -11,8 +11,7 @@ VALID_CHOICES = [
 
 class WelcomePromotion(models.Model):
     """
-    Model structure for the promotions to be
-    displayed on the home page.
+    Stores a single promotion entry.
     """
     promotion_title = models.CharField(max_length=100, blank=False)
     description = models.TextField(blank=True)

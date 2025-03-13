@@ -19,7 +19,7 @@ ACTIVE_CHOICES = [
 
 class MenuItem(models.Model):
     """
-    Model structure for the menu.
+    Stores a single menu item entry.
     """
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)

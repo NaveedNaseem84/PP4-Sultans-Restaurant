@@ -11,9 +11,7 @@ VALID_CHOICES = [
 
 class AboutUs(models.Model):
     """
-    Model for the about page. This will give management the
-    ability to change the content in the future if needed via the
-    admin panel.
+    Stores a single about us entry.
     """
     title = models.CharField(max_length=50, unique=True)
     description = models.TextField()

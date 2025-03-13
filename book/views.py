@@ -1,12 +1,12 @@
 """
-Import of libraries, model and form
+Import of Django libraries, model and form
 """
 
-from datetime import date
 from django.shortcuts import render, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from datetime import date
 from .models import MakeBooking
 from .forms import BookingForm
 

@@ -1,9 +1,9 @@
 """
 Import of libraries
 """
-from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+from django.db import models
 
 
 TIME_SLOTS = [
@@ -26,8 +26,7 @@ NO_OF_PEOPLE = [
 
 class MakeBooking(models.Model):
     """
-    Model to hold the bookings. Cascade used to delete bookings
-    if respected user is deleted/removed from the system.
+    Stores a single booking entry related to :model:`auth.User`
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              related_name="bookings")

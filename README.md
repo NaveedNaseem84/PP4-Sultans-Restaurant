@@ -24,6 +24,7 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 
 ### [Project Walkthrough](#project-walkthrough-1)
 
+* Roles
 * Home
 * Menu
 * Book
@@ -68,9 +69,6 @@ The intended purpose is to provide a seamless experience with a user-friendly me
  * Overall Credit
 
 ### [Personal Summary](#personal-summary-1)
-
-#
- 
 
 ## User Experience (UX)
 ### User Stories
@@ -493,6 +491,8 @@ If there is no availability, like creating a booking, an alert is displayed.
 
 Should testuser want to navigate back to the bookings page, and select another booking, there is a "click here" link available to do this. 
 
+[Back to Contents.](#table-of-contents) 
+
 ### Delete Booking
 
 To delete the booking, the "Delete" button is selected which displays an alert asking for confirmation of the delete:
@@ -530,6 +530,8 @@ To complete the current logged in session, a logout option is available on the m
 
 Once confirmed, the testuser is logged out and the site is ready for the next user.
 
+[Back to Contents.](#table-of-contents) 
+
 ## Testing
 
 ### Fixed Bugs 
@@ -558,6 +560,7 @@ If the fields other than the date and time were being updated, the booking was b
     - save if available.
 4. If the date and time remains unchanged, save the form with any other changes. 
 
+[Back to Contents.](#table-of-contents) 
 ### Validation Testing
 
 The code has been tested with the following:
@@ -621,9 +624,9 @@ The following manual testing has been carried out to confirm if the site's perfo
 |MT38*  |Search booking - manager                       | Search using name, contact or date to find booking              | Searchable with expected fields         |Pass   |
 
 
-
-
 *Functionality carried out on the admin panel but has been tested to ensure functionality for this project.
+
+[Back to Contents.](#table-of-contents) 
 
 ### Automated Testing - scripts
 
@@ -669,7 +672,7 @@ A combination of the manual and automated testing has tested all aspects of the 
 | US7         |MT5, MT35 - MT38                     |Successful|
 | US8         |MT3                                  |Successful|
 
-
+[Back to Contents.](#table-of-contents) 
 ## Future Developments
 
 There are three potential future developments for this project.
@@ -736,20 +739,95 @@ I welcome any contributions, recommendations or changes to the project. To do th
 
 GitHub has provided step by step instructions on how to do this [here.](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project#forking-a-repository)
 
-
+[Back to Contents.](#table-of-contents) 
 
 ## Technologies and tools Used
 ### Languages used
+
+* HTML
+* CSS
+* JavaScript
+* Python
    
 ### Frameworks, Libraries and Programs Used
+* Framework
+  * #### [Django framework](https://www.djangoproject.com/)
 
+* #### The following libraries were used:
+    * crispy forms: To allow the control and rendering of the booking form.
+    * summernote: To allow the content on the about us page to be formatted/styled independently.
+    * allauth: To allow registration, login, authentication, and logout of users. 
+    * whitenoise: To allow the project to serve it's own static files.    
+
+* #### Google Fonts: [Poppins](https://fonts.google.com/specimen/Poppins) 
+
+  * The Poppins font was imported into the style sheet (style.css) and used throughout the project.
+
+* #### Font Awesome: [Font awesome](https://fontawesome.com/)
+
+  * The social media icons on the footer were placed used font awesome. The classes used are listed in the UX section.
+
+* #### Git/Gitpod:
+
+  * Gitpod’s workspace was used using the VSCode online editor using git to push to GitHub using version control. 
+
+* #### VSCode:
+
+  * Full version of VSCode using git to push to GitHub using version control post migration.
+
+* #### GitHub:
+
+  * GitHub has been used to store the version control repository for the project.
+
+* ### Heroku:
+  * Heroku has been used to build and deploy the project.
+
+* #### Figma: [Figma: The Collaborative Interface Design Tool](https://figma.com/)
+
+  * Figma has been used to create the the process maps, UX illustrations of the site, and ERD's diagrams for the models.
+
+* #### Balsamiq: [Balsamiq: Wireframe your way to faster, better product decisions ](https://balsamiq.com/)
+
+  * Balsamiq has been used to create the wireframes.
+
+* #### favicon.io: [favicon.io](https://favicon.io/favicon-converter/)
+  * Used to create the favicons from an image (Image credited below).
+
+* The code has been formatted using the following extensions within VSCode:
+  * Prettier
+  * Flake8
+  * Ruff
+
+* #### Adobe Photoshop:
+
+  * Adobe has been used to apply the blur effect to the images.
+
+* #### [TinyPNG – Compress WebP, PNG and JPEG images intelligently.](https://tinypng.com/)
+  * Tiny PNG was used to optimise the images for web use. 
 
 
 [Back to Contents.](#table-of-contents)    
+
 ## Credits
+* The background used on the home and about page was taken from: [Assorted Spices on the Table - Pexels.](https://www.pexels.com/photo/assorted-spices-on-the-table-5740292/)
+
+* The background used on menu page was taken from: [Rich Indian Lamb Curry in Traditional Metal Bowl - Pexels.](https://www.pexels.com/photo/rich-indian-lamb-curry-in-traditional-metal-bowl-28674690/)
+
+* The image used to create the favicon was taken from: [FlatIcon.](https://www.flaticon.com/free-icon/cutlery_1690261?related_id=1689974&origin=search)
+
+* Inspiration for the menu was taken from : [Indian Tiffin Room.](https://indiantiffinroom.com/manchester/)
+
+* The navigation arrow image was taken from : [SVG Repo-Down Arrow SVG Vector.](https://www.svgrepo.com/svg/403209/down-arrow)
+
+
+
 ### Content
 
 ## Overall Credit
+
+A thank you to Code Institute for the learning curve, and lesson material, which has been incredible and my fellow students on Slack for their continued support!
+
+I also would like to give a special thanks to the Tutor Assistance team at Code Institute for all their help on getting back on track during the migration period.
 
 
 ## Personal Summary
