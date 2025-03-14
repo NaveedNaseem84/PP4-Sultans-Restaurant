@@ -6,6 +6,14 @@ from .models import MakeBooking
 class BookAdmin(admin.ModelAdmin):
     """
     Admin panel structure for the bookings.
+
+    **Context**
+        ``list_display``
+            user, date, time_slot, number_of_people
+        ``search_fields``
+            user__username, email, date, phone
+        ``list_filter``
+            date, time_slot
     """
     list_display = ("user", "date", "time_slot", "number_of_people")
     search_fields = ['user__username', 'email', 'date', 'phone']

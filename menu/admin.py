@@ -9,6 +9,14 @@ from .models import MenuItem
 class MenuAdmin(admin.ModelAdmin):
     """
     Admin panel setup for the Menu allow.
+
+     **Context**
+        ``list_display``
+            name, description, price, category, active
+        ``search_fields``
+            name, category, active
+        ``list_filters``
+            name, category, active
     """
     list_display = ('name', 'description', 'price', 'category', 'active')
     search_fields = ['name', 'category', 'active']

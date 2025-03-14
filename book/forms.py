@@ -8,7 +8,15 @@ from .models import MakeBooking
 
 class BookingForm(forms.ModelForm):
     """
-    main class for the form
+    An instance of the booking form related to :model:`book.MakeBooking`
+
+    **context**
+        ``fields``
+            email, phone, date, time_slot,
+            number_of_people, special_requests
+        ``widgets``
+            date: type:date
+            special_requests: textarea
     """
 
     class Meta:

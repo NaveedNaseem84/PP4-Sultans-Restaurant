@@ -15,7 +15,19 @@ class BookingManagement():
 
     def availability_check(request, form_date, form_time_slot):
         """
-        Validation of the booking.
+        Availability check of a booking on a requested date/time
+        against records in : :model:`book.MakeBooking`.
+
+        Checks performed:
+        - The date is not in the past
+        - The date/time requested is available to book
+        - Display relevant message if not satisfied.
+
+         **Context**
+            ``form_date``
+                requested date from form
+            ``form_time_slot``
+                requested time from form
         """
         if MakeBooking.objects.filter(date=form_date,
                                       time_slot=form_time_slot).exists():
@@ -29,12 +41,28 @@ class BookingManagement():
     @login_required
     def create_booking(request):
         """
-        Creates a new booking.
-        Checks availability using time slot and date
-        - display a message if not available
-        Checks to ensure the date selected is today onwards
-        - display a message if its not the case
-        If all the above satisfied, save booking
+        Creates a new booking for the authenticated user.
+
+        - Checks availability for the timeslot on the given day.
+        - Checks to ensure the date selected is today onwards.
+        - Displays relevant message if conditions not met.
+
+        If all the above satisfied, booking is created with details
+        provided along with a success message.
+
+        **Context**
+            ``bookings``
+                Bookings for the current user from the
+                instance :model:`book.MakeBooking`
+            ``booking_count``
+                Total number of bookings for current user.
+            ``form``
+                An instance of :form:`book.BookingForm`
+        **Decorator**
+            ``@login_required``
+                user login required for this view.
+        **Template**
+            :template:`book/book.html`
         """
 
         if request.method == "POST":
@@ -70,8 +98,16 @@ class BookingManagement():
     @login_required
     def delete_booking(request, booking_id):
         """
-        delete the selecting booking. A confirmation of the
-        delete will be impletemented within book.html
+        Delete the selecting booking after confirmation.
+        Message displayed to confirm delete.
+
+        **Context**
+            ``booking``
+                A selected instance of :model:`book.MakeBooking`
+         **Decorator**
+
+            ``@login_required``
+                user login required for this view.
         """
         booking = get_object_or_404(MakeBooking, id=booking_id)
         booking.delete()
@@ -81,11 +117,32 @@ class BookingManagement():
     @login_required
     def update_booking(request, booking_id):
         """
-        Update the selected booking. Selected booking values
-        are passed to the form ready for the update.
-        Form again is validated and checked against availability.
-        If successfully updated, success message displayed.
-        If not available, error message is displayed.
+        Update the selected booking for authenticated user.
+
+        - Checks to see if the time/date has changed from booking.
+        - Checks availability for the timeslot on the given day.
+        - Checks to ensure the date selected is today onwards.
+        - Displays relevant message if conditions not met.
+
+        If all the above satisfied, booking is updated with details
+        provided along with a success message.
+
+         **Context**
+            ``current_booking``
+                A selected instance of :model:`book.MakeBooking`
+            ``booking_date``
+                Current date on booking
+            ``booking_time``
+                Current time on booking
+            ``form``
+                Current booking via instance of :form:`book.BookingForm`
+
+         **Decorator**
+            ``@login_required``
+                user login required for this view.
+
+         **Template**
+            :template:`book/update.html`
         """
 
         current_booking = get_object_or_404(MakeBooking, id=booking_id)
@@ -128,10 +185,22 @@ class BookingManagement():
 
     def booking_info_changed(booking_date, booking_time, form_time, form_date):
         """
-        check to see if the forms date and time are different
-        from the original booking date and time.
+        Used within ``updated_booking``- Check to see if the forms date
+        and time are different from the original booking date and time.
+
+         **Context**
+            ``booking_date``
+                Current booking date
+            ``booking_time``
+                Current booking time
+            ``form_date``
+                Requested date
+            ``form_time``
+                Requested time
         """
         return form_date != booking_date or form_time != booking_time
+
+    # messages functions
 
     def msg_update_sucess(request):
         """
@@ -140,8 +209,6 @@ class BookingManagement():
         messages.add_message(
             request, messages.SUCCESS, "Booking successfully updated."
             )
-
-    # messages functions
 
     def msg_sucessful_booking(request):
         """

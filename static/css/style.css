@@ -27,11 +27,13 @@ nav li {
   margin-left: auto;
 }
 
-
 .navbar-nav .nav-item .nav-link:hover {
   font-style: oblique;
   color: red;
+}
 
+.navbar-collapse {
+  padding-left: 20px;
 }
 
 #django_messages-container {
@@ -46,43 +48,39 @@ nav li {
 #main-sultan-background {
   min-height: 45vh;
   padding-top: 5%;
-
-  background-color: grey;
-  background: url("/static/images/main-index-bg.webp")90%/cover no-repeat;
+  text-align: center;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  text-align: center;
+  background-color: grey;
+  background: url("/static/images/main-index-bg.webp")90%/cover no-repeat;
 }
 
 #additional-info {
   margin-top: 15px;
   padding-bottom: 10px;
-  color: black;
   text-align: center;
   font-size: 1.4rem;
+  color: black;
 }
 
 #follow-on-menu,
 #follow-on-booking {
+  padding: 10px;
   border: 1px solid white;
   border-radius: 25px;
-  padding: 10px;
-
 }
 
 #current-promotions-live {
   margin: auto;
   padding: 1px;
-  background-color: orange;
-  color: black;
   font-weight: bold;
   font-size: 110%;
-
+  background-color: orange;
+  color: black;
 }
 
 #current-promotions-hidden {
   display: none;
-
 }
 
 #follow-on-menu a:link,
@@ -104,31 +102,26 @@ a:visited {
 }
 
 #current-promotions {
+  margin: auto;
   padding: 1%;
   background-color: black;
-  margin: auto;
   color: white;
-
 }
-
 
 #follow-on-links {
   padding-top: 2%;
-  background-color: black;
-  color: white;
   padding-left: 5%;
   padding-right: 5%;
+  background-color: black;
+  color: white;
 }
-
 
 #contact-info {
   padding-top: 2%;
+  padding-bottom: 10px;
   background-color: black;
   color: white;
-  padding-bottom: 10px;
 }
-
-
 
 /*menu and about page styling */
 
@@ -138,7 +131,6 @@ a:visited {
   margin-left: 10%;
   padding-top: 2%;
   padding-bottom: 0;
-  ;
 }
 
 #main-menu-bg,
@@ -151,26 +143,20 @@ a:visited {
 
 #main-menu-bg {
   background: url("/static/images/menu-bg.webp")90%/cover no-repeat;
-  background-attachment: fixed;
-
 }
 
 #main-about-bg {
   background: url("/static/images/main-index-bg.webp")90%/cover no-repeat;
-
 }
 
-
 #about-us-content {
-
-  color: white;
   font-size: 130%;
   line-height: 1.7;
   border-left: 2px solid white;
   border-bottom: 2px solid white;
   border-bottom-left-radius: 25px;
   text-align: left;
-
+  color: white;
 }
 
 .menu-item-name {
@@ -178,13 +164,11 @@ a:visited {
 }
 
 #allergy-info {
-  padding: 10px;
-  text-align: center;
   margin-left: auto;
-
+  padding: 10px;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-
+  text-align: center;
 }
 
 /*Accordian customisation*/
@@ -195,9 +179,9 @@ a:visited {
 
 .accordian-menu-title {
   margin-left: auto;
+  padding: 20px;
   font-size: 70%;
   font-weight: bolder;
-  padding: 20px;
   text-align: center;
 
 }
@@ -221,67 +205,64 @@ a:visited {
 
 
 .accordion-menu-body {
-  text-align: center;
+  margin-top: 10px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  margin-top: 10px;
+  text-align: center;
 }
 
 .accordion-menu-button {
+  padding: 10px;
+  border: 2px white solid;
   background-color: black;
   color: white;
-  border: 2px white solid;
-  padding: 10px;
 }
 
 .accordion-menu-button:not(.collapsed) {
-
+  border: 2px white solid;
   background-color: darkgray;
   color: black;
-  border: 2px white solid;
 }
 
 .accordion-menu-button::after {
-  background-image: url(/static/icons/down-arrow.svg);
-  background-size: 2rem;
   width: 2rem;
   height: 2rem;
+  background-size: 2rem;
+  background-image: url(/static/icons/down-arrow.svg);
 }
 
 .accordion-menu-button:not(.collapsed)::after {
   background-image: url(/static/icons/down-arrow.svg);
 }
 
-
 /* booking page styling*/
+
 #booking-bg,
 #update-booking-bg {
   padding-top: 50px;
-  background-color: #808080;
   min-height: 82vh;
- 
+  background-color: #808080;
 }
 
 #booking-container-bg,
 #update-container-bg {
-  background-color: #303030;
   padding: 10px;
-  border-radius: 25px;
   min-height: 70vh;
-  
+  border-radius: 25px;
+  background-color: #303030;
 }
 
 /*login, logout, register pages */
 
 .remove-ul-style ul {
-list-style-type: none;
+  list-style-type: none;
 }
 
 .remove-ul-style li {
   text-align: right;
- }
+}
 
 /*footer styling*/
 footer {
@@ -292,4 +273,13 @@ footer a,
 footer a:active,
 footer a:visited {
   color: white;
+}
+
+/* Media queries */
+
+/* Hide menu background in mobile view */
+@media only screen and (max-width: 600px) {
+  #main-menu-bg {
+    background: none;
+  }
 }

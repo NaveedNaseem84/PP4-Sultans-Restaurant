@@ -25,9 +25,13 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 ### [Project Walkthrough](#project-walkthrough-1)
 
 * Roles
+
 * Home
+
 * Menu
+
 * Book
+
 * About us
 
 ### [Testing](#testing-1)
@@ -35,6 +39,8 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 * Fixed Bugs 
 
 * Validation Testing
+
+* Functionality/performance testing
 
 * Manual Testing
 
@@ -64,9 +70,9 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 
 * Content
 
- * General
+* General
   
- * Overall Credit
+* Overall Credit
 
 ### [Personal Summary](#personal-summary-1)
 
@@ -578,6 +584,29 @@ The code has been tested with the following:
    * No errors returned when running the code on the [Code Institute Python Linter.](https://pep8ci.herokuapp.com/)
    * Results: All clear, no errors found
 
+### Functionality/performance testing
+
+To ensure the site performed and functioned as expected across browsers, resolutions and devices, the following was tested:
+
+| Criteria               |      Details              | Status |
+|:---------------------- |:--------------------------|:------:|
+| Desktop browsers:      | Edge                      | Pass   |  
+|                        | Chrome                    | Pass   |
+|                        | Mozilla firefox           | Pass   |
+|                        | Safari - on Mac OS        | Pass   |
+| Mobile browsers:       | Chrome                    | Pass   |
+|                        | Safari                    | Pass   |
+| Resolutions:           |                           | Pass   |
+| desktop                | 1366 x 768 to 1920 x 1080 | Pass   |
+| mobile                 | 375 x 667 to 1440 x 3120  | Pass   |
+| Devices used:          |                           | Pass   |
+|                        | Samsung S24 Ultra         | Pass   |
+|                        | Samsung A32 5G            | Pass   |
+|                        | iPad 10th gen             | Pass   |
+|                        | iPhone 14 Pro             | Pass   |
+
+The testing above identified no issues.
+
 ### Manual Testing
 
 The following manual testing has been carried out to confirm if the site's performance and functionality matched the expected output.
@@ -655,6 +684,8 @@ In addition to the manual testing above, automated testing has been carried out 
 A summary of these test results ran within the terminal can be seen below:
 
 ![alt text](readme-images/automated_testing_results.png)
+
+
 
 
 ### User Story testing
@@ -819,9 +850,69 @@ GitHub has provided step by step instructions on how to do this [here.](https://
 
 * The navigation arrow image was taken from : [SVG Repo-Down Arrow SVG Vector.](https://www.svgrepo.com/svg/403209/down-arrow)
 
-
-
 ### Content
+
+* The general setup and structure for the project was completed following the guidance provided in the [I think Therefore I Blog - CI Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/) module to ensure it was done in a uniform manner.
+
+* The core Bootstrap navbar was implemented using the [Bootstrap documentation on Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)  and customised to my project requirements.
+
+* Within the header -> nav section on the `base.html` template, the implementation of the nav-link if statement to determine if the current page is active or not was taken from [I Think Therefore I Blog > Templates -> Variable and control structures](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/6b4a4f493cbd46ecb6f6a841c98f0c82/?child=first)
+  * The code used: 
+    ```<a class="nav-link
+        {% if request.path == home_url %}active{%endif%}" aria-current="page" href="{% url 'home' %}">
+    ```
+  * The code above was refined further for accessbility and the correct classes applied to the Django messages by following the video [I Think Therefore I Blog > Where to put things > Tidying up](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/0b5c6f09dcfd40fa99a9d68622d62b40/)
+
+* The implementation of the admin link on the nav bar within the `base.html` template was done using [Linking to the django admin site - Stack Overflow.](https://stackoverflow.com/questions/1022236/linking-to-the-django-admin-site/1026680#1026680)
+
+
+* Implementation and setup (including adding links to the nav-bar and authentication messages displayed in the `base.html` template) of the Django Allauth authentication was done using [I think before I Blog > Authentication > Introduction to authentication](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/f614040ed41a49dbb268f0102af9ce05/)
+  * The standard register, login, logout allauth templates were modified to match the needs of the project.
+
+* The Django messages in the `base.html` template were displayed by adapting the code from  [I Think Therefore I Blog > Views Part 3>POSTing and writing to the database.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
+
+  * The code utilised:
+  ```
+  ....
+  {% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible
+        fade show" id="msg" role="alert">
+        {{ message | safe }}
+        <button type="button" class="btn-close"
+          data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+  ....
+  ```
+  * This was further refined in line with the project.
+
+* The core Boostrap modal was implemented using the [Bootstrap documentation on Modal.](https://getbootstrap.com/docs/5.0/components/modal/)
+ 
+* The structure guidance to update/delete bookings was taken from [I Think Before I Blog > Views Part 3 > Editing and deleting records.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
+
+* The use of pluralize in the `book/book.html` template was implemented using [Template Filter - pluralize - w3schools](https://www.w3schools.com/django/ref_filters_pluralize.php)
+
+* The core Boostrap accordion on the `menu/menu.html` was implemented using [Boostrap document on Accordion](https://getbootstrap.com/docs/5.0/components/accordion/)
+  * This was further customised in line with the project.
+
+* The regex validation on the : model: `book.MakeBooking` `phone` field within `book/views.py` was implemented using [How to use RegEx Validator in Django - Geeks for Geeks.](https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/)
+
+* Accessing the messages within the unit testing was implemented from [How can I unit test django messages? - Stack overflow](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages )
+  * The code utilised:
+  ```
+  from django.contrib.messages import get_messages
+  ....
+  messages = [m.message for m in get_messages(response.wsgi_request)]
+  self.assertIn('My message', messages)
+  ```
+  * Accessing the messages ensured the unit testing results were correct.
+### General
+* The following resources have been used as a general guide for Django, Python:
+  * [Django official documentation](https://docs.djangoproject.com/en/5.1/)  
+  * [Django Tutorial - W3Schools](https://www.w3schools.com/django/)
+  * [Python official Documentation](https://docs.python.org/3/)
+  * [Python Tutorial - W3Schools](https://www.w3schools.com/python/)
+  * [Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
 
 ## Overall Credit
 
@@ -831,5 +922,10 @@ I also would like to give a special thanks to the Tutor Assistance team at Code 
 
 
 ## Personal Summary
+
+This project by far has brought the steepest learning curve. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank to you my legend of a mentor who has not only provided invaluable advice, but allowed me to push my self further to refine my work, and as an individual on my coding journey.
+
+The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. I aim to look at refining this further by breaking future projects down in to multiple milestones and refining Epics to User Stories to Tasks.  
+
 
 

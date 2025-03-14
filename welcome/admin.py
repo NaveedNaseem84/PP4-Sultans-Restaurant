@@ -8,8 +8,13 @@ from .models import WelcomePromotion
 @admin.register(WelcomePromotion)
 class PromotionsAdmin(admin.ModelAdmin):
     """
-    Admin page setup for the promotions.
-    """
+    Admin page setup for the promotions on the welcome page.
 
+    **context**
+        ``list_display``
+            promotion_title, is_valid
+        ``search_fields``
+            promotion_title, description
+    """
     list_display = ('promotion_title', 'is_valid')
     search_fields = ['promotion_title', 'description']

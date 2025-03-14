@@ -1,16 +1,22 @@
 //JS to allow the deleting and updating of bookings
 
-//globals for the edit and delete buttons
+//globals for the edit, delete and modal delete confirm button
 const deleteButtons = document.getElementsByClassName("btn-delete-booking");
 const editButtons = document.getElementsByClassName("btn-update-booking");
 const deleteConfirm = document.getElementById("deleteConfirmation");
-const hideMessages = document.getElementById("django_messages-container");
 
-//apply event listener as soon as the DOM loads
-document.addEventListener("DOMContentLoaded", applyEventListener);
+/**
+ * Apply event listener when the DOM loads.
+ */
+document.addEventListener("DOMContentLoaded", applyUpdateDeleteEventListener);
 
-//Apply event listen to all delete/update buttons
-function applyEventListener() {
+/**
+ * Apply event listener to all the delete and update buttons.
+ * Delete buttons: call deleteBooking
+ * Update buttons: call EditBooking
+ *
+ */
+function applyUpdateDeleteEventListener() {
   for (let button of deleteButtons) {
     button.addEventListener("click", deleteBooking);
   }
@@ -20,12 +26,11 @@ function applyEventListener() {
   }
 }
 
-//delete the selected booking. Tested using booking ID
-// to ensure the delete button pressed corresponds to the
-//booking in question. Delete button calls a confirmation
-//modal. If the user confirms the deletion, booking is
-//deleted.
-//
+/**
+ * Delete the selected booking
+ * bookingId: ID of booking retrieved from delete button
+ * call Book.views.Delete_booking to process passing bookingId
+ */
 function deleteBooking() {
   let bookingId = this.getAttribute("data-booking-id");
   deleteConfirm.addEventListener("click", () => {
@@ -35,10 +40,11 @@ function deleteBooking() {
   });
 }
 
-//update the selected booking. Tested using booking ID
-// to ensure the update button pressed corresponds to the
-//booking in question
-//
+/**
+ * update the selected booking
+ * bookingId: ID of booking retrieved from update button
+ * call Book.view.update_booking to process passing bookingId
+ */
 
 function editBooking() {
   let bookingId = this.getAttribute("data-booking-id");
