@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to Sultan's restaurant! A website offering a prestigious menu and booking facility, allowing users to conveniently create and manage bookings at the restaurant.
 
-The intended purpose is to provide a seamless experience with a user-friendly menu and streamlined booking process. Allowing users to view the menu and managing bookings at a time and on a device that suits. Potentials users of the site can include regular customers who know exactly what they want to eat and when or food enthusiasts venturing out to explore the rich culinary experience Sultan's has to offer.  
+The intended purpose is to provide a seamless experience through out with a user-friendly menu and streamlined booking process. Allowing users to view the menu and managing bookings at a time and on a device that suits. Potentials users of the site can include regular customers who know exactly what they want to eat and when, or food enthusiasts venturing out to explore the rich culinary experience Sultan's has to offer.  
 ## Table of Contents
 
 ### [User Experience (UX)](#user-experience-ux-1)
@@ -20,7 +20,7 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 
 * Process Map
 
-* Models and Entity Relationship Diagrams
+* Models and Entity Relationship Diagrams (ERD's)
 
 ### [Project Walkthrough](#project-walkthrough-1)
 
@@ -79,11 +79,11 @@ The intended purpose is to provide a seamless experience with a user-friendly me
 ## User Experience (UX)
 ### User Stories
 
-The initial step taken was to the establish the user stories identifying the needs and requirements for the site. These have further provided the foundation for the project allowing me to categorise the development and deployment using agile methodology.
+The first step taken was to the establish the user stories identifying the needs and requirements for the site. These have further provided the foundation for the project allowing me to categorise the development and deployment using agile methodology.
 
-Each user below contains the initial story along with acceptance criteria. These both would need be satisfied during development and testing for the user story to be deemed a success.
+Each user below has the initial story along with acceptance criteria. These both would need be satisfied during development, testing and deployment for the user story to be considered a success.
 
-### **US1:** As a **customer** I can **create a booking reservation online** so that **I can secure the booking**
+### **US1:** As a **customer** I can **create a booking reservation online** so that **I can secure the booking.**
 #### Acceptance Criteria
 
 - The customer should be prompted to register and/or login. 
@@ -100,7 +100,7 @@ Each user below contains the initial story along with acceptance criteria. These
 - On a successful booking, the customer should receive a notification.
 - The customer should only be able to see their own bookings.
 
-### **US2:** As a **customer** I can **delete the booking** so that **I can create again at another time**
+### **US2:** As a **customer** I can **delete the booking** so that **I can create again at another time.**
 #### Acceptance Criteria
 
 -	The customer should be authenticated so they can only see their own bookings.
@@ -109,7 +109,7 @@ Each user below contains the initial story along with acceptance criteria. These
 -	The customer should receive a notification once the delete has been completed. 
 -	The booking should be removed from the customer’s account.
 
-### **US3:** As a **customer** I can **update my booking** so that **I can fit it around my schedule**
+### **US3:** As a **customer** I can **update my booking** so that **I can fit it around my schedule.**
 #### Acceptance Criteria
 
 -	The customer should be authenticated so they can only see their own bookings.
@@ -119,7 +119,7 @@ Each user below contains the initial story along with acceptance criteria. These
 -	The site should update the booking if there is availability.
 -	The customer should receive a notification of the update.
 
-### **US4:** As a **customer** I can **see the menu online** so that **I can decide what I want to eat beforehand**
+### **US4:** As a **customer** I can **see the menu online** so that **I can decide what I want to eat beforehand.**
 #### Acceptance Criteria
 
 - The menu should be accessible on all devices in a clean and easy to read format.
@@ -129,20 +129,20 @@ Each user below contains the initial story along with acceptance criteria. These
 - Menu is broken down into the relevant categories for ease.
 - Any allergen information is easy to find. 
 
-### **US5:** As a **manager** I can **update the menu** so that **customers can see the latest menu**
+### **US5:** As a **manager** I can **update the menu** so that **customers can see the latest menu.**
 #### Acceptance Criteria
 
 - The manager should be able to login and be validated as such.
 - A link should be made available for the manager to update the menu.
 - The manager should be able to navigate to the menu section.
-- Each menu item has a name, an option description, price, and status which should be filled in.
+- Each menu item has a name, an optional description, price, and status which should be filled in.
   -   Status should allow for the item to be active/inactive from the menu.
 - The manager should be able to add new items to the menu.
 - The manager should be able to delete/update current items in the menu.
    -   An item being deleted should ask for confirmation of deletion.
 - Any changes made should be reflected on the live menu.
 
-### **US6:** As a **admin** I can **add promotions to the home page** so that **the customer can see these as they become live**
+### **US6:** As a **admin** I can **add promotions to the home page** so that **the customer can see these as they become live.**
 #### Acceptance Criteria
 
 - The admin should be able to login and be validated as such.
@@ -151,7 +151,7 @@ Each user below contains the initial story along with acceptance criteria. These
   -  Should have the option to "toggle" active/previous promotions.
 - Any changes made should be reflected on the live site.
 
-### **US7:** As a **manager** I can **manage bookings via the admin panel** so that **I can efficiently manage the restaurant**
+### **US7:** As a **manager** I can **manage bookings via the admin panel** so that **I can efficiently manage the restaurant.**
 #### Acceptance Criteria
 
 - The manager should be able to easily navigate to the bookings section.
@@ -164,7 +164,7 @@ Each user below contains the initial story along with acceptance criteria. These
     - The delete should prompt a confirmation.
     - new/edited bookings should be shown in the customer's account to view.
 
-### **US8:** As a **super user** I can **create accounts for the staff** so that **they can help the managers when things are busy**
+### **US8:** As a **super user** I can **create accounts for the staff** so that **they can help the managers when things are busy.**
 #### Acceptance Criteria
 
 - The super user should be able to create staff accounts as requested by management.
@@ -279,7 +279,7 @@ The project is broken down into four models:
 
 #### 1. WelcomePromotion
 
-The welcome model contains the setup:
+The welcome model has the following setup:
 
 - promotion_title:  the title for the promotion.
 - description: description of the promotion.
@@ -293,7 +293,7 @@ The ERD schema for the WelcomePromotion model is displayed below:
 
 #### 2. MenuItem
 
-The MenuItem model contains the setup:
+The MenuItem model has the following setup:
 
 - name: name of the item.
 - description: description of the item.
@@ -309,7 +309,7 @@ The ERD schema for the MenuItem model is displayed below:
 
 #### 3. MakeBooking
 
-The MakeBooking model contains the setup:
+The MakeBooking model has the following setup:
 
 - user: the individual creating the booking. This is retrieved from the User model. 
 - email: email for the booking.
@@ -325,9 +325,9 @@ The ERD schema for the MakeBooking model is displayed below:
 
 #### 4. AboutUs
 
-The AboutUs model contains the setup:
+The AboutUs model has the following setup:
 
-- name: name of the entry.
+- title: name of the entry.
 - description: content for the current entry.
 - added_on: automated date on when entry was added in.
 - is_valid: whether the current about us content is displayed or not. 
@@ -336,7 +336,7 @@ The ERD schema for the AboutUs model is displayed below:
 
 ![ERD: AboutUs](readme-images/ERDS/erd_AboutUs.png)
 
-**Please note:** fields containing the value null have the option to remain blank as they are optional.
+**Please note:** nullable fields above are optional fields.
 
 [Back to Contents.](#table-of-contents)
 
@@ -354,7 +354,7 @@ For the purposes of this project, roles with specific permissions have been setu
 **admin:** The admin account has been setup so that they can:
 - add/update/delete promotions from the home page.
 
-**testuser:** The testuser account is a customer regular at Sultan's, registered via the website and can:
+**testuser:** The testuser account is a regular customer at Sultan's, registered via the website and can:
 - add/update/delete their own bookings.
 - can only see their own bookings when logged in.
 
@@ -381,11 +381,11 @@ _**Image above generated using https://ui.dev/amiresponsive illustrating the res
 
 #### Menu - toggle
  
- - Devices running in other views such as mobile are presented with a light version of the menu that can be expanded as need providing the same functionality as the full version:
+ - Devices running in other views such as mobile are presented with a light version of the menu that can be expanded  providing the same functionality as the full version:
 
  ![toggle-menu](readme-images/project-walkthrough/menu_toggle.png)
 
- If a staff user (manager or admin) logs in, the menu updates with an additional link to the admin panel is usefully made available:
+ If a staff user (manager or admin) logs in, the menu updates with an added link to the admin panel usefully made available:
 
  ![admin-link](readme-images/project-walkthrough/admin_link.png)
 
@@ -395,11 +395,11 @@ _**Image above generated using https://ui.dev/amiresponsive illustrating the res
 
 ![home-welcome](readme-images/project-walkthrough/home_welcome.png)
 
-The homepage also provides additional user interaction by placing convenient links to the menu and the bookings page in a clear manner. The placement of these links highlights the ease of access to the services on offer:
+The homepage also provides further user interaction by placing convenient links to the menu and the bookings page in a clear manner. The placement of these links highlights the ease of access to the services on offer:
 
 ![follow-on-links](readme-images/project-walkthrough/follow_on_links.png)
 
-Should the admin add, update, or remove any current promotions via the admin panel, these changes are reflected instantly on the live home page:
+Should the **admin** add, update, or remove any current promotions via the admin panel, these changes are reflected instantly on the live home page:
 
 ![no-promotions](readme-images/project-walkthrough/no-promotions.png)
 
@@ -429,7 +429,7 @@ The user has the option to select any heading as they please resulting in a full
 
 There is an allergen note made available at the bottom of the menu, ensuring that any necessary information is available to user along with any dietary information.
 
-Like the promotions on the home page, if the manager adds, updates, or removes any items from the menu, these changes are reflected instantly. This ensures that that site always provides the latest version of the menu.
+Like the promotions on the home page, if the **manager** adds, updates, or removes any items from the menu, these changes are reflected instantly. This ensures that that site always provides the latest version of the menu.
 
 [Back to Contents.](#table-of-contents)
 
@@ -450,7 +450,7 @@ The registration process is simple; a username, optional email and a password th
 
 ![logged-in](readme-images/project-walkthrough/booking_logged_in.png)
 
-**Please Note:** The assumption is now that the testuser has logged in for the remainder of this section.
+**Please Note:** The assumption is now that the **testuser** has logged in for the rest of this section.
 
 Once logged, the booking page features a form allowing testuser to create a booking. The information collected on the form is:
 
@@ -473,29 +473,29 @@ In addition to the validation, there is a requirement for the date to be valid; 
 
 ### Create Booking
 
-On a successful submission of the form, the site will perform an availability check to ensure that the date and time requested by testuser is available to book. If available, the booking will be created, testuser notified, and the booking details made available in testuser's account:
+On a successful submission of the form, the site will perform an availability check to ensure that the date and time requested by **testuser** is available to book. If available, the booking will be created, **testuser** notified, and the booking details made available in **testuser's** account:
 
 ![booking-created](readme-images/project-walkthrough/booking_created.png)
 
-If there is no availability, testuser is notified accordingly:
+If there is no availability, **testuser** is notified accordingly:
 
 ![no-availability](readme-images/project-walkthrough/no-availability.png)
 
-The options to update and delete the booking are now available to testuser.
+The options to update and delete the booking are now available to **testuser.**
 
 ### Update Booking
 
-To update the booking, the "Update" button is clicked which takes testuser to the update booking page. This page pre-populates the form with the current details make the process quick and easy:
+To update the booking, the "Update" button is clicked which takes **testuser** to the update booking page. This page pre-populates the form with the current details make the process quick and easy:
 
 ![update-booking](readme-images/project-walkthrough/update_booking.png)
 
-Testuser now can simply go in and update fields such as the number of people, or special requests, and save the form. If the date and time are to change, this would need to be checked for availability. If there is availability, the booking is updated, and an alert displayed:
+**Testuser** now can simply go in and update fields such as the number of people, or special requests, and save the form. If the date and time are to change, this would need to be checked for availability. If there is availability, the booking is updated, and an alert displayed:
 
 ![booking-updated](readme-images/project-walkthrough/booking_updated.png)
 
 If there is no availability, like creating a booking, an alert is displayed. 
 
-Should testuser want to navigate back to the bookings page, and select another booking, there is a "click here" link available to do this. 
+Should **testuser** want to navigate back to the bookings page, and select another booking, there is a "click here" link available to do this. 
 
 [Back to Contents.](#table-of-contents) 
 
@@ -505,20 +505,21 @@ To delete the booking, the "Delete" button is selected which displays an alert a
 
 ![delete-confirm](readme-images/project-walkthrough/delete-confirm.png)
 
-Once the delete has been confirmed, the selected booking is deleted and no longer visible in testuser's account. An alert is also displayed confirming the delete:
+Once the delete has been confirmed, the selected booking is deleted and no longer visible in **testuser's** account. An alert is also displayed confirming the delete:
 
 ![booking-deleted](readme-images/project-walkthrough/booking_deleted.png)
 
 ### Booking Management
 
-The manager can manage all the bookings that have been created. Once logged in, and authenticated as having access to the admin panel the manager will have total visibility:
+The **manager** can manage all the bookings that have been created. Once logged in, and authenticated as having access to the admin panel, the **manager** will have total visibility:
 
 ![manager-booking-visbility](readme-images/project-walkthrough/manager_booking_visibility.png)
 
-From here, the manager can create, update, or delete bookings. Once the necessary action has been performed, the respected user account will show the changes.
+From here, the **manager** can create, update, or delete bookings. Once the necessary action has been performed, the respected user account will show the changes.
 
-In addition to this, to allow the management of bookings to be as efficient as possible, the manager has the facility to search by username, email, and phone. Filtering options are also available and include date and time slot which can be seen on the right of the screen.
+In addition to this, to allow the management of bookings to be as efficient as possible, the **manager** has the facility to search by username, email, and phone. Filtering options are also available and include date and time slot which can be seen on the right of the screen.
 
+[Back to Contents.](#table-of-contents)
 
 ## About us
 
@@ -526,7 +527,7 @@ The about us page highlights the core values of Sultan's in the clear, easy to r
 
 ![aboutus](readme-images/project-walkthrough/about_us.png)
 
-The manager can update and style the content on the about us page as needed. This includes, colours, spacing and font size as examples. 
+The **manager** can update and style the content on the about us page as needed. This includes, colours, spacing and font size as examples. 
 
 **Please Note:** The assumption is that there will only be one entry active at one time, managed at a local level. The site ensures that only the latest version of this entry is always displayed.
 
@@ -534,20 +535,18 @@ To complete the current logged in session, a logout option is available on the m
 
 ![logout](readme-images/project-walkthrough/logout.png)
 
-Once confirmed, the testuser is logged out and the site is ready for the next user.
+Once confirmed, the **testuser** is logged out and the site is ready for the next user.
 
 [Back to Contents.](#table-of-contents) 
 
 ## Testing
 
 ### Fixed Bugs 
-
-### Fixed Bugs 
 * **Issue 1 (ID 2f88738):** Bookings were successfully being created but not attached to the user creating them. This meant that any logged in user was able to see all the bookings created.
 
-  * **Fix (ID 7bebcc1):** This was fixed by adding a filter to the query fetching the current bookings. The filter only returned bookings where the user making the bookings was the same as the user currently logged in. This was tested with 2 individual test accounts to ensure it worked as it should be.
+  * **Fix (ID 7bebcc1):** This was fixed by adding a filter to the query fetching the current bookings. The filter only returned bookings where the user on the bookings was the same as the user currently logged in. This was tested with two individual test accounts to ensure it worked as it should be.
 
-* **Issue 2 (ID 6ad7f00):**  The booking form "phone" field allowed for non-digit characters to pass through as valid. The same phone field was validated correctly within the admin panel using the regex in place.
+* **Issue 2 (ID 6ad7f00):**  The booking form `phone` field allowed for non-digit characters to pass through as valid. The same `phone` field was validated correctly within the admin panel using the regex in place.
 
 * **Fix (ID 2c4527c):** This was fixed by adding a custom validation on the form field to raise an error if the entered data did not consist of all digits. The validation error displayed using the Django message network.
 
@@ -556,9 +555,9 @@ This was further refined (ID 13ea71e) with the installation of crispy forms. Aft
 * **Issue 3 (ID 13ea71e):** 
 **_Note_**: This bug was found after the commit.
 
-If the fields other than the date and time were being updated, the booking was being noted as a duplicate and alerting the user as such. For example, if the booking required the addition of people with a special request of "surprise meal"  on the same date and time slot, the booking was not being updated.
+If the fields other than the date and time were being updated, the booking was noted as a duplicate and alerting the user as such. For example, if the booking required the addition of people with a special request of "surprise meal"  on the same date and time slot, the booking was not being updated.
 
-* **Fix (ID c2e3c54):** This was fixed by refactoring the update booking function as follows:
+* **Fix (ID c2e3c54):** This was fixed by refactoring the update booking function introducing a booking changed check:
 1. Check if the form is valid.
 2.  store the forms date and time slot.
 3. if posted form date and time different from the current booking date and time slot:
@@ -567,18 +566,19 @@ If the fields other than the date and time were being updated, the booking was b
 4. If the date and time remains unchanged, save the form with any other changes. 
 
 [Back to Contents.](#table-of-contents) 
+
 ### Validation Testing
 
 The code has been tested with the following:
 
 * HTML
-   * No errors returned when running the official W3C validator [W3C HTML Validator ](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnaveednaseem84.github.io%2FPP2---RPSLS%2F)
+   * No errors returned when running the official W3C validator [W3C HTML Validator.](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsultans-restaurant-eaffca2215ff.herokuapp.com%2F)
 
 * CSS
-   * No errors were found when running the official jigsaw Validator tool (direct input)  [(Jigsaw) Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fnaveednaseem84.github.io%2FPP2---RPSLS%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+   * No errors were found when running the official jigsaw Validator tool (direct input)  [(Jigsaw) Validator.](https://jigsaw.w3.org/css-validator/)
 
 * JavaScript
-    * No significant errors were returned when checking the JavaScript  code using [(JS Hint)](https://jshint.com/)
+    * No significant errors were returned when checking the JavaScript code using [(JS Hint.)](https://jshint.com/)
 
 * Python
    * No errors returned when running the code on the [Code Institute Python Linter.](https://pep8ci.herokuapp.com/)
@@ -592,7 +592,7 @@ To ensure the site performed and functioned as expected across browsers, resolut
 |:---------------------- |:--------------------------|:------:|
 | Desktop browsers:      | Edge                      | Pass   |  
 |                        | Chrome                    | Pass   |
-|                        | Mozilla firefox           | Pass   |
+|                        | Mozilla Firefox           | Pass   |
 |                        | Safari - on Mac OS        | Pass   |
 | Mobile browsers:       | Chrome                    | Pass   |
 |                        | Safari                    | Pass   |
@@ -605,52 +605,72 @@ To ensure the site performed and functioned as expected across browsers, resolut
 |                        | iPad 10th gen             | Pass   |
 |                        | iPhone 14 Pro             | Pass   |
 
-The testing above identified no issues.
+The testing above found no issues.
+
+The following lighthouse results were returned from the deployed site:
+
+Home:
+
+![home-lighthouse](readme-images/testing/lighthouse_home.png)
+
+Menu:
+
+![menu-lighthouse](readme-images/testing/lighthouse_menu.png)
+
+Booking:
+
+![booking-lighthouse](readme-images/testing/lighthouse_booking.png)
+
+About:
+
+![booking-lighthouse](readme-images/testing/lighthouse_aboutus.png)
+
+
 
 ### Manual Testing
 
-The following manual testing has been carried out to confirm if the site's performance and functionality matched the expected output.
+The following manual testing has been carried out to confirm if the site's performance and functionality matched the expected output. It has tested both JavaScript and Python functionality.
 
 | Test  | Test Step                             |Expected                                                                 |  Result                                       |Status |
 | :----:|:----------------------------------------------|:----------------------------------------------------------------|:----------------------------------------|:----:| 
-| MT1   |Register - successful                          |user can register, login                                         |registered, logged in                    |Pass  | 
-| MT2   |Register -invalid                              |username/password weak notification                              |advise give to correct                   |Pass  |
-| MT3   |Login - superuser                              |super user authenticated on log in                               | authenticated, logged in                |Pass  |
-| MT4   |Login - testuser                               |testuser to be authenticated on log in                           | authenticated, logged in                |Pass  |
-| MT5   |Login - manager                                |authenticate as manager, access link to admin panel visible.     |logged in, can access admin panel        |Pass  |
-| MT6   |Login - invalid                                |notification of login failure. No access given.                  |no access given, login fail notification |Pass  |
-| MT7   |Login - admin                                  |authenticate as admin, access link to admin panel visible.       |logged in, can access admin panel        |Pass  |
-| MT8   |View bookings - booking link                   | Navigates to booking page                                       | As expected                             |Pass  |
+| MT1   |register - successful                          |user can register, login                                         |registered, logged in                    |Pass  | 
+| MT2   |register -invalid                              |username/password weak notification                              |advise give to correct                   |Pass  |
+| MT3   |login - superuser                              |super user authenticated on log in                               | authenticated, logged in                |Pass  |
+| MT4   |login - testuser                               |testuser to be authenticated on log in                           | authenticated, logged in                |Pass  |
+| MT5   |login - manager                                |authenticate as manager, access link to admin panel visible.     |logged in, can access admin panel        |Pass  |
+| MT6   |login - invalid                                |notification of login failure. No access given.                  |no access given, login fail notification |Pass  |
+| MT7   |login - admin                                  |authenticate as admin, access link to admin panel visible.       |logged in, can access admin panel        |Pass  |
+| MT8   |view bookings - booking link                   | navigates to booking page                                       | as expected                             |Pass  |
 | MT9   |access booking - not logged in                 |no access to bookings, asked to login                            | redirected to login page.               |Pass  |
-| MT10  |Create booking - email invalid                 |email to be validated for correct format                         | Prompt given to correct                 |Pass  |
-|MT11   |Create booking - phone invalid                 |phone to be validated for correct format                         | Prompt given to correct                 |Pass   |
-|MT12   |Create booking - date invalid                  |notification to be given of previous date                        | Notification given to correct           |Pass   |
-|MT13   |Create booking - time missing                  |prompt to be given to enter time                                 | Prompt given to enter                   |Pass   |
-|MT14   |Create booking - people missing                |prompt to be given to enter no of people                         | Prompt given to correct                 |Pass   |
-|MT15   |Create booking - time/date unavailable         |notification of unavailability to be given                       | notification given on unavailability    |Pass   |
-|MT16   |Create booking - valid                         |notification that booking is created, available to see in account| Notification given, booking shown      |Pass   | 
-|MT17   |Update booking - booking selection             |current booking details to pre-fill form                         | Form pre-filled                         |Pass   | 
-|MT18   |Update booking - time/date change (unavailable)|notification of unavailability to be given                       | Notification given, booking shown       |Pass   |
-|MT19   |Update booking - Other information changed     |booking to be updated, notification given                        | Notification given, booking updated     |Pass   |
-|MT20   |Delete booking - confirmation                  |Request to confirm delete. Option to delete or cancel            | Request given. Options: Delete, cancel  |Pass   |
-|MT21   |Delete booking - cancel delete                 |action to delete cancel. Booking not affected                    | Delete cancelled. Booking remains       |Pass   |
-|MT22   |Delete booking - post confirmation             | Booking deleted, notification of delete shown                   | Booking deleted, notification shown     |Pass   |
-|MT23   |navigate to home - home link                   | Navigates to the home page, show any active promotions          | As expected                             |Pass   |
-|MT24*  |Add promotion - admin                          | Promotion to be shown on home page                              | Promotion shown                         |Pass   |
-|MT25*  |update promotion - admin                       | Updated promotion to be shown on home page                      | Updated promotion shown                 |Pass   |
-|MT26*  |Promotion not live - admin                     | Promotion to exist, but not be displayed                        | Exists in admin, not shown              |Pass   |
-|MT27*  |Delete promotion - admin                       | Promotion to be deleted after a confirmation                    | Promotion deleted                       |Pass   |
-|MT28   |View the menu - menu link                      | Navigates to and display the menu                               | Live menu shown                         |Pass   |
-|MT29*  |Add menu item - manager                        | Menu item to be visible on the menu                             | Item visible on menu                    |Pass   |
-|MT30*  |update menu item - manager                     |Updated menu item to be visible on the menu                      | Updated item visible on menu            |Pass   |
-|MT31*  |menu item not live - manager                   | Menu item should exist, but not displayed on menu               | Exists in admin, not shown              |Pass   |
-|MT32*  |Delete menu item - manager                     | Menu item to be deleted after confirmation                      | Item visible on menu                    |Pass   |
-|MT33   |View about us - about us link                  | Navigates to and display the about us content                   | As expected                             |Pass   |
-|MT34*  |Update about us content - manager              | updated content to be displayed                                 | Displayed                               |Pass   |
-|MT35*  |Create booking - manager                       | Created a booking, booking shown in respected user's account    | Booking created, attached to user       |Pass   |
-|MT36*  |Update booking - manager                       | update a booking, update booking shown                          | Booking updated                         |Pass   |
-|MT37*  |Delete booking - manager                       | delete a booking, booking removed from user's account           | Booking deleted, removed                |Pass   |
-|MT38*  |Search booking - manager                       | Search using name, contact or date to find booking              | Searchable with expected fields         |Pass   |
+| MT10  |create booking - email invalid                 |email to be validated for correct format                         | prompt given to correct                 |Pass  |
+|MT11   |create booking - phone invalid                 |phone to be validated for correct format                         | prompt given to correct                 |Pass   |
+|MT12   |create booking - date invalid                  |notification to be given of previous date                        | notification given to correct           |Pass   |
+|MT13   |create booking - time missing                  |prompt to be given to enter time                                 | prompt given to enter                   |Pass   |
+|MT14   |create booking - people missing                |prompt to be given to enter no of people                         | prompt given to correct                 |Pass   |
+|MT15   |create booking - time/date unavailable         |notification of unavailability to be given                       | notification given on unavailability    |Pass   |
+|MT16   |create booking - valid                         |notification that booking is created, available to see in account| Notification given, booking shown      |Pass   | 
+|MT17   |update booking - booking selection             |current booking details to pre-fill form                         | form pre-filled                        |Pass   | 
+|MT18   |update booking - time/date change (unavailable)|notification of unavailability to be given                       | notification given, booking shown       |Pass   |
+|MT19   |update booking - Other information changed     |booking to be updated, notification given                        | notification given, booking updated     |Pass   |
+|MT20   |delete booking - confirmation                  |request to confirm delete. Option to delete or cancel            | request given. Options: Delete, cancel  |Pass   |
+|MT21   |delete booking - cancel delete                 |action to delete cancel. Booking not affected                    | delete cancelled. Booking remains       |Pass   |
+|MT22   |delete booking - post confirmation             | booking deleted, notification of delete shown                   | booking deleted, notification shown     |Pass   |
+|MT23   |navigate to home - home link                   | navigates to the home page, show any active promotions          | as expected                             |Pass   |
+|MT24*  |add promotion - admin                          | promotion to be shown on home page                              | promotion shown                         |Pass   |
+|MT25*  |update promotion - admin                       | updated promotion to be shown on home page                      | updated promotion shown                 |Pass   |
+|MT26*  |promotion not live - admin                     | promotion to exist, but not be displayed                        | exists in admin, not shown              |Pass   |
+|MT27*  |delete promotion - admin                       | promotion to be deleted after a confirmation                    | promotion deleted                       |Pass   |
+|MT28   |view the menu - menu link                      | navigates to and display the menu                               | live menu shown                         |Pass   |
+|MT29*  |add menu item - manager                        | menu item to be visible on the menu                             | item visible on menu                    |Pass   |
+|MT30*  |update menu item - manager                     |updated menu item to be visible on the menu                      | updated item visible on menu            |Pass   |
+|MT31*  |menu item not live - manager                   | menu item should exist, but not displayed on menu               | exists in admin, not shown              |Pass   |
+|MT32*  |delete menu item - manager                     | menu item to be deleted after confirmation                      | item visible on menu                    |Pass   |
+|MT33   |view about us - about us link                  | navigates to and display the about us content                   | as expected                             |Pass   |
+|MT34*  |update about us content - manager              | updated content to be displayed                                 | Displayed                               |Pass   |
+|MT35*  |create booking - manager                       | created a booking, booking shown in respected user's account    | booking created, attached to user       |Pass   |
+|MT36*  |update booking - manager                       | update a booking, update booking shown                          | booking updated                         |Pass   |
+|MT37*  |delete booking - manager                       | delete a booking, booking removed from user's account           | booking deleted, removed                |Pass   |
+|MT38*  |search booking - manager                       | search using name, contact or date to find booking              | searchable with expected fields         |Pass   |
 
 
 *Functionality carried out on the admin panel but has been tested to ensure functionality for this project.
@@ -666,8 +686,8 @@ In addition to the manual testing above, automated testing has been carried out 
 |AT1    | test_about_us_view                            | about us correctly displayed                          | Pass     |
 |AT2    | test_menu_view                                | menu correctly displayed                              | Pass     |
 |AT3    | test_home_view                                | home page correctly displayed                         | Pass     |             
-|AT4    | test_form_is_valid                            | Form fields validation                                | Pass     |
-|AT5    | test_email_invalid                            | Email is incorrect                                    | Pass     |
+|AT4    | test_form_is_valid                            | form fields validation                                | Pass     |
+|AT5    | test_email_invalid                            | email is incorrect                                    | Pass     |
 |AT6    | test_phone_missing                            | phone is missing                                      | Pass     |
 |AT7    | test_phone_invalid                            | phone is in invalid format                            | Pass     |
 |AT8    | test_date_missing                             | date is missing                                       | Pass     |
@@ -677,16 +697,13 @@ In addition to the manual testing above, automated testing has been carried out 
 |AT12   | test_create_booking_date_past_date            | a booking with a past date                            | Pass     |
 |AT13   | test_create_booking_time_date_unavailable     | unavailability on the date and time                   | Pass     |
 |AT14   | test_update_booking_valid                     | a valid booking updated                               | Pass     |
-|AT15   | test_update_booking_unvailable                | unavailability to update the date and time             | Pass     |
+|AT15   | test_update_booking_unvailable                | unavailability to update the date and time            | Pass     |
 |AT16   | test_delete_booking                           | a booking that is deleted                             | Pass     |
 
 
 A summary of these test results ran within the terminal can be seen below:
 
-![alt text](readme-images/automated_testing_results.png)
-
-
-
+![alt text](readme-images/testing/automated_testing_results.png)
 
 ### User Story testing
 
@@ -704,6 +721,7 @@ A combination of the manual and automated testing has tested all aspects of the 
 | US8         |MT3                                  |Successful|
 
 [Back to Contents.](#table-of-contents) 
+
 ## Future Developments
 
 There are three potential future developments for this project.
@@ -716,8 +734,10 @@ There are three potential future developments for this project.
 
 ## Workload Planning
 
+To manage the project, a live kanban board was used. Using this agile tool has allowed me to efficiently break down and manage the project. It has also facilitated the visualisation of the work involved, allowing the work to progress at a steady pace, and prioritise the completion of tasks before starting new ones.
 
-[Back to Contents.](#table-of-contents)
+The live completed board can be viewed [here.](https://github.com/users/NaveedNaseem84/projects/10)
+ 
 
 ## Site Production, Deployment and Contribution  
 
@@ -785,10 +805,10 @@ GitHub has provided step by step instructions on how to do this [here.](https://
   * #### [Django framework](https://www.djangoproject.com/)
 
 * #### The following libraries were used:
-    * crispy forms: To allow the control and rendering of the booking form.
-    * summernote: To allow the content on the about us page to be formatted/styled independently.
-    * allauth: To allow registration, login, authentication, and logout of users. 
-    * whitenoise: To allow the project to serve it's own static files.    
+    * Crispy forms: To allow the control and rendering of the booking form.
+    * Summernote: To allow the content on the about us page to be formatted/styled independently.
+    * Allauth: To allow registration, login, authentication, and logout of users. 
+    * Whitenoise: To allow the project to serve its own static files.    
 
 * #### Google Fonts: [Poppins](https://fonts.google.com/specimen/Poppins) 
 
@@ -810,12 +830,12 @@ GitHub has provided step by step instructions on how to do this [here.](https://
 
   * GitHub has been used to store the version control repository for the project.
 
-* ### Heroku:
+* #### Heroku:
   * Heroku has been used to build and deploy the project.
 
 * #### Figma: [Figma: The Collaborative Interface Design Tool](https://figma.com/)
 
-  * Figma has been used to create the the process maps, UX illustrations of the site, and ERD's diagrams for the models.
+  * Figma has been used to create the process maps, UX illustrations of the site, and ERD's diagrams for the models.
 
 * #### Balsamiq: [Balsamiq: Wireframe your way to faster, better product decisions ](https://balsamiq.com/)
 
@@ -852,7 +872,7 @@ GitHub has provided step by step instructions on how to do this [here.](https://
 
 ### Content
 
-* The general setup and structure for the project was completed following the guidance provided in the [I think Therefore I Blog - CI Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/) module to ensure it was done in a uniform manner.
+* The general setup and structure for the project was completed following the guidance provided in the [I think Therefore I Blog - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/)
 
 * The core Bootstrap navbar was implemented using the [Bootstrap documentation on Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)  and customised to my project requirements.
 
@@ -861,13 +881,13 @@ GitHub has provided step by step instructions on how to do this [here.](https://
     ```<a class="nav-link
         {% if request.path == home_url %}active{%endif%}" aria-current="page" href="{% url 'home' %}">
     ```
-  * The code above was refined further for accessbility and the correct classes applied to the Django messages by following the video [I Think Therefore I Blog > Where to put things > Tidying up](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/0b5c6f09dcfd40fa99a9d68622d62b40/)
+  * The code above was refined further for accessibility and the correct classes applied to the Django messages by following the video [I Think Therefore I Blog > Where to put things > Tidying up](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/0b5c6f09dcfd40fa99a9d68622d62b40/)
 
-* The implementation of the admin link on the nav bar within the `base.html` template was done using [Linking to the django admin site - Stack Overflow.](https://stackoverflow.com/questions/1022236/linking-to-the-django-admin-site/1026680#1026680)
+* The implementation of the admin link on the nav bar within the `base.html` template was done using [Linking to the Django admin site - Stack Overflow.](https://stackoverflow.com/questions/1022236/linking-to-the-django-admin-site/1026680#1026680)
 
 
 * Implementation and setup (including adding links to the nav-bar and authentication messages displayed in the `base.html` template) of the Django Allauth authentication was done using [I think before I Blog > Authentication > Introduction to authentication](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/f614040ed41a49dbb268f0102af9ce05/)
-  * The standard register, login, logout allauth templates were modified to match the needs of the project.
+  * The standard register, login, logout allauth templates were customised to match the needs of the project.
 
 * The Django messages in the `base.html` template were displayed by adapting the code from  [I Think Therefore I Blog > Views Part 3>POSTing and writing to the database.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
 
@@ -886,18 +906,18 @@ GitHub has provided step by step instructions on how to do this [here.](https://
   ```
   * This was further refined in line with the project.
 
-* The core Boostrap modal was implemented using the [Bootstrap documentation on Modal.](https://getbootstrap.com/docs/5.0/components/modal/)
+* The core Bootstrap modal was implemented using the [Bootstrap documentation on Modal.](https://getbootstrap.com/docs/5.0/components/modal/)
  
-* The structure guidance to update/delete bookings was taken from [I Think Before I Blog > Views Part 3 > Editing and deleting records.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
+* The structure to update/delete bookings (JavaScript and Python) was taken from [I Think Before I Blog > Views Part 3 > Editing and deleting records.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
 
 * The use of pluralize in the `book/book.html` template was implemented using [Template Filter - pluralize - w3schools](https://www.w3schools.com/django/ref_filters_pluralize.php)
 
-* The core Boostrap accordion on the `menu/menu.html` was implemented using [Boostrap document on Accordion](https://getbootstrap.com/docs/5.0/components/accordion/)
+* The core Bootstrap accordion on the `menu/menu.html` was implemented using [Bootstrap document on Accordion - flush.](https://getbootstrap.com/docs/5.0/components/accordion/)
   * This was further customised in line with the project.
 
 * The regex validation on the : model: `book.MakeBooking` `phone` field within `book/views.py` was implemented using [How to use RegEx Validator in Django - Geeks for Geeks.](https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/)
 
-* Accessing the messages within the unit testing was implemented from [How can I unit test django messages? - Stack overflow](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages )
+* Accessing the messages within the unit testing was implemented from [How can I unit test Django messages? - Stack overflow](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages )
   * The code utilised:
   ```
   from django.contrib.messages import get_messages
@@ -906,7 +926,9 @@ GitHub has provided step by step instructions on how to do this [here.](https://
   self.assertIn('My message', messages)
   ```
   * Accessing the messages ensured the unit testing results were correct.
+
 ### General
+
 * The following resources have been used as a general guide for Django, Python:
   * [Django official documentation](https://docs.djangoproject.com/en/5.1/)  
   * [Django Tutorial - W3Schools](https://www.w3schools.com/django/)
@@ -923,9 +945,9 @@ I also would like to give a special thanks to the Tutor Assistance team at Code 
 
 ## Personal Summary
 
-This project by far has brought the steepest learning curve. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank to you my legend of a mentor who has not only provided invaluable advice, but allowed me to push my self further to refine my work, and as an individual on my coding journey.
+This project by far has brought the steepest learning curve. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank you to my legend of a mentor who not only gave invaluable advice but allowed me to push myself further to refine my work, and as an individual on my coding journey.
 
-The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. I aim to look at refining this further by breaking future projects down in to multiple milestones and refining Epics to User Stories to Tasks.  
+The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. I aim to look at refining this further by breaking future projects down into multiple milestones and refining Epics to User Stories to Tasks.  
 
 
 
