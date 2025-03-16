@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", applyUpdateDeleteEventListener);
  * Apply event listener to all the delete and update buttons.
  * Delete buttons: call deleteBooking
  * Update buttons: call EditBooking
- *
  */
 function applyUpdateDeleteEventListener() {
   for (let button of deleteButtons) {
@@ -25,6 +24,9 @@ function applyUpdateDeleteEventListener() {
     button.addEventListener("click", editBooking);
   }
 }
+
+//Structure to delete/update bookings below adapted from Ci content
+//credited in readme.md
 
 /**
  * Delete the selected booking

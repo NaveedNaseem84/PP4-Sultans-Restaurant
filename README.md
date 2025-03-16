@@ -81,7 +81,7 @@ The intended purpose is to provide a seamless experience through out with a user
 
 The first step taken was to the establish the user stories identifying the needs and requirements for the site. These have further provided the foundation for the project allowing me to categorise the development and deployment using agile methodology.
 
-Each user below has the initial story along with acceptance criteria. These both would need be satisfied during development, testing and deployment for the user story to be considered a success.
+Each user story below has the initial story along with acceptance criteria. These both would need be satisfied during development, testing and deployment for the user story to be considered a success.
 
 ### **US1:** As a **customer** I can **create a booking reservation online** so that **I can secure the booking.**
 #### Acceptance Criteria
@@ -114,7 +114,7 @@ Each user below has the initial story along with acceptance criteria. These both
 
 -	The customer should be authenticated so they can only see their own bookings.
 -	The customer should be able to select the relevant booking to update.
--	The selecting booking information should be place in the booking form for the customer to update.
+-	The selecting booking information should be placed in the booking form for the customer to update.
 -	The site should check availability of the said changes.
 -	The site should update the booking if there is availability.
 -	The customer should receive a notification of the update.
@@ -427,9 +427,9 @@ The user has the option to select any heading as they please resulting in a full
 
 ![show-menu-open](readme-images/project-walkthrough/show_menu_open.png)
 
-There is an allergen note made available at the bottom of the menu, ensuring that any necessary information is available to user along with any dietary information.
+There is an allergen note made available at the bottom of the menu, ensuring that any necessary information is available along with any dietary information.
 
-Like the promotions on the home page, if the **manager** adds, updates, or removes any items from the menu, these changes are reflected instantly. This ensures that that site always provides the latest version of the menu.
+Like the promotions on the home page, if the **manager** adds, updates, or removes any items from the menu, these changes are reflected instantly. This ensures that the site always provides the latest version of the menu.
 
 [Back to Contents.](#table-of-contents)
 
@@ -446,7 +446,7 @@ If the user is a new visitor to the site and does not have an account, they have
 
 ![register](readme-images/project-walkthrough/register.png)
 
-The registration process is simple; a username, optional email and a password that meets the criteria given. Once registered, the user is logged in as this registered user and automatically logged in:
+The registration process is simple; a username, optional email and a password that meets the criteria given. Once registered, the user is automatically logged in:
 
 ![logged-in](readme-images/project-walkthrough/booking_logged_in.png)
 
@@ -687,18 +687,18 @@ In addition to the manual testing above, automated testing has been carried out 
 |AT2    | test_menu_view                                | menu correctly displayed                              | Pass     |
 |AT3    | test_home_view                                | home page correctly displayed                         | Pass     |             
 |AT4    | test_form_is_valid                            | form fields validation                                | Pass     |
-|AT5    | test_email_invalid                            | email is incorrect                                    | Pass     |
-|AT6    | test_phone_missing                            | phone is missing                                      | Pass     |
-|AT7    | test_phone_invalid                            | phone is in invalid format                            | Pass     |
-|AT8    | test_date_missing                             | date is missing                                       | Pass     |
-|AT9    | test_time_slot_missing                        | time slot is missing                                  | Pass     |
-|AT10   | test_no_of_people_missing                     | number of people is missing                           | Pass     |
-|AT11   | test_create_booking_valid                     | a valid booking is created                            | Pass     |
-|AT12   | test_create_booking_date_past_date            | a booking with a past date                            | Pass     |
-|AT13   | test_create_booking_time_date_unavailable     | unavailability on the date and time                   | Pass     |
-|AT14   | test_update_booking_valid                     | a valid booking updated                               | Pass     |
-|AT15   | test_update_booking_unvailable                | unavailability to update the date and time            | Pass     |
-|AT16   | test_delete_booking                           | a booking that is deleted                             | Pass     |
+|AT5    | test_form_email_invalid                       | email is incorrect                                    | Pass     |
+|AT6    | test_form_phone_missing                       | phone is missing                                      | Pass     |
+|AT7    | test_form_phone_invalid                       | phone is in invalid format                            | Pass     |
+|AT8    | test_form_date_missing                        | date is missing                                       | Pass     |
+|AT9    | test_form_time_slot_missing                   | time slot is missing                                  | Pass     |
+|AT10   | test_form_no_of_people_missing                | number of people is missing                           | Pass     |
+|AT11   | test_view_create_booking_valid                | a valid booking is created                            | Pass     |
+|AT12   | test_view_create_booking_date_past_date       | a booking with a past date                            | Pass     |
+|AT13   | test_view_create_booking_time_date_unavailable| unavailability on the date and time                   | Pass     |
+|AT14   | test_view_update_booking_valid                | a valid booking updated                               | Pass     |
+|AT15   | test_view_update_booking_unvailable           | unavailability to update the date and time            | Pass     |
+|AT16   | test_view_delete_booking                      | a booking that is deleted                             | Pass     |
 
 
 A summary of these test results ran within the terminal can be seen below:
@@ -748,6 +748,12 @@ The site was created using Gitpod’s VS Code workspace environment with all the
 To deploy to GitHub, the following steps were taken:
 
  **Important**: Ensure the `DEBUG` is set to `False` in the project settings **before** deploying!
+
+ The prerequisites to deployment are:
+*  Install `gunicorn~=20.1` and freeze it to the requirements.txt file.
+* In the `Procfile`, add a command using gunicorn and codestar wsgi file to start the webserver in the format:
+  * `web: gunicorn sultans.wsgi`
+* In the `sultans/settings.py` file, append the `'.herokuapp.com'` hostname to the `ALLOWED_HOSTS` list.
 
 The commands carried out to in the command line terminal to commit and push the changes to the GitHub repository:
 
@@ -915,7 +921,7 @@ GitHub has provided step by step instructions on how to do this [here.](https://
 * The core Bootstrap accordion on the `menu/menu.html` was implemented using [Bootstrap document on Accordion - flush.](https://getbootstrap.com/docs/5.0/components/accordion/)
   * This was further customised in line with the project.
 
-* The regex validation on the : model: `book.MakeBooking` `phone` field within `book/views.py` was implemented using [How to use RegEx Validator in Django - Geeks for Geeks.](https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/)
+* The regex validation on the : model: `book.MakeBooking` `phone` field within `book/models.py` was adapted from [How to use RegEx Validator in Django - Geeks for Geeks.](https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/)
 
 * Accessing the messages within the unit testing was implemented from [How can I unit test Django messages? - Stack overflow](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages )
   * The code utilised:
@@ -926,6 +932,9 @@ GitHub has provided step by step instructions on how to do this [here.](https://
   self.assertIn('My message', messages)
   ```
   * Accessing the messages ensured the unit testing results were correct.
+
+* The placement of a custom 404 page was done by following [Customizing Django 404 and 500 Error Pages - LearnDjango](https://learndjango.com/tutorials/customizing-django-404-and-500-error-pages)
+
 
 ### General
 

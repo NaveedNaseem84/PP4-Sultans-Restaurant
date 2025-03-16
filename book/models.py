@@ -23,6 +23,9 @@ NO_OF_PEOPLE = [
     (6, 6),
 ]
 
+# RegEx on phone below implemented using Geeks for Geeks.
+# Credited in readme.md
+
 
 class MakeBooking(models.Model):
     """

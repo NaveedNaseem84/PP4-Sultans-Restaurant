@@ -94,6 +94,8 @@ class BookingManagement():
              "bookings": bookings,
              "booking_count": booking_count},
         )
+    # Structure to delete - adapted from CI content
+    # Credited in readme.md
 
     @login_required
     def delete_booking(request, booking_id):
@@ -113,6 +115,9 @@ class BookingManagement():
         booking.delete()
         BookingManagement.msg_booking_deleted(request)
         return HttpResponseRedirect(reverse("create_booking"))
+
+    # Structure to update - adapted from CI content
+    # Credited in readme.md
 
     @login_required
     def update_booking(request, booking_id):

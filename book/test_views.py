@@ -34,7 +34,7 @@ class CreateBookingTestCase(TestCase):
             special_requests='Meal'
         )
 
-    def test_create_booking_valid(self):
+    def test_view_create_booking_valid(self):
         """
         Test to check a valid booking is created successfully.
         """
@@ -49,7 +49,7 @@ class CreateBookingTestCase(TestCase):
         }
 
         response = self.client.post(reverse('create_booking'), post_data)
-
+        # Accessing of messages - credited in readme.md
         messages = [m.message for m in get_messages(response.wsgi_request)]
         for message in messages:
             print(message)
@@ -57,7 +57,7 @@ class CreateBookingTestCase(TestCase):
         self.assertIn('booking created.', messages)
         self.assertEqual(response.status_code, 302)
 
-    def test_create_booking_date_past_date(self):
+    def test_view_create_booking_date_past_date(self):
         """
         Test if the requested date is in the past,
         returns an error via messages.
@@ -73,14 +73,14 @@ class CreateBookingTestCase(TestCase):
         }
 
         response = self.client.post(reverse('create_booking'), post_data)
-
+        # Accessing of messages - credited in readme.md
         messages = [m.message for m in get_messages(response.wsgi_request)]
         for message in messages:
             print(message)
 
         self.assertIn('You can only book from today onwards!', messages)
 
-    def test_create_booking_time_date_unavailable(self):
+    def test_view_create_booking_time_date_unavailable(self):
         """
         Test to see if a booking already exists with the same time/date as
         the posted date/time already exits.
@@ -97,14 +97,14 @@ class CreateBookingTestCase(TestCase):
         }
 
         response = self.client.post(reverse('create_booking'), post_data)
-
+        # Accessing of messages - credited in readme.md
         messages = [m.message for m in get_messages(response.wsgi_request)]
         for message in messages:
             print(message)
 
         self.assertIn('Sorry, time slot unavailable on this date.', messages)
 
-    def test_update_booking_valid(self):
+    def test_view_update_booking_valid(self):
         """
         Test to update selected booking sucessfully.
         """
@@ -124,7 +124,7 @@ class CreateBookingTestCase(TestCase):
             'update_booking',
             args=[self.booking.id]),
             post_data)
-
+        # Accessing of messages - credited in readme.md
         messages = [m.message for m in get_messages(response.wsgi_request)]
         for message in messages:
             print(message)
@@ -132,7 +132,7 @@ class CreateBookingTestCase(TestCase):
         self.assertIn('Booking successfully updated.', messages)
         self.assertEqual(response.status_code, 302)
 
-    def test_update_booking_unvailable(self):
+    def test_view_update_booking_unvailable(self):
         """
         Test to see if request to update selected booking time
         and/or date conflicts with a existing booking. If so returns an error.
@@ -148,14 +148,14 @@ class CreateBookingTestCase(TestCase):
         }
 
         response = self.client.post(reverse('create_booking'), post_data)
-
+        # Accessing of messages - credited in readme.md
         messages = [m.message for m in get_messages(response.wsgi_request)]
         for message in messages:
             print(message)
 
         self.assertIn('Sorry, time slot unavailable on this date.', messages)
 
-    def test_delete_booking(self):
+    def test_view_delete_booking(self):
         """
         test to delete selected booking sucessfully.
         """
@@ -166,6 +166,6 @@ class CreateBookingTestCase(TestCase):
         messages = [m.message for m in get_messages(response.wsgi_request)]
         for message in messages:
             print(message)
-
+        # Accessing of messages - credited in readme.md
         self.assertIn('Booking Deleted.', messages)
         self.assertEqual(response.status_code, 302)

@@ -23,7 +23,7 @@ class TestBookingForm(TestCase):
              })
         self.assertTrue(booking_form.is_valid())
 
-    def test_email_invalid(self):
+    def test_form_email_invalid(self):
         """
         Test to validate 'email' field format.
         """
@@ -38,7 +38,7 @@ class TestBookingForm(TestCase):
              })
         self.assertFalse(booking_form.is_valid(), msg="Invalid email format")
 
-    def test_phone_missing(self):
+    def test_form_phone_missing(self):
         """
         test 'phone' field for empty value
         """
@@ -53,7 +53,7 @@ class TestBookingForm(TestCase):
              })
         self.assertFalse(booking_form.is_valid(), msg="phone required")
 
-    def test_phone_invalid(self):
+    def test_form_phone_invalid(self):
         """
         Test 'phone' field format.
         """
@@ -68,7 +68,7 @@ class TestBookingForm(TestCase):
              })
         self.assertFalse(booking_form.is_valid(), msg="phone invalid")
 
-    def test_date_missing(self):
+    def test_form_date_missing(self):
         """
         Test 'date' field for empty value.
         """
@@ -83,7 +83,7 @@ class TestBookingForm(TestCase):
              })
         self.assertFalse(booking_form.is_valid(), msg="date required")
 
-    def test_time_slot_missing(self):
+    def test_form_time_slot_missing(self):
         """
         Test 'timeslot' field for empty value.
         """
@@ -98,7 +98,7 @@ class TestBookingForm(TestCase):
              })
         self.assertFalse(booking_form.is_valid(), msg="time slot required")
 
-    def test_no_of_people_missing(self):
+    def test_form_no_of_people_missing(self):
         """
         Test 'number of people' fielf for empty value.
         """
