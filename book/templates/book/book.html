@@ -1,11 +1,10 @@
 {% extends "base.html" %} {% load static %} {% block content %}{% load crispy_forms_tags %}
-<!-- index.html content starts here -->
+
 <div id="booking-bg">
   <div id="booking-container-bg" class="container">
     <h1 class="p-2">Bookings</h1>
     <hr>
     <div class="row justify-content-md-center text-left">
-
       <div class=" col-sm-4 pe-4 text-left">
         {% if user.is_authenticated %}
         <form method="post" class="text-left p-0">
@@ -15,9 +14,9 @@
           <button class="btn btn-primary" type="submit">submit</button>
           <button class="btn btn-warning" type="reset">reset</button>
         </form>
-
       </div>
       <div class="col-sm-4 ps-5 text-end">
+        <!-- Pluralize implemented following W3C tutorial, credited in readme.md-->
         <h1>{{ booking_count }} booking{{ booking_count|pluralize }}.</h1>
         {% for booking in bookings %}
         <div style="border-bottom: 2px solid white;padding: 10px; ">
@@ -37,7 +36,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- Modals implemented using BS documentation, credited in readme.md-->

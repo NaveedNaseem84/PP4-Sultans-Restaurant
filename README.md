@@ -30,7 +30,7 @@ The intended purpose is to provide a seamless experience through out with a user
 
 * Menu
 
-* Book
+* Booking
 
 * About us
 
@@ -433,7 +433,7 @@ Like the promotions on the home page, if the **manager** adds, updates, or remov
 
 [Back to Contents.](#table-of-contents)
 
-## Bookings
+## Booking
 ### Features
 
 The booking page requires the user to be logged in. The purpose of this login is to ensure that only the logged in user can create, update, or delete a booking, which is reflected within their account. The initial navigation to this page presents the following:
@@ -550,7 +550,7 @@ Once confirmed, the **testuser** is logged out and the site is ready for the nex
 
 * **Fix (ID 2c4527c):** This was fixed by adding a custom validation on the form field to raise an error if the entered data did not consist of all digits. The validation error displayed using the Django message network.
 
-This was further refined (ID 13ea71e) with the installation of crispy forms. After testing, the validation was being returned correctly and displayed in line with the other form validation. This was tested further over the next few commits and the custom validation removed as it was no longer needed.
+This was further refined **(ID 13ea71e)** with the installation of crispy forms. After testing, the validation was being returned correctly and displayed in line with the other form validation. This was tested further over the next few commits and the custom validation removed as it was no longer needed.
 
 * **Issue 3 (ID 13ea71e):** 
 **_Note_**: This bug was found after the commit.
@@ -751,9 +751,11 @@ To deploy to GitHub, the following steps were taken:
 
  The prerequisites to deployment are:
 *  Install `gunicorn~=20.1` and freeze it to the requirements.txt file.
-* In the `Procfile`, add a command using gunicorn and codestar wsgi file to start the webserver in the format:
+* In the `Procfile`, add a command using gunicorn and sutlans wsgi file to start the webserver in the format:
   * `web: gunicorn sultans.wsgi`
 * In the `sultans/settings.py` file, append the `'.herokuapp.com'` hostname to the `ALLOWED_HOSTS` list.
+
+**Please note:** references of sultans would need to replaced by the name of project being deployed.
 
 The commands carried out to in the command line terminal to commit and push the changes to the GitHub repository:
 
@@ -880,22 +882,22 @@ GitHub has provided step by step instructions on how to do this [here.](https://
 
 * The general setup and structure for the project was completed following the guidance provided in the [I think Therefore I Blog - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/)
 
-* The core Bootstrap navbar was implemented using the [Bootstrap documentation on Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)  and customised to my project requirements.
+* The core Bootstrap navbar in the `base.html` template was implemented using the [Bootstrap documentation on Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)  and customised to my project requirements.
 
-* Within the header -> nav section on the `base.html` template, the implementation of the nav-link if statement to determine if the current page is active or not was taken from [I Think Therefore I Blog > Templates -> Variable and control structures](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/6b4a4f493cbd46ecb6f6a841c98f0c82/?child=first)
+* Within the header -> nav section on the `base.html` template, the implementation of the nav-link if statement to determine if the current page is active or not was taken from [I Think Therefore I Blog > Templates -> Variable and control structures - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/6b4a4f493cbd46ecb6f6a841c98f0c82/?child=first)
   * The code used: 
     ```<a class="nav-link
         {% if request.path == home_url %}active{%endif%}" aria-current="page" href="{% url 'home' %}">
     ```
-  * The code above was refined further for accessibility and the correct classes applied to the Django messages by following the video [I Think Therefore I Blog > Where to put things > Tidying up](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/0b5c6f09dcfd40fa99a9d68622d62b40/)
+  * The code above was refined further for accessibility and the correct classes applied to the Django messages by following the video [I Think Therefore I Blog > Where to put things > Tidying up - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/0b5c6f09dcfd40fa99a9d68622d62b40/)
 
 * The implementation of the admin link on the nav bar within the `base.html` template was done using [Linking to the Django admin site - Stack Overflow.](https://stackoverflow.com/questions/1022236/linking-to-the-django-admin-site/1026680#1026680)
 
 
-* Implementation and setup (including adding links to the nav-bar and authentication messages displayed in the `base.html` template) of the Django Allauth authentication was done using [I think before I Blog > Authentication > Introduction to authentication](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/f614040ed41a49dbb268f0102af9ce05/)
+* Implementation and setup (including adding links to the nav-bar and authentication messages displayed in the `base.html` template) of the Django Allauth authentication was done using [I think before I Blog > Authentication > Introduction to authentication - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/f614040ed41a49dbb268f0102af9ce05/)
   * The standard register, login, logout allauth templates were customised to match the needs of the project.
 
-* The Django messages in the `base.html` template were displayed by adapting the code from  [I Think Therefore I Blog > Views Part 3>POSTing and writing to the database.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
+* The Django messages in the `base.html` template were displayed by adapting the code from  [I Think Therefore I Blog > Views Part 3>POSTing and writing to the database - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
 
   * The code utilised:
   ```
@@ -914,16 +916,16 @@ GitHub has provided step by step instructions on how to do this [here.](https://
 
 * The core Bootstrap modal was implemented using the [Bootstrap documentation on Modal.](https://getbootstrap.com/docs/5.0/components/modal/)
  
-* The structure to update/delete bookings (JavaScript and Python) was taken from [I Think Before I Blog > Views Part 3 > Editing and deleting records.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
+* The structure to update/delete bookings (JavaScript and Python) was taken from [I Think Before I Blog > Views Part 3 > Editing and deleting records - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/21a16093c0084895a6073422447c3f7d/?child=first)
 
-* The use of pluralize in the `book/book.html` template was implemented using [Template Filter - pluralize - w3schools](https://www.w3schools.com/django/ref_filters_pluralize.php)
+* The use of pluralize in the `book/book.html` template was implemented using [Template Filter - pluralize - w3schools.](https://www.w3schools.com/django/ref_filters_pluralize.php)
 
 * The core Bootstrap accordion on the `menu/menu.html` was implemented using [Bootstrap document on Accordion - flush.](https://getbootstrap.com/docs/5.0/components/accordion/)
   * This was further customised in line with the project.
 
-* The regex validation on the : model: `book.MakeBooking` `phone` field within `book/models.py` was adapted from [How to use RegEx Validator in Django - Geeks for Geeks.](https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/)
+* The regex validation on the `book.MakeBooking` `phone` field within `book/models.py` was adapted from [How to use RegEx Validator in Django - Geeks for Geeks.](https://www.geeksforgeeks.org/how-to-use-regex-validator-in-django/)
 
-* Accessing the messages within the unit testing was implemented from [How can I unit test Django messages? - Stack overflow](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages )
+* Accessing the messages within the unit testing was implemented from [How can I unit test Django messages? - Stack overflow.](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages )
   * The code utilised:
   ```
   from django.contrib.messages import get_messages
@@ -956,7 +958,6 @@ I also would like to give a special thanks to the Tutor Assistance team at Code 
 
 This project by far has brought the steepest learning curve. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank you to my legend of a mentor who not only gave invaluable advice but allowed me to push myself further to refine my work, and as an individual on my coding journey.
 
-The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. I aim to look at refining this further by breaking future projects down into multiple milestones and refining Epics to User Stories to Tasks.  
+The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. I aim to look at refining this further by breaking future projects down into multiple milestones and refining Epics to User Stories to Tasks.
 
-
-
+[Back to Contents.](#table-of-contents) 

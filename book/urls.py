@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import BookingManagement
 
+# URL's structure to delete/update adapted from CI content -credited.
 urlpatterns = [
     path('', BookingManagement.create_booking, name='create_booking'),
 
