@@ -63,6 +63,12 @@ nav li {
   color: black;
 }
 
+/* signup template*/
+
+#hint_id_password1 {
+  color: white;
+}
+
 #follow-on-menu,
 #follow-on-booking {
   padding: 10px;

@@ -94,6 +94,21 @@ class BookingManagement():
              "bookings": bookings,
              "booking_count": booking_count},
         )
+
+    def user_authenticated(request, current_booking):
+        """
+        Helper function to determine if the current user is
+        the author of the selected booking or an admin.
+        """
+        return current_booking.user == request.user or request.user.is_staff
+
+    def user_staffuser(request):
+        """
+        Helper function to determine if the current user
+        an admin user.
+        """
+        return request.user.is_staff
+
     # Structure to delete - adapted from CI content
     # Credited in readme.md
 
@@ -104,15 +119,24 @@ class BookingManagement():
         Message displayed to confirm delete.
 
         **Context**
-            ``booking``
+            ``current_booking``
                 A selected instance of :model:`book.MakeBooking`
          **Decorator**
 
             ``@login_required``
                 user login required for this view.
         """
-        booking = get_object_or_404(MakeBooking, id=booking_id)
-        booking.delete()
+        if BookingManagement.user_staffuser(request):
+            BookingManagement.msg_admin_delete(request)
+            return HttpResponseRedirect(reverse('create_booking'))
+
+        current_booking = get_object_or_404(MakeBooking, id=booking_id)
+
+        if not BookingManagement.user_authenticated(request, current_booking):
+            BookingManagement.msg_unauthorised_change(request)
+            return HttpResponseRedirect(reverse("create_booking"))
+
+        current_booking.delete()
         BookingManagement.msg_booking_deleted(request)
         return HttpResponseRedirect(reverse("create_booking"))
 
@@ -151,6 +175,11 @@ class BookingManagement():
         """
 
         current_booking = get_object_or_404(MakeBooking, id=booking_id)
+
+        if not BookingManagement.user_authenticated(request, current_booking):
+            BookingManagement.msg_unauthorised_change(request)
+            return HttpResponseRedirect(reverse("create_booking"))
+
         form = BookingForm(instance=current_booking)
 
         booking_date = current_booking.date
@@ -244,3 +273,19 @@ class BookingManagement():
         messages.add_message(
             request, messages.ERROR,
             "You can only book from today onwards!")
+
+    def msg_unauthorised_change(request):
+        """
+        Unathorised access to delete/modify booking.
+        """
+        messages.add_message(
+            request, messages.ERROR,
+            "Sorry, action forbidden")
+
+    def msg_admin_delete(request):
+        """
+        Confirm and delete via admin panel.
+        """
+        messages.add_message(
+            request, messages.INFO,
+            "Please confirm and delete booking via admin panel")
