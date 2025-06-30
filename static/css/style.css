@@ -143,6 +143,7 @@ a:visited {
 
 #main-menu-bg {
   background: url("/static/images/menu-bg.webp")90%/cover no-repeat;
+  background-attachment: fixed;
 }
 
 #main-about-bg {
