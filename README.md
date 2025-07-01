@@ -39,8 +39,18 @@ The intended purpose is to provide a seamless experience through out with a user
 * Fixed Bugs 
 
 * Validation Testing
+  - HTML
+  - CSS
+  - JavaScript
+  - Python
+
+* Lighthouse scores
+
+* Browser Testing
 
 * Functionality/performance testing
+
+* Defencing programming Testing
 
 * Manual Testing
 
@@ -569,20 +579,132 @@ If the fields other than the date and time were being updated, the booking was n
 
 ### Validation Testing
 
-The code has been tested with the following:
+#### HTML
 
-* HTML
-   * No errors returned when running the official W3C validator [W3C HTML Validator.](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsultans-restaurant-eaffca2215ff.herokuapp.com%2F)
+The code has been tested using the official [W3C HTML Validator.](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsultans-restaurant-eaffca2215ff.herokuapp.com%2F) This has been used to validate all of my HTML files and the results are tabulated below:
 
-* CSS
-   * No errors were found when running the official jigsaw Validator tool (direct input)  [(Jigsaw) Validator.](https://jigsaw.w3.org/css-validator/)
+| Directory  | File                                                                                                                        |  Live URL                                                                                                |           Screenshot                                                                            |    Notes |
+| ---------- | --------------------------------------------------------------------------------------------------------                    | ---------------------------------------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------|--------- |
+| welcome    | [index.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/templates/welcome/index.html)       | [home](https://sultans-restaurant-eaffca2215ff.herokuapp.com/)                                           | [Screenshot](readme-images/testing/validation/html-css/home-html-valid.png)                     | No Errors| 
+| menu       | [menu.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/menu/templates/menu/menu.html)               | [menu](https://sultans-restaurant-eaffca2215ff.herokuapp.com/menu/)                                      | [Screenshot](readme-images/testing/validation/html-css/menu-html-valid.png)                     | No Errors| 
+| aboutus    | [about.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/templates/aboutus/about.html)       | [aboutus](https://sultans-restaurant-eaffca2215ff.herokuapp.com/aboutus/)                                | [Screenshot](readme-images/testing/validation/html-css/about-html-valid.png)                    | No Errors| 
+| book       | [book.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/templates/book/book.html)               | [book](https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/)                                      | [Screenshot](readme-images/testing/validation/html-css/book-html-valid.png)        |Direct input- No Errors| 
+| book       | [update.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/templates/book/update.html)           | [update](https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/update_booking/201/)                 | [Screenshot](readme-images/testing/validation/html-css/update-html-valid.png)      |Direct input- No Errors| 
+| templates  | [login.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/login.html)               | [login](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/login/)                           | [Screenshot](readme-images/testing/validation/html-css/login-html-valid.png)                    | No Errors| 
+| templates  | [register.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/register.html)         | [register](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/signup/)                       | [Screenshot](readme-images/testing/validation/html-css/register-html-valid.png)                 | No Errors| 
+| templates  | [logout.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/logout.html)             | [logout](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/logout/)                         | [Screenshot](readme-images/testing/validation/html-css/logout-html-valid.png)                   | No Errors| 
+  
+#### CSS
 
-* JavaScript
-    * No significant errors were returned when checking the JavaScript code using [(JS Hint.)](https://jshint.com/)
+The code has been tested using the official [W3C CSS Validator.](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsultans-restaurant-eaffca2215ff.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) The results are tabulated below:
 
-* Python
-   * No errors returned when running the code on the [Code Institute Python Linter.](https://pep8ci.herokuapp.com/)
-   * Results: All clear, no errors found
+| Directory  | File                                                                                                     |  Live URL                                                                                                                                                                                | Screenshot                                                           |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ---------------------------------------------------------------------|--------- |
+| static/css | [style.css](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/static/css/style.css)     | [Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsultans-restaurant-eaffca2215ff.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)| [Screenshot](readme-images/testing/validation/html-css/css-valid.png)| No Errors| 
+
+
+#### JavaScript
+
+The code has been validated using the recommended [JShint Validator](https://jshint.com/) to validate all of the JS files, and the results are tabulated below:
+
+| Directory  | File                                                                                                     |  Live URL                                                          | Screenshot                                                             |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------| -----------------------------------------------------------------------|--------- |
+|static/js   | [bookings.js](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/static/js/bookings.js)  | N/A - see screenshot                                               |[Screenshot](readme-images/testing/validation/js/js-bookings-valid.png) | No Errors|
+
+
+#### Python
+
+The code has been validated using the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) to validate all of my Python files. The results are tabulated below:
+
+*Sultans: Project files*
+
+
+| Directory  | File                                                                                                     |  Screenshot                                                                          |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------|--------- |
+|sultans     | [settings.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/sultans/settings.py)    | [Screenshot](readme-images/testing/validation/python/sultans-settings-validation.png)| No Errors|
+|sultans     | [urls.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/sultans/urls.py)            | [Screenshot](readme-images/testing/validation/python/sultans-urls-valid.png)         | No Errors|
+
+
+*App: aboutus*
+
+| Directory  | File                                                                                                     |  Screenshot                                                                          |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------|--------- |
+|aboutus     | [admin.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/admin.py)          | [Screenshot](readme-images/testing/validation/python/aboutus-admin-valid.png)        | No Errors|
+|aboutus     | [models.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/models.py)        | [Screenshot](readme-images/testing/validation/python/aboutus-models-valid.png)       | No Errors|
+|aboutus     | [test_views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/test_views.py)| [Screenshot](readme-images/testing/validation/python/aboutus-test-views-valid.png)   | No Errors|
+|aboutus     | [tests.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/tests.py)          | [Screenshot](readme-images/testing/validation/python/aboutus-tests-valid.png)        | No Errors|
+|aboutus     | [urls.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/urls.py)            | [Screenshot](readme-images/testing/validation/python/aboutus-urls-valid.png)         | No Errors|
+|aboutus     | [views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/aboutus/views.py)          | [Screenshot](readme-images/testing/validation/python/aboutus-views-valid.png)        | No Errors|
+
+
+*App: book*
+
+| Directory  | File                                                                                                     |  Screenshot                                                                          |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------|--------- |
+|book        | [admin.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/admin.py)             | [Screenshot](readme-images/testing/validation/python/book-admin-valid.png)           | No Errors|
+|book        | [forms.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/forms.py)             |[Screenshot](readme-images/testing/validation/python/book-forms-valid.png)            | No Errors|
+|book        | [models.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/models.py)           |[Screenshot](readme-images/testing/validation/python/book-models-valid.png)           | No Errors|
+|book        | [test_forms.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/test_forms.py)   |[Screenshot](readme-images/testing/validation/python/book-test-forms-valid.png)       | No Errors|
+|book        | [test_views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/test_views.py)   |[Screenshot](readme-images/testing/validation/python/book-test-views-valid.png)       | No Errors|
+|book        | [urls.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/urls.py)               |[Screenshot](readme-images/testing/validation/python/book-urls-valid.png)             | No Errors|
+|book        | [views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/views.py)             |[Screenshot](readme-images/testing/validation/python/book-view-valid.png)             | No Errors|
+
+*App: menu*
+
+| Directory  | File                                                                                                     |  Screenshot                                                                          |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------|--------- |
+|menu        | [admin.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/menu/admin.py)             | [Screenshot](readme-images/testing/validation/python/menu-admin-valid.png)           | No Errors|
+|menu        | [models.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/menu/models.py)           | [Screenshot](readme-images/testing/validation/python/menu-models-valid.png)          | No Errors|
+|menu        | [test_views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/menu/test_views.py)   | [Screenshot](readme-images/testing/validation/python/menu-test-view-valid.png)       | No Errors|
+|menu        | [urls.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/menu/urls.py)               | [Screenshot](readme-images/testing/validation/python/menu-url-valid.png)             | No Errors|
+|menu        | [views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/menu/views.py)             | [Screenshot](readme-images/testing/validation/python/menu-views-valid.png)           | No Errors|
+
+*App: welcome*
+
+| Directory  | File                                                                                                     |  Screenshot                                                                          |    Notes |
+| ---------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------|--------- |
+|welcome        | [admin.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/admin.py)       | [Screenshot](readme-images/testing/validation/python/welcome-admin-valid.png)        | No Errors|
+|welcome        | [models.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/models.py)     | [Screenshot](readme-images/testing/validation/python/welcome-models-valid.png)       | No Errors|
+|welcome        | [test_views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/test_views.py)| [Screenshot](readme-images/testing/validation/python/welcome-test-views-valid.png)| No Errors|
+|welcome        | [urls.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/urls.py)         | [Screenshot](readme-images/testing/validation/python/welcome-urls-valid.png)         | No Errors|
+|welcome        | [views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/views.py)       | [Screenshot](readme-images/testing/validation/python/welcome-views-valid.png)        | No Errors|
+
+
+#### Lighthouse Scores
+
+The site has been tested using the Lighthouse Audit tool to check for any major issues. It was tested for both mobile and desktop views, and the results are tabulated below:
+
+| Page           | Mobile                                                                                                   |  Desktop                                                                          | 
+| ---------------| -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------|
+|Register        | [Screenshot](readme-images/testing/lighthouse/register-mobile-lighthouse.png)                            | [Screenshot](readme-images/testing/lighthouse/register-desktop-lh.png)            |
+|Login           | [Screenshot](readme-images/testing/lighthouse/login-mobile-lh.png)                                       | [Screenshot](readme-images/testing/lighthouse/login-desktop-lh.png)               |
+|Logout          | [Screenshot](readme-images/testing/lighthouse/logout-mobile-lh.png)                                      | [Screenshot](readme-images/testing/lighthouse/logout-desktop-lh.png)              |
+|Home            |[Screenshot](readme-images/testing/lighthouse/home-mobile-lh.png)                                         | [Screenshot](readme-images/testing/lighthouse/home-desktop-lh.png)                |
+|Menu            |[Screenshot](readme-images/testing/lighthouse/menu-mobile-lt.png)                                         | [Screenshot](readme-images/testing/lighthouse/menu-desktop-lh.png)                |
+|Book - book     |[Screenshot](readme-images/testing/lighthouse/book-mobile-lh.png)                                         | [Screenshot](readme-images/testing/lighthouse/book-desktop-lh.png)                |
+|book - update   |[Screenshot](readme-images/testing/lighthouse/update-mobile-lh.png)                                       | [Screenshot](readme-images/testing/lighthouse/update-desktop-lh.png)              |
+|About us        |[Screenshot](readme-images/testing/lighthouse/about-mobile-lh.png)                                        | [Screenshot](readme-images/testing/lighthouse/about-desktop-lh.png)               |
+|404             |[Screenshot](readme-images/testing/lighthouse/404-mobile-lh.png)                                          | [Screenshot](readme-images/testing/lighthouse/404-desktop-lh.png)                 |
+
+
+#### Browser Testing
+
+The deployed site has been tested on multiple desktop browsers to check for any compatibility issues. The results are tabulated below:
+
+| Page           | Edge                                                                | Chrome                                                          | Firefox                                                                                   |  Outcome                         | 
+| ---------------| --------------------------------------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------------------------------ | ---------------------------------|
+|Register        |[Screenshot](readme-images/testing/browser/edge-register.png)        |[Screenshot](readme-images/testing/browser/chrome-register.png)  |[Screenshot](readme-images/testing/browser/moz-register.png)                               | No issues                        |
+|Login           |[Screenshot](readme-images/testing/browser/edge-register.png)        |[Screenshot](readme-images/testing/browser/chrome-login.png)     |[Screenshot](readme-images/testing/browser/moz-login.png)                                  | No issues                        |
+|logout          |[Screenshot](readme-images/testing/browser/edge-logout.png)          |[Screenshot](readme-images/testing/browser/chrome-logout.png)    |[Screenshot](readme-images/testing/browser/moz-logout.png)                                 | No issues                        |
+|Home            |[Screenshot](readme-images/testing/browser/edge-home.png)            |[Screenshot](readme-images/testing/browser/chrome-home.png)      |[Screenshot](readme-images/testing/browser/moz-home.png)                                   | No issues                        |
+|Menu            |[Screenshot](readme-images/testing/browser/edge-menu.png)            |[Screenshot](readme-images/testing/browser/chrome-menu.png)      |[Screenshot](readme-images/testing/browser/moz-menu.png)                                   | No issues                        |
+|Book - create   |[Screenshot](readme-images/testing/browser/edge-create-booking.png)  |[Screenshot](readme-images/testing/browser/chrome-create.png)    |[Screenshot](readme-images/testing/browser/moz-create.png)                                 | No issues                        |
+|Book - update   |[Screenshot](readme-images/testing/browser/edge-update.png)          |[Screenshot](readme-images/testing/browser/chrome-update.png)    |[Screenshot](readme-images/testing/browser/moz-update.png)                                 | No issues                        |
+|Book - delete   |[Screenshot](readme-images/testing/browser/edge-delete.png)          |[Screenshot](readme-images/testing/browser/chrome-delete.png)    |[Screenshot](readme-images/testing/browser/moz-delete.png)                                 | No issues                        |
+|Aboutus         |[Screenshot](readme-images/testing/browser/edge-aboutus.png)         |[Screenshot](readme-images/testing/browser/chrome-about.png)     |[Screenshot](readme-images/testing/browser/moz-about.png)                                  | No issues                        |
+|404             |[Screenshot](readme-images/testing/browser/edge-404.png)             |[screenshot](readme-images/testing/browser/chrome-404.png)       |[Screenshot](readme-images/testing/browser/moz-404.png)                                    | No issues                        |
+
+
 
 ### Functionality/performance testing
 
@@ -604,27 +726,6 @@ To ensure the site performed and functioned as expected across browsers, resolut
 |                        | Samsung A32 5G            | Pass   |
 |                        | iPad 10th gen             | Pass   |
 |                        | iPhone 14 Pro             | Pass   |
-
-The testing above found no issues.
-
-The following lighthouse results were returned from the deployed site:
-
-Home:
-
-![home-lighthouse](readme-images/testing/lighthouse_home.png)
-
-Menu:
-
-![menu-lighthouse](readme-images/testing/lighthouse_menu.png)
-
-Booking:
-
-![booking-lighthouse](readme-images/testing/lighthouse_booking.png)
-
-About:
-
-![booking-lighthouse](readme-images/testing/lighthouse_aboutus.png)
-
 
 
 ### Manual Testing
