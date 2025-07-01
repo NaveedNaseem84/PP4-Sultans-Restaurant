@@ -670,7 +670,7 @@ The code has been validated using the recommended [PEP8 CI Python Linter](https:
 |welcome        | [views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/views.py)       | [Screenshot](readme-images/testing/validation/python/welcome-views-valid.png)        | No Errors|
 
 
-#### Lighthouse Scores
+### Lighthouse Scores
 
 The site has been tested using the Lighthouse Audit tool to check for any major issues. It was tested for both mobile and desktop views, and the results are tabulated below:
 
@@ -687,7 +687,7 @@ The site has been tested using the Lighthouse Audit tool to check for any major 
 |404             |[Screenshot](readme-images/testing/lighthouse/404-mobile-lh.png)                                          | [Screenshot](readme-images/testing/lighthouse/404-desktop-lh.png)                 |
 
 
-#### Browser Testing
+### Browser Testing
 
 The deployed site has been tested on multiple desktop browsers to check for any compatibility issues. The results are tabulated below:
 
@@ -706,73 +706,74 @@ The deployed site has been tested on multiple desktop browsers to check for any 
 
 
 
-### Functionality/performance testing
+### Responsiveness and performance testing
 
-To ensure the site performed and functioned as expected across browsers, resolutions and devices, the following was tested:
+The site has also been tested on the following physical devices:
+- Mobile: Samsung A32 5G
+- Tablet: Apple iPad 10th gen
 
-| Criteria               |      Details              | Status |
-|:---------------------- |:--------------------------|:------:|
-| Desktop browsers:      | Edge                      | Pass   |  
-|                        | Chrome                    | Pass   |
-|                        | Mozilla Firefox           | Pass   |
-|                        | Safari - on Mac OS        | Pass   |
-| Mobile browsers:       | Chrome                    | Pass   |
-|                        | Safari                    | Pass   |
-| Resolutions:           |                           | Pass   |
-| desktop                | 1366 x 768 to 1920 x 1080 | Pass   |
-| mobile                 | 375 x 667 to 1440 x 3120  | Pass   |
-| Devices used:          |                           | Pass   |
-|                        | Samsung S24 Ultra         | Pass   |
-|                        | Samsung A32 5G            | Pass   |
-|                        | iPad 10th gen             | Pass   |
-|                        | iPhone 14 Pro             | Pass   |
+The results from the testing are tabulated below:
 
+
+| Page               |      Mobile                                                          | Tablet                                                            | Outcome |
+|------------------- |----------------------------------------------------------------------|-------------------------------------------------------------------|---------|
+|Register            |[Screenshot](readme-images/testing/device/mob-register.png)           |[Screenshot](readme-images/testing/device/tablet-register.png)     |No issues|
+|Login               |[Screenshot](readme-images/testing/device/mob-login.png)              |[Screenshot](readme-images/testing/device/tablet-login.png)        |No issues|  
+|Logout              |[Screenshot](readme-images/testing/device/mob-logout.png)             |[Screenshot](readme-images/testing/device/tablet-logout.png)       |No issues|
+|Home                |[Screenshot](readme-images/testing/device/mob-home.png)               |[Screenshot](readme-images/testing/device/tablet-home.png)         |No issues|
+|Menu                |[Screenshot](readme-images/testing/device/mob-menu.png)               |[Screenshot](readme-images/testing/device/tablet-menu.png)         |No issues|
+|Book - create       |[Screenshot](readme-images/testing/device/mob-create.png)             |[Screenshot](readme-images/testing/device/tablet-create.png)       |No issues|
+|Book - update       |[Screenshot](readme-images/testing/device/mob-update.png)             |[Screenshot](readme-images/testing/device/tablet-update.png)       |No issues|
+|Book - delete       |[Screenshot](readme-images/testing/device/mob-delete.png)             |[Screenshot](readme-images/testing/device/tablet-delete.png)       |No issues|
+|Aboutus             |[Screenshot](readme-images/testing/device/mob-aboutus.png)            |[Screenshot](readme-images/testing/device/tablet-aboutus.png)      |No issues|
+|404                 |[Screenshot](readme-images/testing/device/mob-404.png)                |[Screenshot](readme-images/testing/device/tablet-404.png)          |No issues|
+
+### Defence programming Testing
 
 ### Manual Testing
 
 The following manual testing has been carried out to confirm if the site's performance and functionality matched the expected output. It has tested both JavaScript and Python functionality.
 
-| Test  | Test Step                             |Expected                                                                 |  Result                                       |Status |
-| :----:|:----------------------------------------------|:----------------------------------------------------------------|:----------------------------------------|:----:| 
-| MT1   |register - successful                          |user can register, login                                         |registered, logged in                    |Pass  | 
-| MT2   |register -invalid                              |username/password weak notification                              |advise give to correct                   |Pass  |
-| MT3   |login - superuser                              |super user authenticated on log in                               | authenticated, logged in                |Pass  |
-| MT4   |login - testuser                               |testuser to be authenticated on log in                           | authenticated, logged in                |Pass  |
-| MT5   |login - manager                                |authenticate as manager, access link to admin panel visible.     |logged in, can access admin panel        |Pass  |
-| MT6   |login - invalid                                |notification of login failure. No access given.                  |no access given, login fail notification |Pass  |
-| MT7   |login - admin                                  |authenticate as admin, access link to admin panel visible.       |logged in, can access admin panel        |Pass  |
-| MT8   |view bookings - booking link                   | navigates to booking page                                       | as expected                             |Pass  |
-| MT9   |access booking - not logged in                 |no access to bookings, asked to login                            | redirected to login page.               |Pass  |
-| MT10  |create booking - email invalid                 |email to be validated for correct format                         | prompt given to correct                 |Pass  |
-|MT11   |create booking - phone invalid                 |phone to be validated for correct format                         | prompt given to correct                 |Pass   |
-|MT12   |create booking - date invalid                  |notification to be given of previous date                        | notification given to correct           |Pass   |
-|MT13   |create booking - time missing                  |prompt to be given to enter time                                 | prompt given to enter                   |Pass   |
-|MT14   |create booking - people missing                |prompt to be given to enter no of people                         | prompt given to correct                 |Pass   |
-|MT15   |create booking - time/date unavailable         |notification of unavailability to be given                       | notification given on unavailability    |Pass   |
-|MT16   |create booking - valid                         |notification that booking is created, available to see in account| Notification given, booking shown      |Pass   | 
-|MT17   |update booking - booking selection             |current booking details to pre-fill form                         | form pre-filled                        |Pass   | 
-|MT18   |update booking - time/date change (unavailable)|notification of unavailability to be given                       | notification given, booking shown       |Pass   |
-|MT19   |update booking - Other information changed     |booking to be updated, notification given                        | notification given, booking updated     |Pass   |
-|MT20   |delete booking - confirmation                  |request to confirm delete. Option to delete or cancel            | request given. Options: Delete, cancel  |Pass   |
-|MT21   |delete booking - cancel delete                 |action to delete cancel. Booking not affected                    | delete cancelled. Booking remains       |Pass   |
-|MT22   |delete booking - post confirmation             | booking deleted, notification of delete shown                   | booking deleted, notification shown     |Pass   |
-|MT23   |navigate to home - home link                   | navigates to the home page, show any active promotions          | as expected                             |Pass   |
-|MT24*  |add promotion - admin                          | promotion to be shown on home page                              | promotion shown                         |Pass   |
-|MT25*  |update promotion - admin                       | updated promotion to be shown on home page                      | updated promotion shown                 |Pass   |
-|MT26*  |promotion not live - admin                     | promotion to exist, but not be displayed                        | exists in admin, not shown              |Pass   |
-|MT27*  |delete promotion - admin                       | promotion to be deleted after a confirmation                    | promotion deleted                       |Pass   |
-|MT28   |view the menu - menu link                      | navigates to and display the menu                               | live menu shown                         |Pass   |
-|MT29*  |add menu item - manager                        | menu item to be visible on the menu                             | item visible on menu                    |Pass   |
-|MT30*  |update menu item - manager                     |updated menu item to be visible on the menu                      | updated item visible on menu            |Pass   |
-|MT31*  |menu item not live - manager                   | menu item should exist, but not displayed on menu               | exists in admin, not shown              |Pass   |
-|MT32*  |delete menu item - manager                     | menu item to be deleted after confirmation                      | item visible on menu                    |Pass   |
-|MT33   |view about us - about us link                  | navigates to and display the about us content                   | as expected                             |Pass   |
-|MT34*  |update about us content - manager              | updated content to be displayed                                 | Displayed                               |Pass   |
-|MT35*  |create booking - manager                       | created a booking, booking shown in respected user's account    | booking created, attached to user       |Pass   |
-|MT36*  |update booking - manager                       | update a booking, update booking shown                          | booking updated                         |Pass   |
-|MT37*  |delete booking - manager                       | delete a booking, booking removed from user's account           | booking deleted, removed                |Pass   |
-|MT38*  |search booking - manager                       | search using name, contact or date to find booking              | searchable with expected fields         |Pass   |
-
+| Test  | Test Step                                     |Expected                                                         |  Result                                 |Screenshot                                                      |Status |
+|-------|-----------------------------------------------|-----------------------------------------------------------------|-----------------------------------------|----------------------------------------------------------------|-------| 
+| MT1   |register - successful                          |user can register, login                                         |registered, logged in                    |[Screenshot](readme-images/testing/manual/mt-register.png)      |Pass   | 
+| MT2   |register -invalid                              |username/password weak notification                              |advise give to correct                   |[Screenshot](readme-images/testing/manual/mt-registerfail.png)  | Pass  |
+| MT3   |login - superuser                              |super user authenticated on log in                               | authenticated, logged in                |[Screenshot](readme-images/testing/manual/mt-super-lo.png)      |Pass   |
+| MT4   |login - testuser                               |testuser to be authenticated on log in                           | authenticated, logged in                |[Screenshot](readme-images/testing/manual/mt-testuser.png)      |Pass   |
+| MT5   |login - manager                                |authenticate as manager, access link to admin panel visible.     |logged in, can access admin panel        |[Screenshot](readme-images/testing/manual/mt-manager-li.png)    |Pass   |
+| MT6   |login - invalid                                |notification of login failure. No access given.                  |no access given, login fail notification |[Screenshot](readme-images/testing/manual/mt-invalid-login.png) |Pass   |
+| MT7   |login - admin                                  |authenticate as admin, access link to admin panel visible.       |logged in, can access admin panel        |[Screenshot](readme-images/testing/manual/mt-admin-li.png)      |Pass   |
+| MT8   |view bookings - booking link                   | navigates to booking page                                       | as expected                             |[Screenshot](readme-images/testing/manual/mt-booking-nav.png)   |Pass   |
+| MT9   |access booking - not logged in                 |no access to bookings, asked to login                            | redirected to login page.               |[Screenshot](readme-images/testing/manual/mt-login-page.png)    |Pass  |
+| MT10  |create booking - email invalid                 |email to be validated for correct format                         | prompt given to correct                 |[Screenshot](readme-images/testing/manual/mt-invalid-email.png) |Pass  |
+|MT11   |create booking - phone invalid                 |phone to be validated for correct format                         | prompt given to correct                 |[Screenshot](readme-images/testing/manual/mt-invalid-phone.png) |Pass   |
+|MT12   |create booking - date invalid                  |notification to be given of previous date                        | notification given to correct           |[Screenshot](readme-images/testing/manual/mt-old-date.png) |Pass   |
+|MT13   |create booking - time missing                  |prompt to be given to enter time                                 | prompt given to enter                   |[Screenshot](readme-images/testing/manual/mt-time-miss.png)     |Pass   |
+|MT14   |create booking - people missing                |prompt to be given to enter no of people                         | prompt given to correct                 |[Screenshot](readme-images/testing/manual/mt-miss-ppl.png)      |Pass   |
+|MT15   |create booking - time/date unavailable         |notification of unavailability to be given                       | notification given on unavailability    |[Screenshot](readme-images/testing/manual/mt-slot-taken.png)    |Pass   |
+|MT16   |create booking - valid                         |notification that booking is created, available to see in account| Notification given, booking shown      |[Screenshot](readme-images/testing/manual/mt-create-book.png)    |Pass   | 
+|MT17   |update booking - booking selection             |current booking details to pre-fill form                         | form pre-filled                        |[Screenshot](readme-images/testing/manual/mt-update.png)         |Pass   | 
+|MT18   |update booking - time/date change (unavailable)|notification of unavailability to be given                       | notification given, booking shown      |[Screenshot](readme-images/testing/manual/mt-update-slot-taken.png)|Pass |
+|MT19   |update booking - Other information changed     |booking to be updated, notification given                        | notification given, booking updated    |[Screenshot](readme-images/testing/manual/mt-book-update.png)    |Pass   |
+|MT20   |delete booking - confirmation                  |request to confirm delete. Option to delete or cancel            | request given. Options: Delete, cancel |[Screenshot](readme-images/testing/manual/mt-delete-confirm.png) |Pass   |
+|MT21   |delete booking - cancel delete                 |action to delete cancel. Booking not affected                    | delete cancelled. Booking remains      |[Screenshot](readme-images/testing/manual/mt-delete-cancel.png)  |Pass   |
+|MT22   |delete booking - post confirmation             | booking deleted, notification of delete shown                   | booking deleted, notification shown    |[Screenshot](readme-images/testing/manual/mt-deleted.png)        |Pass   |
+|MT23   |navigate to home - home link                   | navigates to the home page, show any active promotions          | as expected                            |[Screenshot](readme-images/testing/manual/mt-home.png)           |Pass   |
+|MT24*  |add promotion - admin                          | promotion to be shown on home page                              | promotion shown                        |[Screenshot](readme-images/testing/manual/mt-promotion.png)      |Pass   |
+|MT25*  |update promotion - admin                       | updated promotion to be shown on home page                      | updated promotion shown                |[Screenshot](readme-images/testing/manual/mt-promotion-update.png)|Pass  |
+|MT26*  |promotion not live - admin                     | promotion to exist, but not be displayed                        | exists in admin, not shown             |[Screenshot](readme-images/testing/manual/mt-promotion-off.png)  |Pass   |
+|MT27*  |delete promotion - admin                       | promotion to be deleted after a confirmation                    | promotion deleted                      |[Screenshot](readme-images/testing/manual/mt-promotion-deleted.png) |Pass   |
+|MT28   |view the menu - menu link                      | navigates to and display the menu                               | live menu shown                        |[Screenshot](readme-images/testing/manual/mt-menu.png)           |Pass   |
+|MT29*  |add menu item - manager                        | menu item to be visible on the menu                             | item visible on menu                   |[Screenshot](readme-images/testing/manual/mt-menu-add.png)       |Pass   |
+|MT30*  |update menu item - manager                     |updated menu item to be visible on the menu                      | updated item visible on menu           |[Screenshot](readme-images/testing/manual/mt-menu-updated.png)   |Pass   |
+|MT31*  |menu item not live - manager                   | menu item should exist, but not displayed on menu               | exists in admin, not shown             |[Screenshot](readme-images/testing/manual/mt-menu-inactive.png)  |Pass   |
+|MT32*  |delete menu item - manager                     | menu item to be deleted after confirmation                      | item deleted                           |[Screenshot](readme-images/testing/manual/mt-menu-deleted.png)   |Pass   |
+|MT33   |view about us - about us link                  | navigates to and display the about us content                   | as expected                            |[Screenshot](readme-images/testing/manual/mt-aboutus-nav.png)    |Pass   |
+|MT34*  |update about us content - manager              | updated content to be displayed                                 | Displayed                              |[Screenshot](readme-images/testing/manual/mt-about-update.png)   |Pass   |
+|MT35*  |create booking - manager                       | created a booking, booking shown in respected user's account    | booking created, attached to user      |[Screenshot](readme-images/testing/manual/mt-admin-book.png)     |Pass   |
+|MT36*  |update booking - manager                       | update a booking, update booking shown                          | booking updated                        |[Screenshot](readme-images/testing/manual/mt-admin-update.png)   |Pass   |
+|MT37*  |delete booking - manager                       | delete a booking, booking removed from user's account           | booking deleted, removed               |[Screenshot](readme-images/testing/manual/mt-admin-delete.png)   |Pass   |
+|MT38*  |search booking - manager                       | search using name, contact or date to find booking              | searchable with expected fields        |[Screenshot](readme-images/testing/manual/mt-admin-search.png)   |Pass   |
 
 *Functionality carried out on the admin panel but has been tested to ensure functionality for this project.
 
