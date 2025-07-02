@@ -552,28 +552,75 @@ Once confirmed, the **testuser** is logged out and the site is ready for the nex
 ## Testing
 
 ### Fixed Bugs 
-* **Issue 1 (ID 2f88738):** Bookings were successfully being created but not attached to the user creating them. This meant that any logged in user was able to see all the bookings created.
 
-  * **Fix (ID 7bebcc1):** This was fixed by adding a filter to the query fetching the current bookings. The filter only returned bookings where the user on the bookings was the same as the user currently logged in. This was tested with two individual test accounts to ensure it worked as it should be.
+### Issue 1 (ID 2f88738)
+Bookings were successfully being created but not attached to the user creating them. This meant that any logged in user was able to see all the bookings created.
 
-* **Issue 2 (ID 6ad7f00):**  The booking form `phone` field allowed for non-digit characters to pass through as valid. The same `phone` field was validated correctly within the admin panel using the regex in place.
+### - Fix (ID 7bebcc1) 
+This was fixed by adding a filter to the query fetching the current bookings. The filter only returned bookings where the user on the bookings was the same as the user currently logged in. This was tested with two individual test accounts to ensure it worked as it should be.
 
-* **Fix (ID 2c4527c):** This was fixed by adding a custom validation on the form field to raise an error if the entered data did not consist of all digits. The validation error displayed using the Django message network.
+---
+
+### Issue 2 (ID 6ad7f00)
+The booking form `phone` field allowed for non-digit characters to pass through as valid. The same `phone` field was validated correctly within the admin panel using the regex in place.
+
+### - Fix (ID 2c4527c) 
+This was fixed by adding a custom validation on the form field to raise an error if the entered data did not consist of all digits. The validation error displayed using the Django message network.
+
+---
 
 This was further refined **(ID 13ea71e)** with the installation of crispy forms. After testing, the validation was being returned correctly and displayed in line with the other form validation. This was tested further over the next few commits and the custom validation removed as it was no longer needed.
 
-* **Issue 3 (ID 13ea71e):** 
+### Issue 3 (ID 13ea71e)
 **_Note_**: This bug was found after the commit.
 
 If the fields other than the date and time were being updated, the booking was noted as a duplicate and alerting the user as such. For example, if the booking required the addition of people with a special request of "surprise meal"  on the same date and time slot, the booking was not being updated.
 
-* **Fix (ID c2e3c54):** This was fixed by refactoring the update booking function introducing a booking changed check:
+### - Fix (ID c2e3c54) 
+This was fixed by refactoring the update booking function introducing a booking changed check:
 1. Check if the form is valid.
 2.  store the forms date and time slot.
 3. if posted form date and time different from the current booking date and time slot:
     - check the availability as done previously.
     - save if available.
 4. If the date and time remains unchanged, save the form with any other changes. 
+
+---
+
+### Issue 4 (ID 75c9f56) 
+On certain resolutions the background on the menu page was scaling when the menu accordion was expanded and returning to its normal size once the accordian was closed.
+
+**_Note_**: This bug was found after the commit.
+### Fix (ID a15c09a) 
+This was fixed by applying the `background-attachment: fixed` to menu background in CSS. It was tested locally and once deployed with no further issues seen.
+
+---
+
+### Issue 5 (ID 75c9f56) 
+Any logged in user can edit/delete another user's bookings directly via URL access without authentication resulting in a access/security issue.
+
+  **_Note_**: This bug was found after the commit.
+
+  - Reproduced by:
+    - Logging in as User A
+    - Creating a valid booking - booking confirmed.
+    - Logging in as User B and navigating to:
+    - https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/update_booking/199/ - the 199 would change to the number of the booking created by User A
+
+  - On navigating to the above, User B is able to see User A's booking information.
+  - Possible sensitive information can be viewed, updated or deleted without the original author's knowledge.
+
+  - **Please note:** This issue affects the deletion of bookings in the same way. The URL section update_booking would change to delete_booking, the remainder of URL would remain the same.
+
+### Fix(ID 0ef9b09)
+
+This was was fixed by adding in the follow additional access control check with the `book views.py`. 
+  
+Within the `update_booking` function, a check is done to see if the logged in user is the same as the user who created the booking or is an admin. If not, a forbidden notification is shown to the user and a redirection to the booking page takes place.
+
+Within the `delete_booking` function, if the logged in user is the same as the one who created the booking, they are able to delete their own booking. If an admin tries to delete, they are prompted to do this via the admin panel. 
+
+---
 
 [Back to Contents.](#table-of-contents) 
 
@@ -728,11 +775,10 @@ The results from the testing are tabulated below:
 |Aboutus             |[Screenshot](readme-images/testing/device/mob-aboutus.png)            |[Screenshot](readme-images/testing/device/tablet-aboutus.png)      |No issues|
 |404                 |[Screenshot](readme-images/testing/device/mob-404.png)                |[Screenshot](readme-images/testing/device/tablet-404.png)          |No issues|
 
-### Defence programming Testing
 
 ### Manual Testing
 
-The following manual testing has been carried out to confirm if the site's performance and functionality matched the expected output. It has tested both JavaScript and Python functionality.
+The following extensive manual testing has been carried out to confirm if the site's performance and functionality matched the expected output. It has tested both JavaScript and Python functionality testing  every aspect of the site.
 
 | Test  | Test Step                                     |Expected                                                         |  Result                                 |Screenshot                                                      |Status |
 |-------|-----------------------------------------------|-----------------------------------------------------------------|-----------------------------------------|----------------------------------------------------------------|-------| 
@@ -774,6 +820,11 @@ The following manual testing has been carried out to confirm if the site's perfo
 |MT36*  |update booking - manager                       | update a booking, update booking shown                          | booking updated                        |[Screenshot](readme-images/testing/manual/mt-admin-update.png)   |Pass   |
 |MT37*  |delete booking - manager                       | delete a booking, booking removed from user's account           | booking deleted, removed               |[Screenshot](readme-images/testing/manual/mt-admin-delete.png)   |Pass   |
 |MT38*  |search booking - manager                       | search using name, contact or date to find booking              | searchable with expected fields        |[Screenshot](readme-images/testing/manual/mt-admin-search.png)   |Pass   |
+|MT39   |Footer Navigation: Facebook                    |Navigates to the facebook homepage                               |As Expected                             |[Screenshot](readme-images/testing/manual/mt-facebook.png)       |Pass   |                            
+|MT40   |Footer Navigation: X (formally twitter)        |Navigates to the X homepage                                      |As Expected                             |[Screenshot](readme-images/testing/manual/mt-x.png)              |Pass   |                            
+|MT41   |Footer Navigation: Instagram                   |Navigates to the Instagram homepage                              |As Expected                             |[Screenshot](readme-images/testing/manual/mt-insta.png)          |Pass   |
+|MT42   |Footer Navigation: Youtube                     |Navigates to the Youtube homepage                                |As Expected                             |[Screenshot](readme-images/testing/manual/mt-yt.png)             |Pass   |
+
 
 *Functionality carried out on the admin panel but has been tested to ensure functionality for this project.
 
@@ -805,7 +856,8 @@ In addition to the manual testing above, automated testing has been carried out 
 
 A summary of these test results ran within the terminal can be seen below:
 
-![alt text](readme-images/testing/automated_testing_results.png)
+![automated-testing-results](readme-images/testing/automated_testing_results.png)
+
 
 ### User Story testing
 
@@ -824,15 +876,47 @@ A combination of the manual and automated testing has tested all aspects of the 
 
 [Back to Contents.](#table-of-contents) 
 
+### Defensive Design Testing
+
+In addition to the extensive testing carried out in this document, defensive design testing has been conducted. This testing is to ensure that the site processes and responds accordingly should any of the data or actions get manipulated to execute in any other way than originally designed.
+
+The purpose of this testing is to also ensure that any user data is safe, and can only be accessed/modified by the user themselves or an admin. 
+
+I have documented the page, expected action, the test carried out, the result, and provided a screenshot where applicable to demonstrate the defence in place. The results of this testing is tabulated below:
+
+|Test | Page                       | Expected Action                                                                    | Testing Steps                                                                                                                    | Results                                | Screenshot                                                          |
+|-----|----------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------|
+|DF1  | Booking                    | The user should be prompted to log in to access the bookings page if not logged in.|1. Navigate to site. 2. Select booking via link                                                                                   | Redirected to login page               |[Screenshot](readme-images/testing/browser/chrome-login.png)         |
+|DF2  | Booking                    | As DF1                                                                             |1. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book`                                                       | As DF1                                 | AS DF1                                                              |
+|DF3  | Booking: see/update        | The user shouldn't be able to see or update other user bookings by direct URL      |1. Navigate to site and login. 2.Navigate URL to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/update_booking/195/`*| User notified: Sorry, action forbidden |[Screenshot](readme-images/testing/defensive/dt-action-forbidden.png)|
+|DF4  | Booking: delete            | The user shouldn't be able to delete other user bookings by direct URL             |1. Navigate to site and login. 2. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/delete_booking/195`*    | As DF3                                 |AS DF3                                                               |
+|DF5  | Booking: admin delete      | The admin should be notified to delete via admin panel if deleting via URL|1. Navigate to site and login. 2. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/delete_booking/195`* | admin notfied: Please confirm and delete booking via admin panel|[Screenshot](readme-images/testing/defensive/df-admin-delete.png)|
+
+**Notes:**
+
+*The `int` value used in DF3, DF4 and DF5 will be unique for each booking. This would need to match the booking created to replicated the relevant testing steps.
+
+*DF3 and DF4*: This defence will only run if the booking user is not the same as the user accessing to see, update or delete the booking. Should both be the same, the action would be permitted as tested and documented in the Manual testing section above.
+ - The admin is able to see and update any booking within the site using these steps.
+
+*DF5*: The logic for this additional measure has been influenced by multiple factors:
+- As the admin is able to see all of the bookings within the site, deleting a booking via URL with the wrong booking `int` would mean the wrong booking being deleted without any details present to confirm if it was the correct one.
+- In a busy restaurant, it is possible that the wrong booking `int` could be entered in error. This again, would mean the wrong booking being deleted in error.
+- The admin may recieve the incorrect booking `int` from the user; the admin would have no way to confirm if the booking being deleted was in fact the one intended to be deleted.
+- Deleting the booking via the admin panel would allow the admin to search/filter for the booking to be deleted, confirm the details, request to delete, and after a confirmation, the booking would be deleted and removed from the user's account. 
+
+
 ## Future Developments
 
-There are three potential future developments for this project.
+There are four potential future developments for this project.
 
 1. To incorporate the management of the promotions, menu and about us content so the CRUD actions can be carried out on the front-end reducing the need to navigate to the admin panel.
 
 2. Allow tables to have multiple bookings.
 
 3. Email notifications for when a booking is created, updated, or deleted.
+
+4. To incorporate all CRUD actions for the admin to manage the bookings via the front removing the need to do this via the admin panel currently.
 
 ## Workload Planning
 
