@@ -567,9 +567,9 @@ The booking form `phone` field allowed for non-digit characters to pass through 
 ### - Fix (ID 2c4527c) 
 This was fixed by adding a custom validation on the form field to raise an error if the entered data did not consist of all digits. The validation error displayed using the Django message network.
 
----
-
 This was further refined **(ID 13ea71e)** with the installation of crispy forms. After testing, the validation was being returned correctly and displayed in line with the other form validation. This was tested further over the next few commits and the custom validation removed as it was no longer needed.
+
+---
 
 ### Issue 3 (ID 13ea71e)
 **_Note_**: This bug was found after the commit.
@@ -588,7 +588,7 @@ This was fixed by refactoring the update booking function introducing a booking 
 ---
 
 ### Issue 4 (ID 75c9f56) 
-On certain resolutions the background on the menu page was scaling when the menu accordion was expanded and returning to its normal size once the accordian was closed.
+On certain resolutions the background on the menu page was scaling when the menu was expanded and returning to its normal size once closed.
 
 **_Note_**: This bug was found after the commit.
 ### Fix (ID a15c09a) 
@@ -610,11 +610,11 @@ Any logged in user can edit/delete another user's bookings directly via URL acce
   - On navigating to the above, User B is able to see User A's booking information.
   - Possible sensitive information can be viewed, updated or deleted without the original author's knowledge.
 
-  - **Please note:** This issue affects the deletion of bookings in the same way. The URL section update_booking would change to delete_booking, the remainder of URL would remain the same.
+  - **Please note:** This issue affects the deletion of bookings in the same way. The URL `section update_booking` would change to `delete_booking`, the remainder of URL would remain the same.
 
 ### Fix(ID 0ef9b09)
 
-This was was fixed by adding in the follow additional access control check with the `book views.py`. 
+This was was fixed by adding in the follow additional access control check within `book views.py`. 
   
 Within the `update_booking` function, a check is done to see if the logged in user is the same as the user who created the booking or is an admin. If not, a forbidden notification is shown to the user and a redirection to the booking page takes place.
 
@@ -638,7 +638,7 @@ The code has been tested using the official [W3C HTML Validator.](https://valida
 | book       | [book.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/templates/book/book.html)               | [book](https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/)                                      | [Screenshot](readme-images/testing/validation/html-css/book-html-valid.png)        |Direct input- No Errors| 
 | book       | [update.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/book/templates/book/update.html)           | [update](https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/update_booking/201/)                 | [Screenshot](readme-images/testing/validation/html-css/update-html-valid.png)      |Direct input- No Errors| 
 | templates  | [login.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/login.html)               | [login](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/login/)                           | [Screenshot](readme-images/testing/validation/html-css/login-html-valid.png)                    | No Errors| 
-| templates  | [register.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/register.html)         | [register](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/signup/)                       | [Screenshot](readme-images/testing/validation/html-css/register-html-valid.png)                 | No Errors| 
+| templates  | [register.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/signup.html)         | [register](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/signup/)                       | [Screenshot](readme-images/testing/validation/html-css/register-html-valid.png)                 | No Errors| 
 | templates  | [logout.html](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/templates/account/logout.html)             | [logout](https://sultans-restaurant-eaffca2215ff.herokuapp.com/accounts/logout/)                         | [Screenshot](readme-images/testing/validation/html-css/logout-html-valid.png)                   | No Errors| 
   
 #### CSS
@@ -897,7 +897,13 @@ I have documented the page, expected action, the test carried out, the result, a
 *The `int` value used in DF3, DF4 and DF5 will be unique for each booking. This would need to match the booking created to replicated the relevant testing steps.
 
 *DF3 and DF4*: This defence will only run if the booking user is not the same as the user accessing to see, update or delete the booking. Should both be the same, the action would be permitted as tested and documented in the Manual testing section above.
- - The admin is able to see and update any booking within the site using these steps.
+ - The admin is able to see and update any booking within the site using these steps. 
+ 
+ The screenshot below confirms that the defence is working correctly:
+
+ [![defence-usera-userb](readme-images/testing/defensive/df-usera-userb.png)]
+
+ User A and User B have bookings attached to them respectively. Neither is able to navigate via URL to either see, update or delete the others bookings. If an attempt is made to access via URL, the user is informed and re-directed back to the booking page.
 
 *DF5*: The logic for this additional measure has been influenced by multiple factors:
 - As the admin is able to see all of the bookings within the site, deleting a booking via URL with the wrong booking `int` would mean the wrong booking being deleted without any details present to confirm if it was the correct one.
@@ -916,7 +922,7 @@ There are four potential future developments for this project.
 
 3. Email notifications for when a booking is created, updated, or deleted.
 
-4. To incorporate all CRUD actions for the admin to manage the bookings via the front removing the need to do this via the admin panel currently.
+4. To incorporate all CRUD actions for the admin to manage the bookings via the front removing the need to do this via the admin panel.
 
 ## Workload Planning
 
@@ -929,21 +935,10 @@ The live completed board can be viewed [here.](https://github.com/users/NaveedNa
 
 ### Site production
 
-The site was created using Gitpod’s VS Code workspace environment with all the relevant files and folder structures and migrated to the desktop version of VSCode using the instructions provide by Code Institute [here.](https://docs.google.com/document/d/e/2PACX-1vTrL4s5fkIY_SJXjazXiAd6LDKjS7uZMHwY9XW6REJ2T_DyCGRRjjmW-0p4NnkomUwAAru0vLYALohw/pub)
+The site was initially created using Gitpod’s VS Code workspace environment with all the relevant files and folder structures and migrated to the desktop version of VSCode using the instructions provide by Code Institute [here.](https://docs.google.com/document/d/e/2PACX-1vTrL4s5fkIY_SJXjazXiAd6LDKjS7uZMHwY9XW6REJ2T_DyCGRRjjmW-0p4NnkomUwAAru0vLYALohw/pub)
 
-To deploy to GitHub, the following steps were taken:
 
- **Important**: Ensure the `DEBUG` is set to `False` in the project settings **before** deploying!
-
- The prerequisites to deployment are:
-*  Install `gunicorn~=20.1` and freeze it to the requirements.txt file.
-* In the `Procfile`, add a command using gunicorn and sutlans wsgi file to start the webserver in the format:
-  * `web: gunicorn sultans.wsgi`
-* In the `sultans/settings.py` file, append the `'.herokuapp.com'` hostname to the `ALLOWED_HOSTS` list.
-
-**Please note:** references of sultans would need to replaced by the name of project being deployed.
-
-The commands carried out to in the command line terminal to commit and push the changes to the GitHub repository:
+GitHub has been used for version control throughout the course of the project. The commands carried out to in the command line terminal to commit and push the changes to the GitHub repository:
 
 1. `git add .`- (Staging the changes in the current working tree ready to be committed).
 
@@ -951,19 +946,97 @@ The commands carried out to in the command line terminal to commit and push the 
 
 3.  `git push` - (changes are pushed out up to the GitHub repository).
 
+**Please note**: Ensure that the project `debug` is set to` False` before deploying. Deploying with this set to `True` in production can cause issues from a security point of view.
+
+### Localised development
+
+To work on the project locally, it would need to need cloned following these steps:
+
+1. Go to the [GitHub repository](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant).
+2. Locate and click on the green "Code" button at the very top, above the commits and files near the "About" section.
+3. Select whether you prefer to clone using "HTTPS", "SSH", or "GitHub CLI", and click the "copy" button to copy the URL to your clipboard.
+4. Within your IDE Terminal either open the location of where you want to clone the project or change the currently working directly via the terminal.
+5. In the terminal, type the following:
+  
+   `git clone https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant`
+6. Press enter. Within the terminal, the progress will be shown, and once completed, the project files can be seen in the project explorer.
+
+**Please note**: Some IDE's such as VSCode provide the option to clone a repository by following the prompts given. Following this will provide the same result.
+
+Once the repository has been cloned, a `env.py` file needs to be created at root level. Within this `env.py` file, the following needs to be added in:
+
+```
+import os
+
+os.environ.setdefault(
+    "DATABASE_URL",
+    "YOUR-DB-LINK")
+
+os.environ.setdefault("SECRET_KEY", "YOUR-SECRET-KEY")
+```
+For deployment, the keys above and their corresponding values need to be added into into the Heroku **config vars** in the exact same format.
+
+The next step is to install all the packages required for the project to run and deploy. These are included in the `requirements.txt` file located in the root and can be installed using the terminal with the command 
+
+`pip3 install -r requirements`
+
+**Please note**: It can take a few minutes for the packages to be install and the progress can be seen in the terminal.
+
+Once this has been completed, the project can be started up using `python3 manage.py runserver`. Press `CTRL + C` before the next step to stop the server.
+
+To setup the database locally, run the following commands within the terminal:
+
+`python3 manage.py makemigrations --dry-run`
+
+`python3 manage.py makemigrations`
+
+then:
+
+`python3 manage.py migrate --plan`
+
+`python3 manage.py migrate`
+
+Once the migration is complete, a superuser account needs to be created using:
+
+`python3 manage.py createsuperuser`
+
+**please note**: This superuser is required to access the admin panel, create additional users, manage promotions, menu items and about us content.
+
+Once everything has installed and migrated successfully, the app can now be ran using `python3 manage.py runserver`. Please watch out for instructions in the terminal as it will inform you on how to open the webpage.
+
+#### Static Files
+The files located within the root static folder are collected and deployed to Heroku using a package called `White Noise`. This is already included as part of the `requirements.txt` file. However, if there are changes to any of the files (images, JavaScript, CSS etc) these changes would need to be "collected" before deployment. This can be done using:
+
+`python manage.py collectstatic`
+
+
 ### Deployment
 
-The site was deployed using Heroku. The steps to deploy are as follows:
+#### Database: PostgreSQL
+
+If you wish to work with a live database, an instance of PostgreSQL would need to be obtained.
+
+For the purposes of this project, I have been fortunate enough to have access to databases instances as a Code Institute student. The databases contain a retention period of 18 months with each student allowed a maximum of 8 databases.
+
+I took the following steps to obtain my own PostgreSQL database from Code Institute for this project:
+
+- Navigating to and entering my Code Institute student email address in the requested [form.](https://dbs.ci-dbs.net/)
+- An email was received shortly after containing the URL link to the database.
+- This URL was then added into the `env.py` file within the project as shown above and Heroku config vars described below.
+
+#### Heroku
+
+The site was deployed using [Heroku](https://www.heroku.com/). The steps to deploy are as follows:
 
 1. login to Heroku.
-2. Select "create new app" .
+2. Select "create new app" and choose a suitable name for it.
 3. Create app .
 4. Select "Settings" tab at the top.
 5. Scroll down to "Config Vars" and add the following keys and corresponding values:
     * `Key: DATABASE_URL`
     * `Key: SECRET_KEY`
 
-**Note:** If you have any additional credentials, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+**Note:** If you have any additional **config vars** to add they would need to be added to Heroku and the `env.py` within the project has demostrated above.
 
 7. Go to the "Deploy" tab at the top.
 8. Select "GitHub" as the Deployment method.
@@ -980,9 +1053,7 @@ The live link to the site can be found here: [Sultans.](https://sultans-restaura
 
 ### Contribution
 
-I welcome any contributions, recommendations or changes to the project. To do this, the GitHub repository would need to be forked from GitHub and downloaded locally so it can be worked on.
-
-GitHub has provided step by step instructions on how to do this [here.](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project#forking-a-repository)
+I welcome any contributions, recommendations or changes to the project. To do this, the GitHub repository would need to be cloned from GitHub and downloaded locally so it can be worked on. Instructions on how to do this have been provided above.
 
 [Back to Contents.](#table-of-contents) 
 
