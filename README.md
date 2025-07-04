@@ -38,25 +38,25 @@ The intended purpose is to provide a seamless experience through out with a user
 
 * Fixed Bugs 
 
-* Validation Testing
+* Code Validation
   - HTML
   - CSS
   - JavaScript
   - Python
 
-* Lighthouse scores
+* Lighthouse Scores
 
 * Browser Testing
 
-* Functionality/performance testing
-
-* Defencing programming Testing
+* Functionality/performance Testing
 
 * Manual Testing
 
 * Automated Testing
 
 * User Story Testing 
+
+* Defencing Design Testing
 
 ### [Future Developments](#future-developments-1)
 
@@ -495,7 +495,7 @@ The options to update and delete the booking are now available to **testuser.**
 
 ### Update Booking
 
-To update the booking, the "Update" button is clicked which takes **testuser** to the update booking page. This page pre-populates the form with the current details make the process quick and easy:
+To update the booking, the "Update" button is clicked which takes **testuser** to the update booking page. This page pre-populates the form with the current details making the process quick and easy:
 
 ![update-booking](readme-images/project-walkthrough/update_booking.png)
 
@@ -588,18 +588,19 @@ This was fixed by refactoring the update booking function introducing a booking 
 ---
 
 ### Issue 4 (ID 75c9f56) 
+**_Note_**: This bug was found after the commit.
+
 On certain resolutions the background on the menu page was scaling when the menu was expanded and returning to its normal size once closed.
 
-**_Note_**: This bug was found after the commit.
 ### Fix (ID a15c09a) 
 This was fixed by applying the `background-attachment: fixed` to menu background in CSS. It was tested locally and once deployed with no further issues seen.
 
 ---
 
 ### Issue 5 (ID 75c9f56) 
-Any logged in user can edit/delete another user's bookings directly via URL access without authentication resulting in a access/security issue.
+ **_Note_**: This bug was found after the commit.
 
-  **_Note_**: This bug was found after the commit.
+Any logged in user can edit/delete another user's bookings directly via URL access without authentication and authorisation.
 
   - Reproduced by:
     - Logging in as User A
@@ -610,21 +611,23 @@ Any logged in user can edit/delete another user's bookings directly via URL acce
   - On navigating to the above, User B is able to see User A's booking information.
   - Possible sensitive information can be viewed, updated or deleted without the original author's knowledge.
 
-  - **Please note:** This issue affects the deletion of bookings in the same way. The URL `section update_booking` would change to `delete_booking`, the remainder of URL would remain the same.
+  - **Please note:** This issue affects the deletion of bookings in the same way. The URL section `update_booking` would change to `delete_booking`, the remainder of URL would remain the same.
 
 ### Fix(ID 0ef9b09)
 
 This was was fixed by adding in the follow additional access control check within `book views.py`. 
   
-Within the `update_booking` function, a check is done to see if the logged in user is the same as the user who created the booking or is an admin. If not, a forbidden notification is shown to the user and a redirection to the booking page takes place.
+Within the `update_booking` function, a check is done to see if the logged in user is the same as the user who created the booking or is an admin. If so, the user and admin are able to update the selected booking. If not, a forbidden notification is shown to the user and a redirection to the booking page takes place.
 
-Within the `delete_booking` function, if the logged in user is the same as the one who created the booking, they are able to delete their own booking. If an admin tries to delete, they are prompted to do this via the admin panel. 
+Within the `delete_booking` function, if the logged in user is the same as the one who created the booking, they are able to delete their own booking. If an admin tries to delete, they are prompted to do this via the admin panel. If the user is not the same as the one who created the booking, a forbidden notification is shown to the user and a redirection to the booking page takes place.
 
 ---
 
+**Please Note**: As far as I am aware, there are no remaining bugs. I have endeavoured to throughly test the site but am unable to completely rule out the possibility of any arising in the future.  
+
 [Back to Contents.](#table-of-contents) 
 
-### Validation Testing
+### Code Validation
 
 #### HTML
 
@@ -716,6 +719,7 @@ The code has been validated using the recommended [PEP8 CI Python Linter](https:
 |welcome        | [urls.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/urls.py)         | [Screenshot](readme-images/testing/validation/python/welcome-urls-valid.png)         | No Errors|
 |welcome        | [views.py](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant/blob/main/welcome/views.py)       | [Screenshot](readme-images/testing/validation/python/welcome-views-valid.png)        | No Errors|
 
+[Back to Contents.](#table-of-contents) 
 
 ### Lighthouse Scores
 
@@ -775,6 +779,7 @@ The results from the testing are tabulated below:
 |Aboutus             |[Screenshot](readme-images/testing/device/mob-aboutus.png)            |[Screenshot](readme-images/testing/device/tablet-aboutus.png)      |No issues|
 |404                 |[Screenshot](readme-images/testing/device/mob-404.png)                |[Screenshot](readme-images/testing/device/tablet-404.png)          |No issues|
 
+[Back to Contents.](#table-of-contents) 
 
 ### Manual Testing
 
@@ -884,13 +889,13 @@ The purpose of this testing is to also ensure that any user data is safe, and ca
 
 I have documented the page, expected action, the test carried out, the result, and provided a screenshot where applicable to demonstrate the defence in place. The results of this testing is tabulated below:
 
-|Test | Page                       | Expected Action                                                                    | Testing Steps                                                                                                                    | Results                                | Screenshot                                                          |
-|-----|----------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------|
-|DF1  | Booking                    | The user should be prompted to log in to access the bookings page if not logged in.|1. Navigate to site. 2. Select booking via link                                                                                   | Redirected to login page               |[Screenshot](readme-images/testing/browser/chrome-login.png)         |
-|DF2  | Booking                    | As DF1                                                                             |1. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book`                                                       | As DF1                                 | AS DF1                                                              |
-|DF3  | Booking: see/update        | The user shouldn't be able to see or update other user bookings by direct URL      |1. Navigate to site and login. 2.Navigate URL to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/update_booking/195/`*| User notified: Sorry, action forbidden |[Screenshot](readme-images/testing/defensive/dt-action-forbidden.png)|
-|DF4  | Booking: delete            | The user shouldn't be able to delete other user bookings by direct URL             |1. Navigate to site and login. 2. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/delete_booking/195`*    | As DF3                                 |AS DF3                                                               |
-|DF5  | Booking: admin delete      | The admin should be notified to delete via admin panel if deleting via URL|1. Navigate to site and login. 2. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/delete_booking/195`* | admin notfied: Please confirm and delete booking via admin panel|[Screenshot](readme-images/testing/defensive/df-admin-delete.png)|
+|Test | Expected Action                                                                    | Testing Steps                                                                                                                    | Results                                | Screenshot                                                          |
+|-----|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------|
+|DF1  | The user should be prompted to log in to access the bookings page if not logged in.|1. Navigate to site. 2. Select booking via link                                                                                   | Redirected to login page               |[Screenshot](readme-images/testing/browser/chrome-login.png)         |
+|DF2  | As DF1                                                                             |1. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book`                                                       | As DF1                                 | AS DF1                                                              |
+|DF3  | The user shouldn't be able to see or update other user bookings by direct URL      |1. Navigate to site and login. 2.Navigate URL to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/update_booking/195/`*| User notified: Sorry, action forbidden |[Screenshot](readme-images/testing/defensive/dt-action-forbidden.png)|
+|DF4  | The user shouldn't be able to delete other user bookings by direct URL             |1. Navigate to site and login. 2. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/delete_booking/195`*    | As DF3                                 |AS DF3                                                               |
+|DF5  | The admin should be notified to delete via admin panel if deleting via URL|1. Navigate to site and login. 2. Navigate to `https://sultans-restaurant-eaffca2215ff.herokuapp.com/book/delete_booking/195`* | admin notfied: Please confirm and delete booking via admin panel|[Screenshot](readme-images/testing/defensive/df-admin-delete.png)|
 
 **Notes:**
 
@@ -911,6 +916,7 @@ I have documented the page, expected action, the test carried out, the result, a
 - The admin may recieve the incorrect booking `int` from the user; the admin would have no way to confirm if the booking being deleted was in fact the one intended to be deleted.
 - Deleting the booking via the admin panel would allow the admin to search/filter for the booking to be deleted, confirm the details, request to delete, and after a confirmation, the booking would be deleted and removed from the user's account. 
 
+[Back to Contents.](#table-of-contents) 
 
 ## Future Developments
 
@@ -938,7 +944,7 @@ The live completed board can be viewed [here.](https://github.com/users/NaveedNa
 The site was initially created using Gitpod’s VS Code workspace environment with all the relevant files and folder structures and migrated to the desktop version of VSCode using the instructions provide by Code Institute [here.](https://docs.google.com/document/d/e/2PACX-1vTrL4s5fkIY_SJXjazXiAd6LDKjS7uZMHwY9XW6REJ2T_DyCGRRjjmW-0p4NnkomUwAAru0vLYALohw/pub)
 
 
-GitHub has been used for version control throughout the course of the project. The commands carried out to in the command line terminal to commit and push the changes to the GitHub repository:
+GitHub has been used for version control throughout the course of the project. The commands carried out in the command line terminal to commit and push the changes to the GitHub repository:
 
 1. `git add .`- (Staging the changes in the current working tree ready to be committed).
 
@@ -946,11 +952,13 @@ GitHub has been used for version control throughout the course of the project. T
 
 3.  `git push` - (changes are pushed out up to the GitHub repository).
 
-**Please note**: Ensure that the project `debug` is set to` False` before deploying. Deploying with this set to `True` in production can cause issues from a security point of view.
+**Please note**: Ensure that the project `debug` is set to `False` before deploying. Deploying with this set to `True` in production can pose security risks.
 
 ### Localised development
 
-To work on the project locally, it would need to need cloned following these steps:
+To work on the project locally, it would need to need cloned or forked.
+
+To clone:
 
 1. Go to the [GitHub repository](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant).
 2. Locate and click on the green "Code" button at the very top, above the commits and files near the "About" section.
@@ -958,19 +966,29 @@ To work on the project locally, it would need to need cloned following these ste
 4. Within your IDE Terminal either open the location of where you want to clone the project or change the currently working directly via the terminal.
 5. In the terminal, type the following:
   
-   `git clone https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant`
+   `git clone https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant.git`
 6. Press enter. Within the terminal, the progress will be shown, and once completed, the project files can be seen in the project explorer.
 
 **Please note**: Some IDE's such as VSCode provide the option to clone a repository by following the prompts given. Following this will provide the same result.
 
-Once the repository has been cloned, a `env.py` file needs to be created at root level. Within this `env.py` file, the following needs to be added in:
+To Fork:
+
+By forking the GitHub Repository, you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
+
+1. Login to GitHub and locate the [GitHub repository](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant).
+2. At the top of the Repository, just below the "Settings" button on the menu, locate and click the "Fork" Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account.
+
+The official GitHub documentation on how to do this is also available [here](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project#forking-a-repository). 
+
+Once the repository has been cloned or forked and fetched within your IDE, a `env.py` file needs to be created at root level. Within this `env.py` file, the following needs to be added in:
 
 ```
 import os
 
 os.environ.setdefault(
     "DATABASE_URL",
-    "YOUR-DB-LINK")
+    "YOUR-DB-URL")
 
 os.environ.setdefault("SECRET_KEY", "YOUR-SECRET-KEY")
 ```
@@ -984,7 +1002,7 @@ The next step is to install all the packages required for the project to run and
 
 Once this has been completed, the project can be started up using `python3 manage.py runserver`. Press `CTRL + C` before the next step to stop the server.
 
-To setup the database locally, run the following commands within the terminal:
+To setup the database (locally or hosted), run the following commands within the terminal:
 
 `python3 manage.py makemigrations --dry-run`
 
@@ -1036,7 +1054,7 @@ The site was deployed using [Heroku](https://www.heroku.com/). The steps to depl
     * `Key: DATABASE_URL`
     * `Key: SECRET_KEY`
 
-**Note:** If you have any additional **config vars** to add they would need to be added to Heroku and the `env.py` within the project has demostrated above.
+**Note:** If you have any additional **config vars** to add they would need to be added to Heroku and the `env.py` within the project as demonstrated above.
 
 7. Go to the "Deploy" tab at the top.
 8. Select "GitHub" as the Deployment method.
@@ -1139,6 +1157,9 @@ I welcome any contributions, recommendations or changes to the project. To do th
 
 * The general setup and structure for the project was completed following the guidance provided in the [I think Therefore I Blog - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/)
 
+* [Mardown Builder](https://markdown.2bn.dev/) was used a general reference guide for the production of this `README.md`
+  - This includes core steps for detailed in the production, cloning from github and deployment section.
+
 * The core Bootstrap navbar in the `base.html` template was implemented using the [Bootstrap documentation on Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)  and customised to my project requirements.
 
 * Within the header -> nav section on the `base.html` template, the implementation of the nav-link if statement to determine if the current page is active or not was taken from [I Think Therefore I Blog > Templates -> Variable and control structures - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/6b4a4f493cbd46ecb6f6a841c98f0c82/?child=first)
@@ -1197,24 +1218,29 @@ I welcome any contributions, recommendations or changes to the project. To do th
 
 ### General
 
-* The following resources have been used as a general guide for Django, Python:
+* The following resources have been used as a general guide for Django, Python and GitHub:
+
   * [Django official documentation](https://docs.djangoproject.com/en/5.1/)  
   * [Django Tutorial - W3Schools](https://www.w3schools.com/django/)
   * [Python official Documentation](https://docs.python.org/3/)
   * [Python Tutorial - W3Schools](https://www.w3schools.com/python/)
   * [Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
+  * [GitHub Docs](https://docs.github.com/en)
 
 ## Overall Credit
 
-A thank you to Code Institute for the learning curve, and lesson material, which has been incredible and my fellow students on Slack for their continued support!
+A thank you to [Code Institute](https://codeinstitute.net/?utm_term=code%20institute&utm_campaign=CI%20-%20UK%20-%20Search%20-%20Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=1578649861&hsa_grp=62188641240&hsa_ad=635720257674&hsa_src=g&hsa_tgt=aud-1599270334980%3Akwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=1578649861&gclid=Cj0KCQjw953DBhCyARIsANhIZoYjJGEuS-wAcbHS9OEhGx0pr7ytbxe4WcHYKoMJbYk2ZoW_TZfHq8AaAopdEALw_wcB) for the learning curve, and lesson material, which has been incredible and my fellow students on Slack for their continued support!
 
 I also would like to give a special thanks to the Tutor Assistance team at Code Institute for all their help on getting back on track during the migration period.
 
 
 ## Personal Summary
 
-This project by far has brought the steepest learning curve. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank you to my legend of a mentor who not only gave invaluable advice but allowed me to push myself further to refine my work, and as an individual on my coding journey.
+This project initially brought the steepest learning curve on my Code Institute coding journey. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank you to my legend of a mentor who not only gave invaluable advice but allowed me to push myself further to refine my work, and as an individual.
 
-The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. I aim to look at refining this further by breaking future projects down into multiple milestones and refining Epics to User Stories to Tasks.
+Returning to work on the project after completing a more complex e-commerce project allowed me to return with a more refined knowledge base and skillset, which allowed me to refactor and refine a few aspects of this project; the thought process naturally developed on how if I was to start the project again how I could do things different. 
+
+The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. This was implemented in my final e-commerce project at Code Institute using prioritisation and using the project board to list everything allowing me to focus on the task at hand. 
+
 
 [Back to Contents.](#table-of-contents) 
