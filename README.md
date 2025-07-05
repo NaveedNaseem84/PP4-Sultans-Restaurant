@@ -48,7 +48,7 @@ The intended purpose is to provide a seamless experience through out with a user
 
 * Browser Testing
 
-* Functionality/performance Testing
+* Responsiveness and performance Testing
 
 * Manual Testing
 
@@ -89,7 +89,7 @@ The intended purpose is to provide a seamless experience through out with a user
 ## User Experience (UX)
 ### User Stories
 
-The first step taken was to the establish the user stories identifying the needs and requirements for the site. These have further provided the foundation for the project allowing me to categorise the development and deployment using agile methodology.
+The first step taken was to establish the user stories identifying the needs and requirements for the site. These have further provided the foundation for the project allowing me to categorise the development and deployment using agile methodology.
 
 Each user story below has the initial story along with acceptance criteria. These both would need be satisfied during development, testing and deployment for the user story to be considered a success.
 
@@ -185,7 +185,7 @@ Each user story below has the initial story along with acceptance criteria. Thes
 
 ### Mind Map: Ideas
 
-Following on from the user stories, an initial mind map(pen to paper) was created to capture functionality of the site. The purpose of this was to provide a high-level understanding of how the user stories could be implemented:
+Following on from the user stories, an initial mind map (pen to paper) was created to capture functionality of the site. The purpose of this was to provide a high-level understanding of how the user stories could be implemented:
 
 ![Mindmap](readme-images/mind_map.jpeg)
 
@@ -462,7 +462,7 @@ The registration process is simple; a username, optional email and a password th
 
 **Please Note:** The assumption is now that the **testuser** has logged in for the rest of this section.
 
-Once logged, the booking page features a form allowing testuser to create a booking. The information collected on the form is:
+Once logged, the booking page features a form allowing **testuser** to create a booking. The information collected on the form is:
 
 - Email - required field (in the correct format).
 - Phone - required field (in the correct format with a maximum of 11 numbers).
@@ -533,7 +533,7 @@ In addition to this, to allow the management of bookings to be as efficient as p
 
 ## About us
 
-The about us page highlights the core values of Sultan's in the clear, easy to ready format that is seen throughout the site:
+The about us page highlights the core values of Sultan's in a clear, easy to ready format that is seen throughout the site:
 
 ![aboutus](readme-images/project-walkthrough/about_us.png)
 
@@ -565,7 +565,7 @@ This was fixed by adding a filter to the query fetching the current bookings. Th
 The booking form `phone` field allowed for non-digit characters to pass through as valid. The same `phone` field was validated correctly within the admin panel using the regex in place.
 
 ### - Fix (ID 2c4527c) 
-This was fixed by adding a custom validation on the form field to raise an error if the entered data did not consist of all digits. The validation error displayed using the Django message network.
+This was fixed by adding a custom validation on the form `phone` field to raise an error if the entered data didn't contain all digits. The validation error is displayed using the Django message network.
 
 This was further refined **(ID 13ea71e)** with the installation of crispy forms. After testing, the validation was being returned correctly and displayed in line with the other form validation. This was tested further over the next few commits and the custom validation removed as it was no longer needed.
 
@@ -592,7 +592,7 @@ This was fixed by refactoring the update booking function introducing a booking 
 
 On certain resolutions the background on the menu page was scaling when the menu was expanded and returning to its normal size once closed.
 
-### Fix (ID a15c09a) 
+### - Fix (ID a15c09a) 
 This was fixed by applying the `background-attachment: fixed` to menu background in CSS. It was tested locally and once deployed with no further issues seen.
 
 ---
@@ -600,7 +600,7 @@ This was fixed by applying the `background-attachment: fixed` to menu background
 ### Issue 5 (ID 75c9f56) 
  **_Note_**: This bug was found after the commit.
 
-Any logged in user can edit/delete another user's bookings directly via URL access without authentication and authorisation.
+Any logged in user can edit/delete another user's bookings directly via URL access without authentication or authorisation.
 
   - Reproduced by:
     - Logging in as User A
@@ -613,9 +613,9 @@ Any logged in user can edit/delete another user's bookings directly via URL acce
 
   - **Please note:** This issue affects the deletion of bookings in the same way. The URL section `update_booking` would change to `delete_booking`, the remainder of URL would remain the same.
 
-### Fix(ID 0ef9b09)
+### - Fix(ID 0ef9b09)
 
-This was was fixed by adding in the follow additional access control check within `book views.py`. 
+This was was fixed by adding in the follow additional access control checks within `book views.py`. 
   
 Within the `update_booking` function, a check is done to see if the logged in user is the same as the user who created the booking or is an admin. If so, the user and admin are able to update the selected booking. If not, a forbidden notification is shown to the user and a redirection to the booking page takes place.
 
@@ -757,10 +757,10 @@ The deployed site has been tested on multiple desktop browsers to check for any 
 
 
 
-### Responsiveness and performance testing
+### Responsiveness and Performance Testing
 
 The site has also been tested on the following physical devices:
-- Mobile: Samsung A32 5G
+- Mobile: Samsung A33 5G
 - Tablet: Apple iPad 10th gen
 
 The results from the testing are tabulated below:
@@ -783,7 +783,7 @@ The results from the testing are tabulated below:
 
 ### Manual Testing
 
-The following extensive manual testing has been carried out to confirm if the site's performance and functionality matched the expected output. It has tested both JavaScript and Python functionality testing  every aspect of the site.
+The following extensive manual testing has been carried out to confirm if the site's performance and functionality matched the expected output. It has tested both JavaScript and Python functionality testing all aspects of the site.
 
 | Test  | Test Step                                     |Expected                                                         |  Result                                 |Screenshot                                                      |Status |
 |-------|-----------------------------------------------|-----------------------------------------------------------------|-----------------------------------------|----------------------------------------------------------------|-------| 
@@ -835,7 +835,7 @@ The following extensive manual testing has been carried out to confirm if the si
 
 [Back to Contents.](#table-of-contents) 
 
-### Automated Testing - scripts
+### Automated Testing
 
 In addition to the manual testing above, automated testing has been carried out within the project as follows:
 
@@ -864,7 +864,7 @@ A summary of these test results ran within the terminal can be seen below:
 ![automated-testing-results](readme-images/testing/automated_testing_results.png)
 
 
-### User Story testing
+### User Story Testing
 
 A combination of the manual and automated testing has tested all aspects of the site. To ensure that all the user stories have been successfully implemented, the associated tests above have been tabulated below illustrating the success route:
 
@@ -887,7 +887,7 @@ In addition to the extensive testing carried out in this document, defensive des
 
 The purpose of this testing is to also ensure that any user data is safe, and can only be accessed/modified by the user themselves or an admin. 
 
-I have documented the page, expected action, the test carried out, the result, and provided a screenshot where applicable to demonstrate the defence in place. The results of this testing is tabulated below:
+I have documented the expected action, the test carried out, the result, and provided a screenshot where applicable to demonstrate the defence in place. The results of this testing is tabulated below:
 
 |Test | Expected Action                                                                    | Testing Steps                                                                                                                    | Results                                | Screenshot                                                          |
 |-----|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------|
@@ -902,9 +902,9 @@ I have documented the page, expected action, the test carried out, the result, a
 *The `int` value used in DF3, DF4 and DF5 will be unique for each booking. This would need to match the booking created to replicated the relevant testing steps.
 
 *DF3 and DF4*: This defence will only run if the booking user is not the same as the user accessing to see, update or delete the booking. Should both be the same, the action would be permitted as tested and documented in the Manual testing section above.
- - The admin is able to see and update any booking within the site using these steps. 
+ - The admin is able to see and update any booking within the site using this update step. 
  
- The screenshot below confirms that the defence is working correctly:
+ The screenshot below confirms that this defence is working correctly:
 
  [![defence-usera-userb](readme-images/testing/defensive/df-usera-userb.png)]
 
@@ -928,7 +928,7 @@ There are four potential future developments for this project.
 
 3. Email notifications for when a booking is created, updated, or deleted.
 
-4. To incorporate all CRUD actions for the admin to manage the bookings via the front removing the need to do this via the admin panel.
+4. To incorporate all CRUD actions for the admin to manage the bookings via the front end removing the need to do this via the admin panel.
 
 ## Workload Planning
 
@@ -939,7 +939,7 @@ The live completed board can be viewed [here.](https://github.com/users/NaveedNa
 
 ## Site Production, Deployment and Contribution  
 
-### Site production
+### Site Production
 
 The site was initially created using Gitpod’s VS Code workspace environment with all the relevant files and folder structures and migrated to the desktop version of VSCode using the instructions provide by Code Institute [here.](https://docs.google.com/document/d/e/2PACX-1vTrL4s5fkIY_SJXjazXiAd6LDKjS7uZMHwY9XW6REJ2T_DyCGRRjjmW-0p4NnkomUwAAru0vLYALohw/pub)
 
@@ -956,7 +956,7 @@ GitHub has been used for version control throughout the course of the project. T
 
 ### Localised development
 
-To work on the project locally, it would need to need cloned or forked.
+To work on the project locally, it would need to be cloned or forked.
 
 To clone:
 
@@ -973,7 +973,7 @@ To clone:
 
 To Fork:
 
-By forking the GitHub Repository, you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
+By forking the GitHub Repository, you make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
 
 1. Login to GitHub and locate the [GitHub repository](https://github.com/NaveedNaseem84/PP4-Sultans-Restaurant).
 2. At the top of the Repository, just below the "Settings" button on the menu, locate and click the "Fork" Button.
@@ -1071,7 +1071,7 @@ The live link to the site can be found here: [Sultans.](https://sultans-restaura
 
 ### Contribution
 
-I welcome any contributions, recommendations or changes to the project. To do this, the GitHub repository would need to be cloned from GitHub and downloaded locally so it can be worked on. Instructions on how to do this have been provided above.
+I welcome any contributions, recommendations or changes to the project. To do this, the GitHub repository would need to be cloned/forked from GitHub and downloaded locally so it can be worked on. Instructions on how to do this have been provided above.
 
 [Back to Contents.](#table-of-contents) 
 
@@ -1158,7 +1158,7 @@ I welcome any contributions, recommendations or changes to the project. To do th
 * The general setup and structure for the project was completed following the guidance provided in the [I think Therefore I Blog - CI Project.](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+6/courseware/713441aba05441dfb3a7cf04f3268b3f/824fccecd0fe4e44871eeabcbf69d830/)
 
 * [Mardown Builder](https://markdown.2bn.dev/) was used a general reference guide for the production of this `README.md`
-  - This includes core steps for detailed in the production, cloning from github and deployment section.
+  - This includes core steps to clone and fork from github and deployment to Heroku detailed in the Site Production, Deployment and Contribution section.
 
 * The core Bootstrap navbar in the `base.html` template was implemented using the [Bootstrap documentation on Navbar](https://getbootstrap.com/docs/5.0/components/navbar/)  and customised to my project requirements.
 
@@ -1238,9 +1238,9 @@ I also would like to give a special thanks to the Tutor Assistance team at Code 
 
 This project initially brought the steepest learning curve on my Code Institute coding journey. The whole new world of models, views and templates seemed to bring with it a whole new level of confusion! Taking the time to go over the detailed content material available repeatedly in small iterations has resulted in the project that can be seen here. A massive thank you to my legend of a mentor who not only gave invaluable advice but allowed me to push myself further to refine my work, and as an individual.
 
-Returning to work on the project after completing a more complex e-commerce project allowed me to return with a more refined knowledge base and skillset, which allowed me to refactor and refine a few aspects of this project; the thought process naturally developed on how if I was to start the project again how I could do things different. 
+Returning to work on this project after completing a more complex e-commerce project allowed me to approach with a more refined knowledge base and skillset, which allowed me to refactor and refine a few aspects; the thought process naturally developed on how things could be done differently if the project was to be done again. 
 
-The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. This was implemented in my final e-commerce project at Code Institute using prioritisation and using the project board to list everything allowing me to focus on the task at hand. 
+The main take away point from this project has been around the value of using agile methodology and tools to manage the project through to completion. This was implemented in my final e-commerce project at Code Institute using prioritisation and using the project board as a go to for everything, listing everything allowing me to focus on the task at hand. 
 
 
 [Back to Contents.](#table-of-contents) 
