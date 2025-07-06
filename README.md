@@ -745,7 +745,7 @@ The deployed site has been tested on multiple desktop browsers to check for any 
 | Page           | Edge                                                                | Chrome                                                          | Firefox                                                                                   |  Outcome                         | 
 | ---------------| --------------------------------------------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------------------------------ | ---------------------------------|
 |Register        |[Screenshot](readme-images/testing/browser/edge-register.png)        |[Screenshot](readme-images/testing/browser/chrome-register.png)  |[Screenshot](readme-images/testing/browser/moz-register.png)                               | No issues                        |
-|Login           |[Screenshot](readme-images/testing/browser/edge-register.png)        |[Screenshot](readme-images/testing/browser/chrome-login.png)     |[Screenshot](readme-images/testing/browser/moz-login.png)                                  | No issues                        |
+|Login           |[Screenshot](readme-images/testing/browser/edge-login.png)        |[Screenshot](readme-images/testing/browser/chrome-login.png)     |[Screenshot](readme-images/testing/browser/moz-login.png)                                  | No issues                        |
 |logout          |[Screenshot](readme-images/testing/browser/edge-logout.png)          |[Screenshot](readme-images/testing/browser/chrome-logout.png)    |[Screenshot](readme-images/testing/browser/moz-logout.png)                                 | No issues                        |
 |Home            |[Screenshot](readme-images/testing/browser/edge-home.png)            |[Screenshot](readme-images/testing/browser/chrome-home.png)      |[Screenshot](readme-images/testing/browser/moz-home.png)                                   | No issues                        |
 |Menu            |[Screenshot](readme-images/testing/browser/edge-menu.png)            |[Screenshot](readme-images/testing/browser/chrome-menu.png)      |[Screenshot](readme-images/testing/browser/moz-menu.png)                                   | No issues                        |
@@ -1026,6 +1026,12 @@ Once everything has installed and migrated successfully, the app can now be ran 
 The files located within the root static folder are collected and deployed to Heroku using a package called `White Noise`. This is already included as part of the `requirements.txt` file. However, if there are changes to any of the files (images, JavaScript, CSS etc) these changes would need to be "collected" before deployment. This can be done using:
 
 `python manage.py collectstatic`
+
+There is currently a `Procfile` present within the root of the project repository with the following:
+
+`web: gunicorn sultans.wsgi`
+
+**Please note**: References of sultans would need to replaced by the name of project being deployed as this is a vital requirement for the deployment phase.
 
 
 ### Deployment
