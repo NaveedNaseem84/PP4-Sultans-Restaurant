@@ -779,6 +779,8 @@ The results from the testing are tabulated below:
 |Aboutus             |[Screenshot](readme-images/testing/device/mob-aboutus.png)            |[Screenshot](readme-images/testing/device/tablet-aboutus.png)      |No issues|
 |404                 |[Screenshot](readme-images/testing/device/mob-404.png)                |[Screenshot](readme-images/testing/device/tablet-404.png)          |No issues|
 
+
+![alt text](image.png)
 [Back to Contents.](#table-of-contents) 
 
 ### Manual Testing
